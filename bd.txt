@@ -1,0 +1,69 @@
+create database cursos;
+
+create table Usuario(
+idUsuario integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+nombre varchar(100),
+correo varchar(100),
+telefono varchar(100),
+usuario varchar(100),
+perfil varchar(100),
+clave varchar(100));
+
+
+create table Curso(
+idCurso integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+nombre varchar(100),
+precio double,
+descripcionCorta varchar(100),
+descripcionLarga varchar(1000),
+duracion integer,
+profesor varchar(100),
+imagen varchar(200),
+videoIntroduc varchar(200));
+
+
+create table Pago(
+idPago integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+fecha_inscrip date,
+fecha_pago date,
+valor double,
+estado varchar(10),
+idUsuario integer,
+idCurso integer,
+FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario),
+FOREIGN KEY (idCurso) REFERENCES Curso (idCurso));
+
+
+create table Leccion(
+idLeccion integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+titulo varchar(100),
+objetivo varchar(100),
+teoria varchar(100),
+video varchar(100),
+ejercicio varchar(100),
+orden integer,
+idCurso integer,
+FOREIGN KEY (idCurso) REFERENCES Curso (idCurso));
+
+
+create table Material(
+idMaterial integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+nombre varchar(100),
+archivo varchar(100),
+idLeccion integer,
+FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion));
+
+create table AvanceCurso(
+idAvanceCurso integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+idUsuario integer,
+idCurso integer,
+FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario),
+FOREIGN KEY (idCurso) REFERENCES Curso (idCurso));
+
+create table AvanceLeccion(
+idAvanceLeccion integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+visto integer,
+idLeccion integer,
+idAvanceCurso integer,
+FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion),
+FOREIGN KEY (idAvanceCurso) REFERENCES AvanceCurso (idAvanceCurso));

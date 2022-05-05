@@ -1,0 +1,19 @@
+{
+    "name": "sebas/cursos",
+    "description": "Cursos online",
+    "autoload": {
+        "psr-4": {
+            "Sebas\\Cursos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "JSebastianBe",
+            "email": "sebastianbm97@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "^1.6",
+        "vlucas/phpdotenv": "^5.4"
+    }
+}

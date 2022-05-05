@@ -1,0 +1,247 @@
+[04-May-2022 22:19:39 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "=" in C:\xampp\htdocs\Cursos\src\lib\routes.php on line 13
+[04-May-2022 22:20:06 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "=" in C:\xampp\htdocs\Cursos\src\lib\routes.php on line 15
+[04-May-2022 22:20:07 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "=" in C:\xampp\htdocs\Cursos\src\lib\routes.php on line 15
+[04-May-2022 22:20:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Sebas\Cursos\controllers\Controller" not found in C:\xampp\htdocs\Cursos\src\controllers\Home.php:5
+Stack trace:
+#0 C:\xampp\htdocs\Cursos\vendor\composer\ClassLoader.php(571): include()
+#1 C:\xampp\htdocs\Cursos\vendor\composer\ClassLoader.php(428): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Cursos\src\lib\routes.php(15): Composer\Autoload\ClassLoader->loadClass('Sebas\\Cursos\\co...')
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\Cursos\src\lib\routes.php(100): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\controllers\Home.php on line 5
+[04-May-2022 22:23:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Sebas\Cursos\controllers\Controller" not found in C:\xampp\htdocs\Cursos\src\controllers\Home.php:5
+Stack trace:
+#0 C:\xampp\htdocs\Cursos\vendor\composer\ClassLoader.php(571): include()
+#1 C:\xampp\htdocs\Cursos\vendor\composer\ClassLoader.php(428): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Cursos\src\lib\routes.php(15): Composer\Autoload\ClassLoader->loadClass('Sebas\\Cursos\\co...')
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\Cursos\src\lib\routes.php(100): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\controllers\Home.php on line 5
+[04-May-2022 22:28:12 Europe/Berlin] PHP Warning:  include(../templates/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:28:12 Europe/Berlin] PHP Warning:  include(): Failed opening '../templates/header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:28:32 Europe/Berlin] PHP Warning:  require(../templates/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:28:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../templates/header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php:1
+Stack trace:
+#0 C:\xampp\htdocs\Cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\Cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('home/index', Array)
+#2 C:\xampp\htdocs\Cursos\src\controllers\Home.php(14): Sebas\Cursos\lib\Controller->render('home/index')
+#3 C:\xampp\htdocs\Cursos\src\lib\routes.php(16): Sebas\Cursos\controllers\Home->index()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\Cursos\src\lib\routes.php(100): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:30:48 Europe/Berlin] PHP Warning:  include(../templates/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:30:48 Europe/Berlin] PHP Warning:  include(): Failed opening '../templates/header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:32:03 Europe/Berlin] PHP Warning:  include(/Cursos/src/views/templates/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:32:03 Europe/Berlin] PHP Warning:  include(): Failed opening '/Cursos/src/views/templates/header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:34:30 Europe/Berlin] PHP Warning:  include(../header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:34:30 Europe/Berlin] PHP Warning:  include(): Failed opening '../header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:34:32 Europe/Berlin] PHP Warning:  include(../header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:34:32 Europe/Berlin] PHP Warning:  include(): Failed opening '../header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:34:34 Europe/Berlin] PHP Warning:  include(../header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:34:34 Europe/Berlin] PHP Warning:  include(): Failed opening '../header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:34:36 Europe/Berlin] PHP Warning:  include(../header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:34:36 Europe/Berlin] PHP Warning:  include(): Failed opening '../header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:34:46 Europe/Berlin] PHP Warning:  include(/header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:34:46 Europe/Berlin] PHP Warning:  include(): Failed opening '/header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:35:21 Europe/Berlin] PHP Warning:  include(../header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:35:21 Europe/Berlin] PHP Warning:  include(): Failed opening '../header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:35:25 Europe/Berlin] PHP Warning:  include(....//header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:35:25 Europe/Berlin] PHP Warning:  include(): Failed opening '....//header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:35:35 Europe/Berlin] PHP Warning:  include(../../header.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:35:35 Europe/Berlin] PHP Warning:  include(): Failed opening '../../header.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\views\Home\index.php on line 1
+[04-May-2022 22:48:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Sebas\Cursos\controllers\Home" not found in C:\xampp\htdocs\Cursos\src\lib\routes.php:20
+Stack trace:
+#0 [internal function]: {closure}()
+#1 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#2 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#3 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#4 C:\xampp\htdocs\Cursos\src\lib\routes.php(105): Bramus\Router\Router->run()
+#5 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\lib\routes.php on line 20
+[04-May-2022 22:52:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\controllers\Usuario::registro() in C:\xampp\htdocs\Cursos\src\lib\routes.php:27
+Stack trace:
+#0 [internal function]: {closure}()
+#1 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#2 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#3 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#4 C:\xampp\htdocs\Cursos\src\lib\routes.php(112): Bramus\Router\Router->run()
+#5 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\lib\routes.php on line 27
+[04-May-2022 22:53:35 Europe/Berlin] PHP Warning:  require(src/views/usuario/registro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Cursos\src\lib\View.php on line 12
+[04-May-2022 22:53:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'src/views/usuario/registro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Cursos\src\lib\View.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('usuario/registr...', Array)
+#1 C:\xampp\htdocs\Cursos\src\controllers\Usuario.php(18): Sebas\Cursos\lib\Controller->render('usuario/registr...')
+#2 C:\xampp\htdocs\Cursos\src\lib\routes.php(27): Sebas\Cursos\controllers\Usuario->registro()
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\Cursos\src\lib\routes.php(112): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\lib\View.php on line 12
+[04-May-2022 23:30:34 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:32:13 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:35:37 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:37:33 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:37:56 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:38:00 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:39:43 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:40:47 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:41:31 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:41:33 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:42:52 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:44:58 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:47:54 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:48:09 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:49:46 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:54:47 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:56:21 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[04-May-2022 23:56:51 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[05-May-2022 00:00:07 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[05-May-2022 00:00:44 Europe/Berlin] PHP Warning:  Undefined array key "POST" in C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php on line 292
+[05-May-2022 00:02:43 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "*" in C:\xampp\htdocs\Cursos\src\controllers\Usuario.php on line 37
+[05-May-2022 00:02:45 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "*" in C:\xampp\htdocs\Cursos\src\controllers\Usuario.php on line 37
+[05-May-2022 00:02:48 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "*" in C:\xampp\htdocs\Cursos\src\controllers\Usuario.php on line 37
+[05-May-2022 00:02:48 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "*" in C:\xampp\htdocs\Cursos\src\controllers\Usuario.php on line 37
+[05-May-2022 00:23:19 Europe/Berlin] PHP Fatal error:  Cannot declare class Sebas\Cursos\controllers\Usuario because the name is already in use in C:\xampp\htdocs\Cursos\src\controllers\Usuario.php on line 8
+[05-May-2022 00:26:44 Europe/Berlin] PHP Fatal error:  Cannot declare class Sebas\Cursos\controllers\Controller because the name is already in use in C:\xampp\htdocs\Cursos\src\controllers\HomeController.php on line 7
+[05-May-2022 00:27:14 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "use", expecting "," or ";" in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 7
+[05-May-2022 00:27:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Sebas\Cursos\config\Constants" not found in C:\xampp\htdocs\Cursos\src\lib\Database.php:16
+Stack trace:
+#0 C:\xampp\htdocs\Cursos\src\lib\Model.php(8): Sebas\Cursos\lib\Database->__construct()
+#1 C:\xampp\htdocs\Cursos\src\models\Usuario.php(19): Sebas\Cursos\lib\Model->__construct()
+#2 C:\xampp\htdocs\Cursos\src\models\Cliente.php(15): Sebas\Cursos\models\Usuario->__construct()
+#3 C:\xampp\htdocs\Cursos\src\controllers\ClienteController.php(21): Sebas\Cursos\models\Cliente->__construct('a', 'marthamartinezc...', '3508481772')
+#4 C:\xampp\htdocs\Cursos\src\lib\routes.php(37): Sebas\Cursos\controllers\ClienteController->registrarse()
+#5 [internal function]: {closure}()
+#6 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#7 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#8 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#9 C:\xampp\htdocs\Cursos\src\lib\routes.php(40): Bramus\Router\Router->run()
+#10 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#11 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\lib\Database.php on line 16
+[05-May-2022 00:30:25 Europe/Berlin] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'red_social.usuario' doesn't exist
+[05-May-2022 00:30:54 Europe/Berlin] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'red_social.usuario' doesn't exist
+[05-May-2022 00:31:20 Europe/Berlin] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'red_social.usuario' doesn't exist
+[05-May-2022 00:31:52 Europe/Berlin] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'red_social.usuario' doesn't exist
+[05-May-2022 00:31:57 Europe/Berlin] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'red_social.usuario' doesn't exist
+[05-May-2022 00:36:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Typed property Sebas\Cursos\models\Usuario::$correo must not be accessed before initialization in C:\xampp\htdocs\Cursos\src\models\Usuario.php:24
+Stack trace:
+#0 C:\xampp\htdocs\Cursos\src\controllers\ClienteController.php(22): Sebas\Cursos\models\Usuario->validaCorreo()
+#1 C:\xampp\htdocs\Cursos\src\lib\routes.php(37): Sebas\Cursos\controllers\ClienteController->registrarse()
+#2 [internal function]: {closure}()
+#3 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#4 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#5 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#6 C:\xampp\htdocs\Cursos\src\lib\routes.php(40): Bramus\Router\Router->run()
+#7 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\models\Usuario.php on line 24
+[05-May-2022 00:43:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "Sebas\Cursos\controllers\cliente" in C:\xampp\htdocs\Cursos\src\controllers\ClienteController.php:24
+Stack trace:
+#0 C:\xampp\htdocs\Cursos\src\lib\routes.php(37): Sebas\Cursos\controllers\ClienteController->registrarse()
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#4 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#5 C:\xampp\htdocs\Cursos\src\lib\routes.php(40): Bramus\Router\Router->run()
+#6 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\controllers\ClienteController.php on line 24
+[05-May-2022 00:43:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "Sebas\Cursos\controllers\cliente" in C:\xampp\htdocs\Cursos\src\controllers\ClienteController.php:24
+Stack trace:
+#0 C:\xampp\htdocs\Cursos\src\lib\routes.php(37): Sebas\Cursos\controllers\ClienteController->registrarse()
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#4 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#5 C:\xampp\htdocs\Cursos\src\lib\routes.php(40): Bramus\Router\Router->run()
+#6 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\controllers\ClienteController.php on line 24
+[05-May-2022 02:02:03 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "}" in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 27
+[05-May-2022 02:14:58 Europe/Berlin] PHP Warning:  Undefined variable $nombre in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 29
+[05-May-2022 02:14:58 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$ in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 29
+[05-May-2022 02:14:58 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getUsuario in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 32
+[05-May-2022 02:14:58 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getPerfil in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 33
+[05-May-2022 02:14:58 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getClave in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 34
+[05-May-2022 02:16:36 Europe/Berlin] PHP Warning:  Undefined variable $nombre in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 26
+[05-May-2022 02:16:36 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$ in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 26
+[05-May-2022 02:17:35 Europe/Berlin] PHP Warning:  Undefined variable $nombre in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 26
+[05-May-2022 02:17:35 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$ in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 26
+[05-May-2022 02:17:38 Europe/Berlin] PHP Warning:  Undefined variable $nombre in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 26
+[05-May-2022 02:17:38 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$ in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 26
+[05-May-2022 02:18:43 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 30
+[05-May-2022 02:18:43 Europe/Berlin] PHP Warning:  Undefined variable $nombre in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:18:43 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$ in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:19:07 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 30
+[05-May-2022 02:19:16 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 30
+[05-May-2022 02:19:16 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:19:19 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 30
+[05-May-2022 02:19:19 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:20:33 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 30
+[05-May-2022 02:20:33 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getCorreo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:20:35 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 30
+[05-May-2022 02:20:35 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getCorreo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:21:54 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 30
+[05-May-2022 02:21:54 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getCorreo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:22:17 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 30
+[05-May-2022 02:22:17 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getCorreo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:22:29 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 30
+[05-May-2022 02:22:29 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getCorreo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:22:59 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getCorreo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:24:57 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getCorreo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:26:03 Europe/Berlin] PHP Warning:  Undefined variable $getCorreo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:26:39 Europe/Berlin] PHP Warning:  Undefined variable $correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:26:51 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$correo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:27:17 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getCorreo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:29:07 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$getCorreo in C:\xampp\htdocs\Cursos\src\models\Cliente.php on line 31
+[05-May-2022 02:49:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function auth() in C:\xampp\htdocs\Cursos\src\lib\routes.php:46
+Stack trace:
+#0 [internal function]: {closure}()
+#1 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#2 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#3 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#4 C:\xampp\htdocs\Cursos\src\lib\routes.php(51): Bramus\Router\Router->run()
+#5 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\lib\routes.php on line 46
+[05-May-2022 02:49:47 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\Cursos\src\controllers\UsuarioController.php on line 29
+[05-May-2022 02:49:47 Europe/Berlin] Información incompleta
+[05-May-2022 02:50:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Non-static method Sebas\Cursos\models\Usuario::validaCorreo() cannot be called statically in C:\xampp\htdocs\Cursos\src\controllers\UsuarioController.php:31
+Stack trace:
+#0 C:\xampp\htdocs\Cursos\src\lib\routes.php(47): Sebas\Cursos\controllers\UsuarioController->inicioSesion()
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#4 C:\xampp\htdocs\Cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#5 C:\xampp\htdocs\Cursos\src\lib\routes.php(50): Bramus\Router\Router->run()
+#6 C:\xampp\htdocs\Cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\Cursos\src\controllers\UsuarioController.php on line 31
+[05-May-2022 02:51:40 Europe/Berlin] No existe el usuario
+[05-May-2022 02:52:01 Europe/Berlin] No existe el usuario
+[05-May-2022 02:52:21 Europe/Berlin] No coincide la contraseña
+[05-May-2022 02:52:30 Europe/Berlin] Usuario loggeado
+[05-May-2022 02:53:51 Europe/Berlin] PHP Parse error:  syntax error, unexpected variable "$controller" in C:\xampp\htdocs\Cursos\src\lib\routes.php on line 45
+[05-May-2022 02:53:54 Europe/Berlin] PHP Parse error:  syntax error, unexpected variable "$controller" in C:\xampp\htdocs\Cursos\src\lib\routes.php on line 45

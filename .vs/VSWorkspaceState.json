@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\controllers",
+    "\\src\\models",
+    "\\src\\views",
+    "\\src\\views\\templates",
+    "\\src\\views\\Usuario",
+    "\\vendor",
+    "\\vendor\\bramus",
+    "\\vendor\\bramus\\router"
+  ],
+  "SelectedNode": "\\php-error.log",
+  "PreviewInSolutionExplorer": false
+}
