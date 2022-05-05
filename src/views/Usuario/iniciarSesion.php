@@ -1,8 +1,9 @@
 <?php require 'src/views/templates/header.php'; ?>
 <div class="container" id="contenedor">
-	<h1>Iniciar sesión</h1>
+	<h1 class="text-center">Iniciar sesión</h1>
 	<div class="row">
-		<div class="col col-lg-6 align-self-center">
+		<div class="col col-lg-4 offset-lg-4">
+			<?php require 'src/views/templates/notificaciones.php'; ?>
 			<form class="row g-3" action="/Cursos/inicioSesion" method="post">
 				<div class="col-lg-12">
 					<label class="form-model"> Usuario</label>

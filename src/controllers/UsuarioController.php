@@ -33,18 +33,34 @@ class UsuarioController extends Controller{
 					if($usuario->validaInicioSesion($clave)){
 						$_SESSION['usuario'] = serialize($usuario);
 						error_log('Usuario loggeado');
-						header('location: /Cursos/inicio');
+						$notificacion = [
+						    "mensaje" => "Usuario loggeado",
+						    "error" => FALSE,
+						];
+						$this->render('Home/index',['notificacion' => $notificacion]);
 					}else{
 						error_log('No coincide la contraseña');
-						header('location: /Cursos/iniciarSesion');
+						$notificacion = [
+						    "mensaje" => "No coincide la contraseña",
+						    "error" => TRUE,
+						];
+						$this->render('Usuario/iniciarSesion',['notificacion' => $notificacion]);
 					}
 				}else{
 					error_log('No existe el usuario');
-					header('location: /Cursos/iniciarSesion');
+					$notificacion = [
+					    "mensaje" => "No existe el usuario",
+					    "error" => TRUE,
+					];
+					$this->render('Usuario/iniciarSesion',['notificacion' => $notificacion]);
 				}
 		}else{
 			error_log('Información incompleta');
-			header('location: /Cursos/iniciarSesion');
+			$notificacion = [
+			    "mensaje" => "Complete todos los campos",
+			    "error" => TRUE,
+			];
+			$this->render('Usuario/iniciarSesion',['notificacion' => $notificacion]);
 		}
 	}
 

@@ -25,7 +25,7 @@ function noAuth(){
 
 function auth(){
 	if(isset($_SESSION['usuario'])){
-		header('location: /Cursos/home');
+		header('location: /Cursos/inicio');
 		exit();
 	}
 }
@@ -65,4 +65,8 @@ $router->post('/inicioSesion', function(){
 	$controller->inicioSesion();
 });
 
+$router->get('/cerrar', function(){
+	unset($_SESSION['usuario']);
+	header('location: /Cursos/inicio');
+});
 $router->run();

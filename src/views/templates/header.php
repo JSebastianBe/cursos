@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="/Cursos/src/views/src/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">

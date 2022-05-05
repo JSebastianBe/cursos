@@ -22,14 +22,26 @@ class ClienteController extends Controller{
 				if($cliente->validaCorreo($correo)){
 					$cliente->generaClave($cliente->getTelefono());
 					$cliente->crear();
-					header('location: /Cursos/iniciarSesion');
+					$notificacion = [
+					    "mensaje" => "Cliente registrado, por favor inicie sesión con el usuario y clave enviados a su correo..",
+					    "error" => FALSE,
+					];
+					$this->render('Usuario/iniciarSesion',['notificacion' => $notificacion]);
 				}else{
 					error_log('Correo ya existe');
-					header('location: /Cursos/registro');
+					$notificacion = [
+					    "mensaje" => "El correo registrado ya existe..",
+					    "error" => TRUE,
+					];
+					$this->render('Usuario/registro',['notificacion' => $notificacion]);
 				}
 				
 		}else{
-			$this->render('errors/index');
+			$notificacion = [
+			    "mensaje" => "Complete todos los campos..",
+			    "error" => TRUE,
+			];
+			$this->render('Usuario/registro',['notificacion' => $notificacion]);
 		}
 	}
 }
