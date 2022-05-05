@@ -17,6 +17,16 @@ GIT
 	o	Para agregar el commit a la rama del repositorio: git push 
 	o	Para actualizar el repositorio local con lo del servidor: git pull 
 
+	git clone
+	git add
+	git commit
+	git push
+
+	git fetch
+	git checkout
+	git merge
+
+	
 COMPOSER
 	composer init
 	composer require bramus/router
