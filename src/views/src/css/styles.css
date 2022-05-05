@@ -9,7 +9,7 @@ body {
   background-color: #acaa00;
   border-radius: 0;
   border: 0;
-  color: #b11f16;
+  
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -21,6 +21,10 @@ body {
 	border-color: #1a171b;
 }
 
+.navbar-nav .dropdown-menu{
+	background-color: #acaa00;
+	border: 0;
+}
 
 #logo-img {
   background: url('../images/logo-izq_large.png') no-repeat;
@@ -29,10 +33,15 @@ body {
   margin: 10px 15px 10px 0;
 }
 
+#catalogo{
+	background-color: #F3E7CC;
+}
+
 .card{
-	background-color: #acaa00;
-	border: 5px;
+	border: 0px;
+	background-color: #F3E7CC;
 	color:	#1a171b;
+	margin-bottom: 5px;
 }
 
 .card-body a{
@@ -62,4 +71,15 @@ body {
 	color: #1a171b;
 	background-color: #F3E7CC;
 	border-color: #F3E7CC;
+}
+
+.card-header{
+	background-color: #636f07;
+}
+
+.card-body {
+	--color: #fff;
+	--background-color: #636f07;
+	border: 2px solid;
+	border-color: #636f07;
 }

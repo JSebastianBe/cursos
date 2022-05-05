@@ -3,6 +3,7 @@
 use Sebas\Cursos\controllers\HomeController;
 use Sebas\Cursos\controllers\UsuarioController;
 use Sebas\Cursos\controllers\ClienteController;
+use Sebas\Cursos\controllers\CursoController;
 
 $router = new \Bramus\Router\Router();
 session_start();
@@ -32,6 +33,11 @@ $router->get('/', function(){
 $router->get('/inicio', function(){
 	$controller = new HomeController();
 	$controller->index();
+});
+
+$router->get('/catalogo', function(){
+	$controller = new CursoController();
+	$controller->catalogo();
 });
 
 $router->get('/registro', function(){

@@ -467,3 +467,20 @@ Stack trace:
 [05-May-2022 22:57:38 Europe/Berlin] Usuario loggeado
 [05-May-2022 22:57:46 Europe/Berlin] Usuario loggeado
 [05-May-2022 22:58:21 Europe/Berlin] Usuario loggeado
+[05-May-2022 23:06:12 Europe/Berlin] Usuario loggeado
+[05-May-2022 23:06:30 Europe/Berlin] Usuario loggeado
+[05-May-2022 23:08:44 Europe/Berlin] Usuario loggeado
+[05-May-2022 23:08:53 Europe/Berlin] Usuario loggeado
+[05-May-2022 23:16:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "CursoController" not found in C:\xampp\htdocs\cursos\src\lib\routes.php:38
+Stack trace:
+#0 [internal function]: {closure}()
+#1 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#2 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#4 C:\xampp\htdocs\cursos\src\lib\routes.php(72): Bramus\Router\Router->run()
+#5 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\cursos\src\lib\routes.php on line 38
+[05-May-2022 23:19:05 Europe/Berlin] Usuario loggeado
+[05-May-2022 23:30:56 Europe/Berlin] Usuario loggeado
+[05-May-2022 23:31:07 Europe/Berlin] Usuario loggeado
