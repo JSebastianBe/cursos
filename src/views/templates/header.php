@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="/Cursos/src/views/src/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/Cursos/src/views/src/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="/Cursos/src/views/src/css/styles.css">
     <title>Cursos - UCENTRAL</title>
   </head>
@@ -16,12 +17,15 @@
 				<div id="logo-img" alt="Logo image"></div>
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+				<i class="bi bi-menu-up" id="icon-menu"></i>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Catalogo</a>
+						<a class="nav-link" aria-current="page" href="/Cursos/inicio">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="#">Catalogo</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/Cursos/registro">Registrarse</a>

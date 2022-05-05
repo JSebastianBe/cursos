@@ -1,21 +1,26 @@
 body {
   font-size: 16px;
   color:	#1a171b;
-  background-color: #acaa00;
+  background-color: #F3E7CC;
   font-family: 'Oxygen', sans-serif;
 }
 
 .navbar {
-  background-color: #F3E7CC;
+  background-color: #acaa00;
   border-radius: 0;
   border: 0;
   color: #b11f16;
 }
 
-.navbar-toggler {
-	color: #b11f16;
-	border-color: #b11f16;
+.navbar-light .navbar-nav .nav-link {
+	color: #1a171b;
 }
+
+.navbar-light .navbar-toggler{
+	color: #1a171b;
+	border-color: #1a171b;
+}
+
 
 #logo-img {
   background: url('../images/logo-izq_large.png') no-repeat;

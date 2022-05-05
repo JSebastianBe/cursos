@@ -8,21 +8,21 @@
 				<div class="col-lg-12">
 					<label for="validationCustomNombre" class="form-model"> Nombre</label>
 					<div class="input-group has-validation">
-						<span class="input-group-text" id="inputGroupNombre">N</span>
+						<span class="input-group-text" id="inputGroupNombre"><i class="bi bi-card-text"></i></span>
 						<input type="text" class="form-control" name="nombre" required>
 					</div>
 				</div>
 				<div class="col-lg-12">
 					<label for="validationCustomTelefono" class="form-model"> Teléfono</label>
 					<div class="input-group has-validation">
-						<span class="input-group-text" id="inputGroupTelefono">T</span>
+						<span class="input-group-text" id="inputGroupTelefono"><i class="bi bi-phone"></i></span>
 						<input type="number" class="form-control" name="telefono" required>
 					</div>
 				</div>
 				<div class="col-lg-12">
 					<label for="validationCustomCorreo" class="form-model"> Correo</label>
 					<div class="input-group has-validation">
-						<span class="input-group-text" id="inputGroupCorreo">@</span>
+						<span class="input-group-text" id="inputGroupCorreo"><i class="bi bi-mailbox"></i></span>
 						<input type="email" class="form-control" name="correo" required>
 					</div>
 				</div>

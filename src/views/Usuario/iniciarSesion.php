@@ -8,14 +8,14 @@
 				<div class="col-lg-12">
 					<label class="form-model"> Usuario</label>
 					<div class="input-group has-validation">
-						<span class="input-group-text" id="inputGroupNombre">U</span>
+						<span class="input-group-text" id="inputGroupNombre"><i class="bi bi-file-person"></i></span>
 						<input type="text" class="form-control" name="usuario" required>
 					</div>
 				</div>
 				<div class="col-lg-12">
 					<label class="form-model"> Clave</label>
 					<div class="input-group has-validation">
-						<span class="input-group-text">C</span>
+						<span class="input-group-text"><i class="bi bi-file-lock2"></i></span>
 						<input type="password" class="form-control" name="clave" required>
 					</div>
 				</div>
