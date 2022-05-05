@@ -5,6 +5,7 @@ namespace Sebas\Cursos\controllers;
 use Sebas\Cursos\lib\Controller;
 use Sebas\Cursos\models\Usuario;
 use Sebas\Cursos\models\Cliente;
+use Sebas\Cursos\models\Administrador;
 
 class UsuarioController extends Controller{
 
@@ -33,10 +34,10 @@ class UsuarioController extends Controller{
 					$perfil = Usuario::retornaPerfil($pusuario);
 					if($perfil=="Cliente"){
 						$usuario = Cliente::get($pusuario);
-					}/*
+					}
 					if($perfil=="Administrador"){
 						$usuario = Administrador::get($pusuario);
-					}
+					}/*
 					if($perfil=="Asistente"){
 						$usuario = Asistente::get($pusuario);
 					}*/

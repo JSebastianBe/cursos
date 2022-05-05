@@ -461,3 +461,9 @@ Stack trace:
 #11 {main}
   thrown in C:\xampp\htdocs\cursos\src\views\templates\header.php on line 44
 [05-May-2022 22:46:25 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:52:17 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:56:36 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in C:\xampp\htdocs\cursos\src\views\templates\header.php on line 60
+[05-May-2022 22:57:28 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:57:38 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:57:46 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:58:21 Europe/Berlin] Usuario loggeado
