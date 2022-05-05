@@ -14,10 +14,14 @@ class Usuario extends Model{
 	protected string $perfil;
 	protected string $clave;
 	protected string $correo;
+	protected string $nombre;
+	protected string $telefono;
 
-	function __construct($correo){
+	function __construct($correo, $nombre, $telefono){
 		parent::__construct();
 		$this->correo = $correo;
+		$this->nombre = $nombre;
+		$this->telefono = $telefono;
 	}
 
 	public static function validaCorreo($correo){
@@ -37,6 +41,20 @@ class Usuario extends Model{
 		}
 	}
 
+	public static function retornaPerfil($usuario){
+		try{
+			
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT perfil FROM usuario WHERE usuario = :usuario');
+			$query->execute(['usuario' => $usuario]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+			return $data['perfil'];
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
+		}
+	}
+
 	public function generaClave($dato){
 		$hash = $this->getHashedPassword($dato);
 		$this->clave = $hash;
@@ -49,13 +67,14 @@ class Usuario extends Model{
 	public static function get($pusuario):Usuario{
 		try{
 			$db = new Database();
-			$query = $db->connect()->prepare('SELECT idUsuario, correo, clave, perfil FROM usuario WHERE usuario = :usuario');
+			$query = $db->connect()->prepare('SELECT idUsuario, nombre, correo, telefono, clave, perfil FROM usuario WHERE usuario = :usuario');
 			$query->execute(['usuario' => $pusuario]);
 			$data = $query->fetch(PDO::FETCH_ASSOC);
-			$usuario = new Usuario($data['correo']);
-			$usuario->setId($data['idUsuario']);
+			$usuario = new Usuario($data['correo'],$data['nombre'],$data['telefono']);
+			$usuario->setIdUsuario($data['idUsuario']);
 			$usuario->setPerfil($data['perfil']);
 			$usuario->setClave($data['clave']);
+			$usuario->setUsuario($pusuario);
 			return $usuario;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
@@ -91,7 +110,7 @@ class Usuario extends Model{
 		$this->perfil=$perfil;
 	}
 
-	public function setId($id){
+	public function setIdUsuario($id){
 		$this->idUsuario=$id;
 	}
 
@@ -103,5 +122,12 @@ class Usuario extends Model{
 		return $this->correo;
 	}
 
+	public function getTelefono(){
+		return $this->telefono;
+	}
+
+	public function getNombre(){
+		return $this->nombre;
+	}
 
 }

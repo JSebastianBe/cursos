@@ -67,3 +67,6 @@ idLeccion integer,
 idAvanceCurso integer,
 FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion),
 FOREIGN KEY (idAvanceCurso) REFERENCES AvanceCurso (idAvanceCurso));
+
+
+INSERT INTO `usuario` (`idUsuario`, `nombre`, `correo`, `telefono`, `usuario`, `perfil`, `clave`) VALUES (NULL, 'Juan', 'juan@gmail.com', '123', 'juan@gmail.com', 'Administrador', '$2y$10$tr6i1d2t2ZWKi1akO/Klo.Y6tPN2LFrD15.2LlFWR5aJeet1Ej6Sq');

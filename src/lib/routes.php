@@ -3,12 +3,6 @@
 use Sebas\Cursos\controllers\HomeController;
 use Sebas\Cursos\controllers\UsuarioController;
 use Sebas\Cursos\controllers\ClienteController;
-/*
-use Sebas\Cursos\controllers\Signup;
-use Sebas\Cursos\controllers\Login;
-
-use Sebas\Cursos\controllers\Action;
-use Sebas\Cursos\controllers\Profile;*/
 
 $router = new \Bramus\Router\Router();
 session_start();
@@ -65,8 +59,9 @@ $router->post('/inicioSesion', function(){
 	$controller->inicioSesion();
 });
 
-$router->get('/cerrar', function(){
-	unset($_SESSION['usuario']);
-	header('location: /Cursos/inicio');
+$router->get('/cerrarSesion', function(){
+	noAuth();
+	$controller = new UsuarioController;
+	$controller->cerrarSesion();
 });
 $router->run();

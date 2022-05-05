@@ -4,6 +4,7 @@ namespace Sebas\Cursos\controllers;
 
 use Sebas\Cursos\lib\Controller;
 use Sebas\Cursos\models\Usuario;
+use Sebas\Cursos\models\Cliente;
 
 class UsuarioController extends Controller{
 
@@ -29,12 +30,22 @@ class UsuarioController extends Controller{
 		if(!is_null($pusuario) &&
 			!is_null($clave)){
 				if(!Usuario::validaCorreo($pusuario)){
-					$usuario = Usuario::get($pusuario);
+					$perfil = Usuario::retornaPerfil($pusuario);
+					if($perfil=="Cliente"){
+						$usuario = Cliente::get($pusuario);
+					}/*
+					if($perfil=="Administrador"){
+						$usuario = Administrador::get($pusuario);
+					}
+					if($perfil=="Asistente"){
+						$usuario = Asistente::get($pusuario);
+					}*/
 					if($usuario->validaInicioSesion($clave)){
+						
 						$_SESSION['usuario'] = serialize($usuario);
 						error_log('Usuario loggeado');
 						$notificacion = [
-						    "mensaje" => "Usuario loggeado",
+						    "mensaje" => "Inicio de sesión exitoso. Hola, " . $usuario->getNombre(),
 						    "error" => FALSE,
 						];
 						$this->render('Home/index',['notificacion' => $notificacion]);
@@ -62,6 +73,16 @@ class UsuarioController extends Controller{
 			];
 			$this->render('Usuario/iniciarSesion',['notificacion' => $notificacion]);
 		}
+	}
+
+	public function cerrarSesion(){
+		unset($_SESSION['usuario']);
+		error_log('Usuario loggeado');
+		$notificacion = [
+		    "mensaje" => "Sesión cerrada con éxito",
+		    "error" => FALSE,
+		];
+		$this->render('Home/index',['notificacion' => $notificacion]);
 	}
 
 }

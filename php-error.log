@@ -375,3 +375,89 @@ Stack trace:
 [05-May-2022 21:33:26 Europe/Berlin] No existe el usuario
 [05-May-2022 21:33:38 Europe/Berlin] No existe el usuario
 [05-May-2022 21:33:45 Europe/Berlin] No coincide la contraseña
+[05-May-2022 21:53:45 Europe/Berlin] No coincide la contraseña
+[05-May-2022 21:57:11 Europe/Berlin] Correo ya existe
+[05-May-2022 21:57:22 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$nombre in C:\xampp\htdocs\cursos\src\models\Cliente.php on line 24
+[05-May-2022 21:57:22 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$telefono in C:\xampp\htdocs\cursos\src\models\Cliente.php on line 26
+[05-May-2022 21:58:45 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$nombre in C:\xampp\htdocs\cursos\src\models\Cliente.php on line 24
+[05-May-2022 21:58:45 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Cliente::$telefono in C:\xampp\htdocs\cursos\src\models\Cliente.php on line 26
+[05-May-2022 21:59:13 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Sebas\Cursos\models\Usuario::__construct(), 1 passed in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 59 and exactly 3 expected in C:\xampp\htdocs\cursos\src\models\Usuario.php:20
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\models\Usuario.php(59): Sebas\Cursos\models\Usuario->__construct('sandra@gmail.co...')
+#1 C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php(32): Sebas\Cursos\models\Usuario::get('sandra@gmail.co...')
+#2 C:\xampp\htdocs\cursos\src\lib\routes.php(65): Sebas\Cursos\controllers\UsuarioController->inicioSesion()
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\cursos\src\lib\routes.php(72): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 20
+[05-May-2022 22:01:53 Europe/Berlin] Correo ya existe
+[05-May-2022 22:02:09 Europe/Berlin] No coincide la contraseña
+[05-May-2022 22:07:33 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php on line 59
+[05-May-2022 22:07:57 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php on line 58
+[05-May-2022 22:07:59 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php on line 58
+[05-May-2022 22:08:14 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "else", expecting "function" or "const" in C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php on line 67
+[05-May-2022 22:08:16 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "else", expecting "function" or "const" in C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php on line 67
+[05-May-2022 22:16:24 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "else", expecting "function" or "const" in C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php on line 68
+[05-May-2022 22:17:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Sebas\Cursos\controllers\Cliente" not found in C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php:34
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\routes.php(65): Sebas\Cursos\controllers\UsuarioController->inicioSesion()
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#5 C:\xampp\htdocs\cursos\src\lib\routes.php(72): Bramus\Router\Router->run()
+#6 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php on line 34
+[05-May-2022 22:17:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\models\Cliente::setId() in C:\xampp\htdocs\cursos\src\models\Cliente.php:46
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php(35): Sebas\Cursos\models\Cliente::get('Juan@gmail.com')
+#1 C:\xampp\htdocs\cursos\src\lib\routes.php(65): Sebas\Cursos\controllers\UsuarioController->inicioSesion()
+#2 [internal function]: {closure}()
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#6 C:\xampp\htdocs\cursos\src\lib\routes.php(72): Bramus\Router\Router->run()
+#7 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Cliente.php on line 46
+[05-May-2022 22:23:06 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:25:37 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:26:59 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:26:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\models\Cliente::getName() in C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php:48
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\routes.php(59): Sebas\Cursos\controllers\UsuarioController->inicioSesion()
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#5 C:\xampp\htdocs\cursos\src\lib\routes.php(67): Bramus\Router\Router->run()
+#6 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php on line 48
+[05-May-2022 22:28:04 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:28:13 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:29:24 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:29:28 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:29:30 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:37:36 Europe/Berlin] Usuario loggeado
+[05-May-2022 22:37:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getNombre() on string in C:\xampp\htdocs\cursos\src\views\templates\header.php:44
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\views\Home\index.php(1): require()
+#1 C:\xampp\htdocs\cursos\src\lib\View.php(12): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('Home/index', Array)
+#3 C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php(51): Sebas\Cursos\lib\Controller->render('Home/index', Array)
+#4 C:\xampp\htdocs\cursos\src\lib\routes.php(59): Sebas\Cursos\controllers\UsuarioController->inicioSesion()
+#5 [internal function]: {closure}()
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#8 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#9 C:\xampp\htdocs\cursos\src\lib\routes.php(67): Bramus\Router\Router->run()
+#10 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#11 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\templates\header.php on line 44
+[05-May-2022 22:46:25 Europe/Berlin] Usuario loggeado

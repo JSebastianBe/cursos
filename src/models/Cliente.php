@@ -9,20 +9,10 @@ use PDOException;
 
 class Cliente extends Usuario{
 
-	private int $id;
-	private string $nombre;
-	private string $telefono;
+	private int $idCliente;
 
 	function __construct($nombre,$telefono,$correo){
-		parent::__construct($correo);
-		$this->nombre = $nombre;
-		$this->telefono = $telefono;
-
-	}
-
-
-	public function getTelefono(){
-		return $this->telefono;
+		parent::__construct($correo,$nombre, $telefono);
 	}
 
 	public function crear(){
@@ -44,4 +34,27 @@ class Cliente extends Usuario{
 			return false;
 		}
 	}
+
+	public static function get($usuario):Cliente{
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idUsuario, nombre, correo, telefono, clave, perfil FROM usuario WHERE usuario = :usuario');
+			$query->execute(['usuario' => $usuario]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+			$cliente = new Cliente($data['nombre'],$data['telefono'],$data['correo']);
+			$cliente->setIdUsuario($data['idUsuario']);
+			$cliente->setIdCliente($data['idUsuario']);
+			$cliente->setPerfil($data['perfil']);
+			$cliente->setClave($data['clave']);
+			$cliente->setUsuario($usuario);
+			return $cliente;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
+		}
+	}
+	public function setIdCliente($id){
+		$this->idCliente=$id;
+	}
+
 }
