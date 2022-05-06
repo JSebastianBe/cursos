@@ -86,4 +86,18 @@ class UsuarioController extends Controller{
 		$this->render('Home/index',['notificacion' => $notificacion]);
 	}
 
+	public function listar(){
+		if(unserialize($_SESSION['usuario'])->getPerfil() == 'Administrador'){
+			$usuarios = Usuario::retornaUsuarios();
+			$this->render('Usuario/listar',['usuarios' => $usuarios]);
+		}else{
+			error_log('No tiene permisos');
+			$notificacion = [
+			    "mensaje" => "No tienes permisos para entrar a ese módulo",
+			    "error" => TRUE,
+			];
+			$this->render('Home/index',['notificacion' => $notificacion]);
+		}
+		
+	}
 }

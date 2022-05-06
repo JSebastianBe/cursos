@@ -55,6 +55,27 @@ class Usuario extends Model{
 		}
 	}
 
+	public static function retornaUsuarios(){
+		$usuarios=[];
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idUsuario, usuario, nombre, correo, telefono, clave, perfil FROM usuario ORDER BY idUsuario ASC');
+			$query->execute();
+			while($u = $query->fetch(PDO::FETCH_ASSOC)){
+				$usuario = new Usuario($u['correo'],$u['nombre'],$u['telefono']);
+				$usuario->setIdUsuario($u['idUsuario']);
+				$usuario->setPerfil($u['perfil']);
+				$usuario->setClave($u['clave']);
+				$usuario->setUsuario($u['usuario']);
+				array_push($usuarios, $usuario);
+			}
+			return $usuarios;	
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return [];
+		}
+	}
+
 	public function generaClave($dato){
 		$hash = $this->getHashedPassword($dato);
 		$this->clave = $hash;
@@ -116,6 +137,10 @@ class Usuario extends Model{
 
 	public function getPerfil(){
 		return $this->perfil;
+	}
+
+	public function getIdUsuario(){
+		return $this->idUsuario;
 	}
 
 	public function getCorreo(){

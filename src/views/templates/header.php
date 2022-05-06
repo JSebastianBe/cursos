@@ -55,7 +55,7 @@
 								<li><a class="dropdown-item" href="#">Cursos</a></li>
 								<li><a class="dropdown-item" href="#">Pagos</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">Usuarios</a></li>
+								<li><a class="dropdown-item" href="/Cursos/listarUsuarios">Usuarios</a></li>
 							<?php
 							}
 							?>

@@ -4,6 +4,7 @@ use Sebas\Cursos\controllers\HomeController;
 use Sebas\Cursos\controllers\UsuarioController;
 use Sebas\Cursos\controllers\ClienteController;
 use Sebas\Cursos\controllers\CursoController;
+use Sebas\Cursos\controllers\AdministradorController;
 
 $router = new \Bramus\Router\Router();
 session_start();
@@ -18,10 +19,15 @@ function noAuth(){
 	}
 }
 
-function auth(){
+function auth($perfil=""){
 	if(isset($_SESSION['usuario'])){
-		header('location: /Cursos/inicio');
-		exit();
+		if(unserialize($_SESSION['usuario'])->getPerfil()=="Administrador"){
+
+		}else{
+			header('location: /Cursos/inicio');
+			exit();
+		}
+		
 	}
 }
 
@@ -53,6 +59,13 @@ $router->post('/registrarse', function(){
 	$controller->registrarse();
 });
 
+$router->post('/registrarUsuario', function(){
+	auth();
+	$controller = new AdministradorController();
+	$controller->registrarUsuario();
+});
+
+
 $router->get('/iniciarSesion', function(){
 	auth();
 	$controller = new UsuarioController();
@@ -70,4 +83,11 @@ $router->get('/cerrarSesion', function(){
 	$controller = new UsuarioController;
 	$controller->cerrarSesion();
 });
+
+$router->get('/listarUsuarios', function(){
+	noAuth();
+	$controller = new UsuarioController;
+	$controller->listar();
+});
+
 $router->run();

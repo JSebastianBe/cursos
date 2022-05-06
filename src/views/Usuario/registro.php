@@ -4,7 +4,13 @@
 	<div class="row">
 		<div class="col col-lg-4 offset-lg-4">
 			<?php require 'src/views/templates/notificaciones.php'; ?>
-			<form class="row g-3" action="/Cursos/registrarse" method="post">
+			<?php if(unserialize($_SESSION['usuario'])->getPerfil()=="Administrador"){ ?>
+				<form class="row g-3" action="/Cursos/registrarUsuario" method="GET">
+			<?php }else{
+				?>
+				<form class="row g-3" action="/Cursos/registrarse" method="GET">
+				<?php
+			}?>
 				<div class="col-lg-12">
 					<label for="validationCustomNombre" class="form-model"> Nombre</label>
 					<div class="input-group has-validation">

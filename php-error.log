@@ -484,3 +484,100 @@ Stack trace:
 [05-May-2022 23:19:05 Europe/Berlin] Usuario loggeado
 [05-May-2022 23:30:56 Europe/Berlin] Usuario loggeado
 [05-May-2022 23:31:07 Europe/Berlin] Usuario loggeado
+[06-May-2022 01:33:25 Europe/Berlin] Correo ya existe
+[06-May-2022 01:33:50 Europe/Berlin] No existe el usuario
+[06-May-2022 01:33:56 Europe/Berlin] No existe el usuario
+[06-May-2022 01:34:36 Europe/Berlin] No coincide la contraseña
+[06-May-2022 01:35:04 Europe/Berlin] Usuario loggeado
+[06-May-2022 01:35:19 Europe/Berlin] Usuario loggeado
+[06-May-2022 01:35:27 Europe/Berlin] Usuario loggeado
+[06-May-2022 01:36:20 Europe/Berlin] Usuario loggeado
+[06-May-2022 01:36:52 Europe/Berlin] Usuario loggeado
+[06-May-2022 01:40:29 Europe/Berlin] Usuario loggeado
+[06-May-2022 01:46:40 Europe/Berlin] Usuario loggeado
+[06-May-2022 02:02:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Sebas\Cursos\models\UsuarioUsuario" not found in C:\xampp\htdocs\cursos\src\models\Usuario.php:64
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php(91): Sebas\Cursos\models\Usuario::retornaUsuarios()
+#1 C:\xampp\htdocs\cursos\src\lib\routes.php(77): Sebas\Cursos\controllers\UsuarioController->listar()
+#2 [internal function]: {closure}()
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#6 C:\xampp\htdocs\cursos\src\lib\routes.php(80): Bramus\Router\Router->run()
+#7 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 64
+[06-May-2022 02:03:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Sebas\Cursos\models\UsuarioUsuario" not found in C:\xampp\htdocs\cursos\src\models\Usuario.php:64
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php(91): Sebas\Cursos\models\Usuario::retornaUsuarios()
+#1 C:\xampp\htdocs\cursos\src\lib\routes.php(77): Sebas\Cursos\controllers\UsuarioController->listar()
+#2 [internal function]: {closure}()
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#6 C:\xampp\htdocs\cursos\src\lib\routes.php(80): Bramus\Router\Router->run()
+#7 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 64
+[06-May-2022 02:04:02 Europe/Berlin] PHP Warning:  Undefined array key "usuario" in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 68
+[06-May-2022 02:04:02 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Sebas\Cursos\models\Usuario::$usuario of type string in C:\xampp\htdocs\cursos\src\models\Usuario.php:122
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\models\Usuario.php(68): Sebas\Cursos\models\Usuario->setUsuario(NULL)
+#1 C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php(91): Sebas\Cursos\models\Usuario::retornaUsuarios()
+#2 C:\xampp\htdocs\cursos\src\lib\routes.php(77): Sebas\Cursos\controllers\UsuarioController->listar()
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\cursos\src\lib\routes.php(80): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 122
+[06-May-2022 02:04:55 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_push(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\cursos\src\models\Usuario.php:69
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\models\Usuario.php(69): array_push(NULL, Object(Sebas\Cursos\models\Usuario))
+#1 C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php(91): Sebas\Cursos\models\Usuario::retornaUsuarios()
+#2 C:\xampp\htdocs\cursos\src\lib\routes.php(77): Sebas\Cursos\controllers\UsuarioController->listar()
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\cursos\src\lib\routes.php(80): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 69
+[06-May-2022 02:09:25 Europe/Berlin] PHP Warning:  Undefined variable $d in C:\xampp\htdocs\cursos\src\views\Usuario\listar.php on line 1
+[06-May-2022 02:13:03 Europe/Berlin] Usuario loggeado
+[06-May-2022 02:15:39 Europe/Berlin] Usuario loggeado
+[06-May-2022 02:25:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\models\Usuario::getIdUsuario() in C:\xampp\htdocs\cursos\src\views\Usuario\listar.php:21
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('Usuario/listar', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php(92): Sebas\Cursos\lib\Controller->render('Usuario/listar', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(77): Sebas\Cursos\controllers\UsuarioController->listar()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(80): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Usuario\listar.php on line 21
+[06-May-2022 02:25:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\models\Usuario::getIdUsuario() in C:\xampp\htdocs\cursos\src\views\Usuario\listar.php:21
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('Usuario/listar', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php(92): Sebas\Cursos\lib\Controller->render('Usuario/listar', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(77): Sebas\Cursos\controllers\UsuarioController->listar()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(80): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Usuario\listar.php on line 21
+[06-May-2022 02:35:36 Europe/Berlin] Usuario loggeado
+[06-May-2022 02:35:49 Europe/Berlin] Usuario loggeado
+[06-May-2022 02:49:45 Europe/Berlin] Usuario loggeado
+[06-May-2022 02:50:03 Europe/Berlin] Usuario loggeado
