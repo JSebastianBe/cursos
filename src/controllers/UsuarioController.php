@@ -6,6 +6,7 @@ use Sebas\Cursos\lib\Controller;
 use Sebas\Cursos\models\Usuario;
 use Sebas\Cursos\models\Cliente;
 use Sebas\Cursos\models\Administrador;
+use Sebas\Cursos\models\Asistente;
 
 class UsuarioController extends Controller{
 
@@ -37,10 +38,10 @@ class UsuarioController extends Controller{
 					}
 					if($perfil=="Administrador"){
 						$usuario = Administrador::get($pusuario);
-					}/*
+					}
 					if($perfil=="Asistente"){
 						$usuario = Asistente::get($pusuario);
-					}*/
+					}
 					if($usuario->validaInicioSesion($clave)){
 						
 						$_SESSION['usuario'] = serialize($usuario);
@@ -84,20 +85,5 @@ class UsuarioController extends Controller{
 		    "error" => FALSE,
 		];
 		$this->render('Home/index',['notificacion' => $notificacion]);
-	}
-
-	public function listar(){
-		if(unserialize($_SESSION['usuario'])->getPerfil() == 'Administrador'){
-			$usuarios = Usuario::retornaUsuarios();
-			$this->render('Usuario/listar',['usuarios' => $usuarios]);
-		}else{
-			error_log('No tiene permisos');
-			$notificacion = [
-			    "mensaje" => "No tienes permisos para entrar a ese módulo",
-			    "error" => TRUE,
-			];
-			$this->render('Home/index',['notificacion' => $notificacion]);
-		}
-		
 	}
 }

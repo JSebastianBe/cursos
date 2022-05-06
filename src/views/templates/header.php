@@ -18,7 +18,7 @@
 				<div id="logo-img" alt="Logo image"></div>
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<i class="bi bi-menu-up" id="icon-menu"></i>
+				<i class="bi bi-list" id="icon-menu"></i>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -50,6 +50,11 @@
 								<li><a class="dropdown-item" href="#">Mis Cursos</a></li>
 							<?php
 							}
+						  	if($usuario->getPerfil()=="Asistente"){
+							?>
+								<li><a class="dropdown-item" href="Cursos/listarCursos">Cursos</a></li>
+							<?php
+							}
 							if($usuario->getPerfil()=="Administrador"){
 							?>
 								<li><a class="dropdown-item" href="#">Cursos</a></li>
@@ -60,6 +65,7 @@
 							}
 							?>
 							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="#">Cambiar Clave</a></li>
 						    <li><a class="dropdown-item" href="/Cursos/cerrarSesion">Cerrar Sesión</a></li>
 						  </ul>
 						</li>

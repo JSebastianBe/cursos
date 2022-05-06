@@ -60,7 +60,7 @@ body {
 	margin-top: 10px;
 }
 
-.boton-p {
+.boton-s {
 	color: #fff;
 	background-color: #b11f16;
 	border-color: #b11f16;
@@ -74,6 +74,7 @@ body {
 }
 
 .card-header{
+	color: #fff;
 	background-color: #636f07;
 }
 
@@ -82,4 +83,18 @@ body {
 	--background-color: #636f07;
 	border: 2px solid;
 	border-color: #636f07;
+}
+
+
+.boton-p {
+	color: #fff;
+	background-color: #636f07;
+	border-color: #636f07;
+}
+
+
+.boton-s:hover {
+	color: #1a171b;
+	background-color: #F3E7CC;
+	border-color: #F3E7CC;
 }

@@ -41,6 +41,24 @@ class Usuario extends Model{
 		}
 	}
 
+	public static function validaCorreobyId($correo,$idUsuario){
+		try{
+			
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT correo FROM usuario WHERE correo = :correo AND idUsuario <> :idUsuario');
+			$query->execute(['correo' => $correo,
+							 'idUsuario' => $idUsuario]);
+			if($query->rowCount()>0){
+				return false;
+			}else{
+				return true;
+			}
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
+		}
+	}
+
 	public static function retornaPerfil($usuario){
 		try{
 			
@@ -82,7 +100,39 @@ class Usuario extends Model{
 	}
 
 	public function crear(){
-		echo "Crear usuario desde usuario";
+		$this->usuario=$this->correo;
+		try{
+			$query = $this->prepare('INSERT INTO usuario (nombre, correo, telefono, usuario, perfil, clave) VALUES(:nombre, :correo, :telefono, :usuario, :perfil, :clave)');
+			$query->execute([
+				'nombre' => $this->nombre,
+				'correo' => $this->correo,
+				'telefono' => $this->telefono,
+				'usuario' => $this->usuario,
+				'perfil' => $this->perfil,
+				'clave' => $this->clave,
+			]);
+			return true;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
+		}
+	}
+
+	public function modificar(){
+		try{
+			$query = $this->prepare('UPDATE usuario SET nombre = :nombre, correo = :correo, telefono = :telefono, perfil = :perfil WHERE idUsuario = :idUsuario');
+			$query->execute([
+				'nombre' => $this->nombre,
+				'correo' => $this->correo,
+				'telefono' => $this->telefono,
+				'perfil' => $this->perfil,
+				'idUsuario' => $this->idUsuario,
+			]);
+			return true;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
+		}
 	}
 
 	public static function get($pusuario):Usuario{
@@ -96,6 +146,24 @@ class Usuario extends Model{
 			$usuario->setPerfil($data['perfil']);
 			$usuario->setClave($data['clave']);
 			$usuario->setUsuario($pusuario);
+			return $usuario;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
+		}
+	}
+
+	public static function getByIdUsuario($id):Usuario{
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idUsuario, usuario, nombre, correo, telefono, clave, perfil FROM usuario WHERE idUsuario = :id');
+			$query->execute(['id' => $id]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+			$usuario = new Usuario($data['correo'],$data['nombre'],$data['telefono']);
+			$usuario->setIdUsuario($data['idUsuario']);
+			$usuario->setPerfil($data['perfil']);
+			$usuario->setClave($data['clave']);
+			$usuario->setUsuario($data['usuario']);
 			return $usuario;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
@@ -129,6 +197,18 @@ class Usuario extends Model{
 
 	public function setPerfil($perfil){
 		$this->perfil=$perfil;
+	}
+
+	public function setNombre($nombre){
+		$this->nombre=$nombre;
+	}
+
+	public function setCorreo($correo){
+		$this->correo=$correo;
+	}
+
+	public function setTelefono($telefono){
+		$this->telefono=$telefono;
 	}
 
 	public function setIdUsuario($id){

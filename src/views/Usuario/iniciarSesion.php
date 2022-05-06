@@ -9,7 +9,7 @@
 					<label class="form-model"> Usuario</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupNombre"><i class="bi bi-file-person"></i></span>
-						<input type="text" class="form-control" name="usuario" required>
+						<input type="email" class="form-control" name="usuario" required>
 					</div>
 				</div>
 				<div class="col-lg-12">
@@ -19,9 +19,14 @@
 						<input type="password" class="form-control" name="clave" required>
 					</div>
 				</div>
-				<div class="col-lg-12">
+				<div class="col-lg-6">
 					<input class="btn boton-p" type="submit" value="Iniciar Sesión">
 				</div>
+				<div class="col-lg-6">
+					<a class="btn boton-s" href="#">Recordar contraseña</a>
+				</div>
+
+
 			</form>
 		</div>
 	</div>

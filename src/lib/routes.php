@@ -86,8 +86,21 @@ $router->get('/cerrarSesion', function(){
 
 $router->get('/listarUsuarios', function(){
 	noAuth();
-	$controller = new UsuarioController;
+	$controller = new AdministradorController;
 	$controller->listar();
 });
+
+$router->get('/modificaUsuario', function(){
+	auth();
+	$controller = new AdministradorController();
+	$controller->modificaUsuario();
+});
+
+$router->post('/modificarUsuario', function(){
+	auth();
+	$controller = new AdministradorController();
+	$controller->modificarUsuario();
+});
+
 
 $router->run();
