@@ -19,15 +19,10 @@ function noAuth(){
 	}
 }
 
-function auth($perfil=""){
+function auth(){
 	if(isset($_SESSION['usuario'])){
-		if(unserialize($_SESSION['usuario'])->getPerfil()=="Administrador"){
-
-		}else{
-			header('location: /Cursos/inicio');
-			exit();
-		}
-		
+		header('location: /Cursos/inicio');
+		exit();
 	}
 }
 
@@ -47,7 +42,7 @@ $router->get('/catalogo', function(){
 });
 
 $router->get('/registro', function(){
-	auth();
+	//auth();
 	$controller = new UsuarioController();
 	$controller->registro();
 });
@@ -102,5 +97,22 @@ $router->post('/modificarUsuario', function(){
 	$controller->modificarUsuario();
 });
 
+$router->get('/listarCursos', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->listar();
+});
+
+$router->get('/crearCursos', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->agregarCruso();
+});
+
+$router->post('/creaCurso', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->creaCurso();
+});
 
 $router->run();

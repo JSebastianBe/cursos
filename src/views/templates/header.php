@@ -26,6 +26,7 @@
 						<a class="nav-link" aria-current="page" href="/Cursos/catalogo">Catalogo</a>
 					</li>
 					<?php
+					$usuario =[];
 					if(!isset($_SESSION['usuario'])){
 					?>
 					<li class="nav-item">
@@ -52,12 +53,12 @@
 							}
 						  	if($usuario->getPerfil()=="Asistente"){
 							?>
-								<li><a class="dropdown-item" href="Cursos/listarCursos">Cursos</a></li>
+								<li><a class="dropdown-item" href="/Cursos/listarCursos">Cursos</a></li>
 							<?php
 							}
 							if($usuario->getPerfil()=="Administrador"){
 							?>
-								<li><a class="dropdown-item" href="#">Cursos</a></li>
+								<li><a class="dropdown-item" href="/Cursos/listarCursos">Cursos</a></li>
 								<li><a class="dropdown-item" href="#">Pagos</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="/Cursos/listarUsuarios">Usuarios</a></li>

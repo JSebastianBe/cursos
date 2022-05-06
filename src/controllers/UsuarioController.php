@@ -31,7 +31,7 @@ class UsuarioController extends Controller{
 		$clave = $this->post('clave');
 		if(!is_null($pusuario) &&
 			!is_null($clave)){
-				if(!Usuario::validaCorreo($pusuario)){
+				if(!Usuario::validaUsuario($pusuario)){
 					$perfil = Usuario::retornaPerfil($pusuario);
 					if($perfil=="Cliente"){
 						$usuario = Cliente::get($pusuario);

@@ -6,17 +6,17 @@
 			<h1>Catalogo de cursos existentes</h1>
 			<div id="catalogo" class="row">
 				<?php
-				for($i=1; $i<=20; $i++){
+				$cursos = $this->d['cursos'];
+				foreach($cursos as $c){
 				?>
 				<div class="card col-lg-3 col-md-6">
 					<div class="card-header">
-					    <h5 class="card-title">Curso <?php echo $i; ?></h5>
+					    <h5 class="card-title"><?php echo $c->getNombre(); ?></h5>
 					</div>
-					<a href="#?<?php echo $i; ?>"><img src="https://picsum.photos/200?random=<?php echo $i; ?>" class="card-img-top" alt="Curso <?php echo $i; ?>"></a>
+					<a href="#?<?php $c->getIdCurso(); ?>"><img src="/Cursos/public/img/photos/<?php echo $c->getImagen(); ?>" class="card-img-top" alt="Curso <?php echo $c->getNombre(); ?>"></a>
 					<div class="card-body">
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua.</p>
-						<a href="#?<?php echo $i; ?>" class="btn boton-p">Ver más</a>
+						<p class="card-text"><?php echo $c->getDescripcionCorta(); ?></p>
+						<a href="#?<?php $c->getIdCurso(); ?>" class="btn boton-p">Ver más</a>
 					</div>
 				</div>	
 				<?php

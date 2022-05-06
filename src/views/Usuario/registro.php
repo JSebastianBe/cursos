@@ -10,8 +10,9 @@
 			$telefono ="";
 			$correo ="";
 			$nombreBoton = "Registrarse";
-			if(isset($_SESSION['usuario'])){
-				if(unserialize($_SESSION['usuario'])->getPerfil()=="Administrador"){ 
+
+			if($usuario != []){
+				if($usuario->getPerfil()=="Administrador"){ 
 					if(isset($this->d['usuarioModificar'])){
 						$usuarioModificar = $this->d['usuarioModificar'];
 						$nombre = $usuarioModificar->getNombre();

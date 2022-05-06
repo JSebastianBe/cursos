@@ -24,6 +24,24 @@ class Usuario extends Model{
 		$this->telefono = $telefono;
 	}
 
+	public static function validaUsuario($usuario){
+		try{
+			
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT usuario FROM usuario WHERE usuario = :usuario');
+			$query->execute(['usuario' => $usuario]);
+			if($query->rowCount()>0){
+				return false;
+			}else{
+				return true;
+			}
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
+		}
+	}
+
+
 	public static function validaCorreo($correo){
 		try{
 			
@@ -192,7 +210,7 @@ class Usuario extends Model{
 	}
 
 	public function getUsuario(){
-		return $this->usuario;
+		return $this->$usuario;
 	}
 
 	public function setPerfil($perfil){
