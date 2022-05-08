@@ -1,32 +1,7 @@
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:02 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Usuario::$ in C:\xampp\htdocs\cursos\src\models\Usuario.php on line 213
-[06-May-2022 21:47:18 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 67
-[06-May-2022 21:47:18 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 68
-[06-May-2022 21:47:21 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 67
-[06-May-2022 21:47:21 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 68
-[06-May-2022 21:47:28 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 67
-[06-May-2022 21:47:28 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 68
-[06-May-2022 21:53:30 Europe/Berlin] Usuario loggeado
-[06-May-2022 21:53:49 Europe/Berlin] Usuario loggeado
-[06-May-2022 21:54:05 Europe/Berlin] Usuario loggeado
-[06-May-2022 21:54:12 Europe/Berlin] Usuario loggeado
+[08-May-2022 17:30:35 Europe/Berlin] Usuario loggeado
+[08-May-2022 17:30:57 Europe/Berlin] No coincide la contraseña
+[08-May-2022 17:31:03 Europe/Berlin] Usuario loggeado
+[08-May-2022 17:31:12 Europe/Berlin] Usuario loggeado
+[08-May-2022 17:31:21 Europe/Berlin] Usuario loggeado
+[08-May-2022 17:34:53 Europe/Berlin] Usuario loggeado
+[08-May-2022 17:35:01 Europe/Berlin] Usuario loggeado

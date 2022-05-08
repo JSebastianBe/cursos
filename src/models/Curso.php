@@ -18,6 +18,7 @@ class Curso extends Model{
 	private string $profesor;
 	private string $imagen;
 	private string $videoIntroduc;
+	private Array $lecciones;
 
 	function __construct(){
 		parent::__construct();

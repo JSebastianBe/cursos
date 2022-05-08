@@ -210,7 +210,7 @@ class Usuario extends Model{
 	}
 
 	public function getUsuario(){
-		return $this->$usuario;
+		return $this->usuario;
 	}
 
 	public function setPerfil($perfil){

@@ -55,7 +55,7 @@ $router->post('/registrarse', function(){
 });
 
 $router->post('/registrarUsuario', function(){
-	auth();
+	noAuth();
 	$controller = new AdministradorController();
 	$controller->registrarUsuario();
 });
@@ -86,13 +86,13 @@ $router->get('/listarUsuarios', function(){
 });
 
 $router->get('/modificaUsuario', function(){
-	auth();
+	noAuth();
 	$controller = new AdministradorController();
 	$controller->modificaUsuario();
 });
 
 $router->post('/modificarUsuario', function(){
-	auth();
+	noAuth();
 	$controller = new AdministradorController();
 	$controller->modificarUsuario();
 });

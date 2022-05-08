@@ -49,7 +49,10 @@ class CursoController extends Controller{
 		$profesor = $this->post('profesor');
 		$imagen = $this->file('imagen');
 		$videoIntroduc = $this->file('videoIntroduc');
-		if(	!is_null($nombre) &&
+		$lecciones=json_decode($_POST["arr_lecciones"], true );
+		var_dump($lecciones);
+		//TODO: AGREGAR LECCIOES AL CURSO
+		/*if(	!is_null($nombre) &&
 			!is_null($precio) &&
 			!is_null($descripcionCorta) &&
 			!is_null($descripcionLarga) &&
@@ -80,6 +83,6 @@ class CursoController extends Controller{
 			    "error" => TRUE,
 			];
 			$this->render('Curso/registro',['notificacion' => $notificacion]);
-		}
+		}*/
 	}
 }
