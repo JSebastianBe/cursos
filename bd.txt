@@ -12,7 +12,7 @@ clave varchar(100));
 
 create table Curso(
 idCurso integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
-nombre varchar(100),
+nombre varchar(100) UNIQUE,
 precio double,
 descripcionCorta varchar(100),
 descripcionLarga varchar(1000),

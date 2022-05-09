@@ -4,6 +4,7 @@ namespace Sebas\Cursos\controllers;
 
 use Sebas\Cursos\lib\Controller;
 use Sebas\Cursos\models\Curso;
+use Sebas\Cursos\models\Leccion;
 use Sebas\Cursos\lib\UtilResources;
 
 class CursoController extends Controller{
@@ -50,9 +51,8 @@ class CursoController extends Controller{
 		$imagen = $this->file('imagen');
 		$videoIntroduc = $this->file('videoIntroduc');
 		$lecciones=json_decode($_POST["arr_lecciones"], true );
-		var_dump($lecciones);
 		//TODO: AGREGAR LECCIOES AL CURSO
-		/*if(	!is_null($nombre) &&
+		if(	!is_null($nombre) &&
 			!is_null($precio) &&
 			!is_null($descripcionCorta) &&
 			!is_null($descripcionLarga) &&
@@ -60,8 +60,8 @@ class CursoController extends Controller{
 			!is_null($profesor) &&
 			!is_null($imagen) &&
 			!is_null($videoIntroduc)){
-			$imagen = UtilResources::storeImage($imagen);
-			$videoIntroduc = UtilResources::storeVideo($videoIntroduc);
+			//$imagen = UtilResources::storeImage($imagen);
+			//$videoIntroduc = UtilResources::storeVideo($videoIntroduc);
 			$curso = new Curso();
 			$curso->setNombre($nombre);
 			$curso->setPrecio($precio);
@@ -69,20 +69,41 @@ class CursoController extends Controller{
 			$curso->setDescripcionLarga($descripcionLarga);
 			$curso->setDuracion($duracion);
 			$curso->setProfesor($profesor);
-			$curso->setImagen($imagen);
-			$curso->setVideoIntroduc($videoIntroduc);
-			$curso->crea();
+			//$curso->setImagen($imagen);
+			//$curso->setVideoIntroduc($videoIntroduc);
+			//$curso->crea();
+			//$curso->setIdCurso(Curso::get($nombre)->getIdCurso());
+			$this->agregaLecciones($lecciones,$curso);
+			//
+			var_dump($curso);
 			$notificacion = [
 			    "mensaje" => "Curso ". $nombre." registrado correctamente",
 			    "error" => FALSE,
 			];
-			$this->listar(['notificacion' => $notificacion]);
+			//$this->listar(['notificacion' => $notificacion]);
 		}else{
 			$notificacion = [
 			    "mensaje" => "Complete todos los campos..",
 			    "error" => TRUE,
 			];
 			$this->render('Curso/registro',['notificacion' => $notificacion]);
-		}*/
+		}
+	}
+
+	public function agregaLecciones(array $lecciones_p, Curso $curso){
+		$i=1;
+		foreach($lecciones_p as $l){
+			$leccion = new Leccion();
+			$leccion->setTitulo($l[0]);
+			$leccion->setObjetivo($l[1]);
+			$leccion->setTeoria($l[2]);
+			//$leccion->setVideo($l[4]);
+			$leccion->setEjercicio($l[3]);
+			$leccion->setOrden($i);
+			//$leccion->setIdCurso($curso->getIdCurso());
+			//$leccion->crea();
+			$curso->setLeccion($leccion);
+			$i=$i+1;
+		}
 	}
 }

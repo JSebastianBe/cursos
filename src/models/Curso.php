@@ -22,6 +22,7 @@ class Curso extends Model{
 
 	function __construct(){
 		parent::__construct();
+		$lecciones = [];
 	}
 
 	public static function retornaCursos(){
@@ -70,6 +71,30 @@ class Curso extends Model{
 		}
 	}
 
+	public static function get($nombre):Curso{
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idCurso, nombre, precio, descripcionCorta, descripcionLarga, duracion, profesor, imagen, videoIntroduc FROM curso WHERE nombre = :nombre');
+			$query->execute(['nombre' => $nombre]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+
+			$curso = new Curso();
+			$curso->setIdCurso($data['idCurso']);
+			$curso->setNombre($data['nombre']);
+			$curso->setPrecio($data['precio']);
+			$curso->setDescripcionCorta($data['descripcionCorta']);
+			$curso->setDescripcionLarga($data['descripcionLarga']);
+			$curso->setDuracion($data['duracion']);
+			$curso->setProfesor($data['profesor']);
+			$curso->setImagen($data['imagen']);
+			$curso->setVideoIntroduc($data['videoIntroduc']);
+			return $curso;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
+		}
+	}
+
 	public function getIdCurso(){
 		return $this->idCurso;
 	}
@@ -104,6 +129,10 @@ class Curso extends Model{
 
 	public function getVideoIntroduc(){
 		return $this->videoIntroduc;
+	}
+
+	public function getLecciones(){
+		return $this->lecciones;
 	}
 
 
@@ -141,5 +170,9 @@ class Curso extends Model{
 
 	public function setVideoIntroduc($videoIntroduc){
 		$this->videoIntroduc = $videoIntroduc;
+	}
+
+	public function setLeccion($leccion){
+		array_push($this->lecciones,$leccion);
 	}
 }
