@@ -23,6 +23,12 @@ class CursoController extends Controller{
 		$this->render('curso/registro');
 	}
 
+	public function detalleCurso(){
+		$id = $this->get('id');
+		$curso = Curso::getByIdCurso($id);
+		$this->render('curso/detalle',['curso'=>$curso]);
+	}
+
 
 	public function listar(array $notificacion = []){
 		$perfil = unserialize($_SESSION['usuario'])->getPerfil();

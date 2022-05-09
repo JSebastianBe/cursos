@@ -4,6 +4,7 @@ namespace Sebas\Cursos\models;
 
 use	Sebas\Cursos\lib\Database;
 use Sebas\Cursos\lib\Model;
+use Sebas\Cursos\models\Leccion;
 use PDO;
 use PDOException;
 
@@ -42,6 +43,7 @@ class Curso extends Model{
 				$curso->setProfesor($c['profesor']);
 				$curso->setImagen($c['imagen']);
 				$curso->setVideoIntroduc($c['videoIntroduc']);
+				$curso->setLeccion(Leccion::getByIdCurso($curso->getIdCurso()));
 				array_push($cursos, $curso);
 			}
 			return $cursos;	
@@ -88,6 +90,32 @@ class Curso extends Model{
 			$curso->setProfesor($data['profesor']);
 			$curso->setImagen($data['imagen']);
 			$curso->setVideoIntroduc($data['videoIntroduc']);
+			$curso->setLeccion(Leccion::getByIdCurso($curso->getIdCurso()));
+			return $curso;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
+		}
+	}
+
+	public static function getByIdCurso($idCurso):Curso{
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idCurso, nombre, precio, descripcionCorta, descripcionLarga, duracion, profesor, imagen, videoIntroduc FROM curso WHERE idCurso = :idCurso');
+			$query->execute(['idCurso' => $idCurso]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+
+			$curso = new Curso();
+			$curso->setIdCurso($data['idCurso']);
+			$curso->setNombre($data['nombre']);
+			$curso->setPrecio($data['precio']);
+			$curso->setDescripcionCorta($data['descripcionCorta']);
+			$curso->setDescripcionLarga($data['descripcionLarga']);
+			$curso->setDuracion($data['duracion']);
+			$curso->setProfesor($data['profesor']);
+			$curso->setImagen($data['imagen']);
+			$curso->setVideoIntroduc($data['videoIntroduc']);
+			$curso->setLeccion(Leccion::getByIdCurso($curso->getIdCurso()));
 			return $curso;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
@@ -132,7 +160,11 @@ class Curso extends Model{
 	}
 
 	public function getLecciones(){
-		return $this->lecciones;
+		return $this->lecciones[0];
+	}
+
+	public function getCantidadLecciones(){
+		return count($this->lecciones[0]);
 	}
 
 

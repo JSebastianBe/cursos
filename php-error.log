@@ -1,217 +1,285 @@
-[08-May-2022 17:30:35 Europe/Berlin] Usuario loggeado
-[08-May-2022 17:30:57 Europe/Berlin] No coincide la contraseña
-[08-May-2022 17:31:03 Europe/Berlin] Usuario loggeado
-[08-May-2022 17:31:12 Europe/Berlin] Usuario loggeado
-[08-May-2022 17:31:21 Europe/Berlin] Usuario loggeado
-[08-May-2022 17:34:53 Europe/Berlin] Usuario loggeado
-[08-May-2022 17:35:01 Europe/Berlin] Usuario loggeado
-[09-May-2022 03:32:50 Europe/Berlin] Usuario loggeado
-[09-May-2022 04:38:26 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign array to property Sebas\Cursos\models\Curso::$imagen of type string in C:\xampp\htdocs\cursos\src\models\Curso.php:167
+[09-May-2022 19:52:51 Europe/Berlin] Usuario loggeado
+[09-May-2022 20:35:20 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\cursos\src\models\Curso.php on line 106
+[09-May-2022 20:35:20 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Sebas\Cursos\models\Curso::$idCurso of type int in C:\xampp\htdocs\cursos\src\models\Curso.php:164
 Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(72): Sebas\Cursos\models\Curso->setImagen(Array)
-#1 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
+#0 C:\xampp\htdocs\cursos\src\models\Curso.php(106): Sebas\Cursos\models\Curso->setIdCurso(NULL)
+#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(28): Sebas\Cursos\models\Curso::getByIdCurso(NULL)
+#2 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 164
+[09-May-2022 20:35:28 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\cursos\src\models\Curso.php on line 106
+[09-May-2022 20:35:28 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Sebas\Cursos\models\Curso::$idCurso of type int in C:\xampp\htdocs\cursos\src\models\Curso.php:164
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\models\Curso.php(106): Sebas\Cursos\models\Curso->setIdCurso(NULL)
+#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(28): Sebas\Cursos\models\Curso::getByIdCurso('0')
+#2 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 164
+[09-May-2022 20:35:29 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\cursos\src\models\Curso.php on line 106
+[09-May-2022 20:35:29 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Sebas\Cursos\models\Curso::$idCurso of type int in C:\xampp\htdocs\cursos\src\models\Curso.php:164
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\models\Curso.php(106): Sebas\Cursos\models\Curso->setIdCurso(NULL)
+#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(28): Sebas\Cursos\models\Curso::getByIdCurso(NULL)
+#2 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 164
+[09-May-2022 20:37:34 Europe/Berlin] PHP Warning:  Undefined variable $c in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 10
+[09-May-2022 20:37:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getImagen() on null in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php:10
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('curso/detalle', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(29): Sebas\Cursos\lib\Controller->render('curso/detalle', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 10
+[09-May-2022 20:37:36 Europe/Berlin] PHP Warning:  Undefined variable $c in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 10
+[09-May-2022 20:37:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getImagen() on null in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php:10
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('curso/detalle', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(29): Sebas\Cursos\lib\Controller->render('curso/detalle', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 10
+[09-May-2022 20:37:38 Europe/Berlin] PHP Warning:  Undefined variable $c in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 10
+[09-May-2022 20:37:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getImagen() on null in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php:10
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('curso/detalle', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(29): Sebas\Cursos\lib\Controller->render('curso/detalle', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 10
+[09-May-2022 20:43:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\models\Curso::getVideo() in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php:28
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('curso/detalle', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(29): Sebas\Cursos\lib\Controller->render('curso/detalle', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 28
+[09-May-2022 20:43:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\models\Curso::getVideo() in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php:28
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('curso/detalle', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(29): Sebas\Cursos\lib\Controller->render('curso/detalle', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 28
+[09-May-2022 20:46:23 Europe/Berlin] PHP Warning:  Undefined variable $curso in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 47
+[09-May-2022 20:46:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getDuracion() on null in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php:47
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('Curso/catalogo', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(19): Sebas\Cursos\lib\Controller->render('Curso/catalogo', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(41): Sebas\Cursos\controllers\CursoController->catalogo()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 47
+[09-May-2022 20:47:31 Europe/Berlin] PHP Warning:  Undefined variable $curso in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 47
+[09-May-2022 20:47:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getDuracion() on null in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php:47
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('Curso/catalogo', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(19): Sebas\Cursos\lib\Controller->render('Curso/catalogo', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(41): Sebas\Cursos\controllers\CursoController->catalogo()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 47
+[09-May-2022 20:49:04 Europe/Berlin] PHP Warning:  Undefined variable $curso in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 47
+[09-May-2022 20:49:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getDuracion() on null in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php:47
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('Curso/catalogo', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(19): Sebas\Cursos\lib\Controller->render('Curso/catalogo', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(41): Sebas\Cursos\controllers\CursoController->catalogo()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 47
+[09-May-2022 21:24:20 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "array", expecting ";" or "{" in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 44
+[09-May-2022 21:24:39 Europe/Berlin] PHP Parse error:  Unclosed '[' does not match ')' in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 52
+[09-May-2022 21:24:40 Europe/Berlin] PHP Parse error:  Unclosed '[' does not match ')' in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 52
+[09-May-2022 21:25:09 Europe/Berlin] PHP Parse error:  syntax error, unexpected token ";", expecting ")" in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 52
+[09-May-2022 21:25:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\cursos\src\models\Curso.php:118
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(28): Sebas\Cursos\models\Curso::getByIdCurso('1')
+#1 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
 #2 [internal function]: {closure}()
 #3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
 #4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
 #5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#6 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
+#6 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
 #7 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
 #8 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 167
-[09-May-2022 04:38:50 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign array to property Sebas\Cursos\models\Curso::$imagen of type string in C:\xampp\htdocs\cursos\src\models\Curso.php:167
+  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 118
+[09-May-2022 21:26:30 Europe/Berlin] PHP Parse error:  syntax error, unexpected token ";", expecting ")" in C:\xampp\htdocs\cursos\src\models\Curso.php on line 46
+[09-May-2022 21:26:52 Europe/Berlin] PHP Parse error:  syntax error, unexpected token ";", expecting ")" in C:\xampp\htdocs\cursos\src\models\Curso.php on line 46
+[09-May-2022 21:27:22 Europe/Berlin] PHP Warning:  Undefined array key "idLeccion" in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 52
+[09-May-2022 21:27:22 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Sebas\Cursos\models\Leccion::$idLeccion of type int in C:\xampp\htdocs\cursos\src\models\Leccion.php:95
 Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(72): Sebas\Cursos\models\Curso->setImagen(Array)
-#1 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#2 [internal function]: {closure}()
-#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#6 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#7 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#8 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 167
-[09-May-2022 04:39:21 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign array to property Sebas\Cursos\models\Curso::$imagen of type string in C:\xampp\htdocs\cursos\src\models\Curso.php:167
+#0 C:\xampp\htdocs\cursos\src\models\Leccion.php(52): Sebas\Cursos\models\Leccion->setIdLeccion(NULL)
+#1 C:\xampp\htdocs\cursos\src\models\Curso.php(46): Sebas\Cursos\models\Leccion::getByIdCurso(2)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(17): Sebas\Cursos\models\Curso::retornaCursos()
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(41): Sebas\Cursos\controllers\CursoController->catalogo()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 95
+[09-May-2022 21:27:49 Europe/Berlin] PHP Warning:  Undefined array key "idLeccion" in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 52
+[09-May-2022 21:27:49 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Sebas\Cursos\models\Leccion::$idLeccion of type int in C:\xampp\htdocs\cursos\src\models\Leccion.php:95
 Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(71): Sebas\Cursos\models\Curso->setImagen(Array)
-#1 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#2 [internal function]: {closure}()
-#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#6 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#7 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#8 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 167
-[09-May-2022 04:40:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function Sebas\Cursos\controllers\agregalecciones() in C:\xampp\htdocs\cursos\src\controllers\CursoController.php:75
+#0 C:\xampp\htdocs\cursos\src\models\Leccion.php(52): Sebas\Cursos\models\Leccion->setIdLeccion(NULL)
+#1 C:\xampp\htdocs\cursos\src\models\Curso.php(46): Sebas\Cursos\models\Leccion::getByIdCurso(2)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(17): Sebas\Cursos\models\Curso::retornaCursos()
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(41): Sebas\Cursos\controllers\CursoController->catalogo()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 95
+[09-May-2022 21:28:02 Europe/Berlin] PHP Warning:  Undefined array key "idLeccion" in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 52
+[09-May-2022 21:28:02 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Sebas\Cursos\models\Leccion::$idLeccion of type int in C:\xampp\htdocs\cursos\src\models\Leccion.php:95
 Stack trace:
-#0 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#1 [internal function]: {closure}()
-#2 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#5 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#6 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#7 {main}
-  thrown in C:\xampp\htdocs\cursos\src\controllers\CursoController.php on line 75
-[09-May-2022 04:40:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function Sebas\Cursos\controllers\agregaLecciones() in C:\xampp\htdocs\cursos\src\controllers\CursoController.php:75
+#0 C:\xampp\htdocs\cursos\src\models\Leccion.php(52): Sebas\Cursos\models\Leccion->setIdLeccion(NULL)
+#1 C:\xampp\htdocs\cursos\src\models\Curso.php(118): Sebas\Cursos\models\Leccion::getByIdCurso(2)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(28): Sebas\Cursos\models\Curso::getByIdCurso('2')
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 95
+[09-May-2022 21:28:51 Europe/Berlin] PHP Fatal error:  Cannot use string as default value for property Sebas\Cursos\models\Leccion::$idLeccion of type int in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 12
+[09-May-2022 21:29:21 Europe/Berlin] PHP Fatal error:  Default value for property of type int may not be null. Use the nullable type ?int to allow null default value in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 12
+[09-May-2022 21:29:22 Europe/Berlin] PHP Fatal error:  Default value for property of type int may not be null. Use the nullable type ?int to allow null default value in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 12
+[09-May-2022 21:29:35 Europe/Berlin] PHP Warning:  Undefined array key "idLeccion" in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 52
+[09-May-2022 21:29:35 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Sebas\Cursos\models\Leccion::$idLeccion of type int in C:\xampp\htdocs\cursos\src\models\Leccion.php:95
 Stack trace:
-#0 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#1 [internal function]: {closure}()
-#2 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#5 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#6 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#7 {main}
-  thrown in C:\xampp\htdocs\cursos\src\controllers\CursoController.php on line 75
-[09-May-2022 04:55:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function Sebas\Cursos\controllers\agregaLecciones() in C:\xampp\htdocs\cursos\src\controllers\CursoController.php:75
+#0 C:\xampp\htdocs\cursos\src\models\Leccion.php(52): Sebas\Cursos\models\Leccion->setIdLeccion(NULL)
+#1 C:\xampp\htdocs\cursos\src\models\Curso.php(118): Sebas\Cursos\models\Leccion::getByIdCurso(2)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(28): Sebas\Cursos\models\Curso::getByIdCurso('2')
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 95
+[09-May-2022 21:38:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function setTitulo() on array in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php:78
 Stack trace:
-#0 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#1 [internal function]: {closure}()
-#2 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#5 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#6 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#7 {main}
-  thrown in C:\xampp\htdocs\cursos\src\controllers\CursoController.php on line 75
-[09-May-2022 04:57:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Sebas\Cursos\controllers\Leccion" not found in C:\xampp\htdocs\cursos\src\controllers\CursoController.php:94
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('curso/detalle', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(29): Sebas\Cursos\lib\Controller->render('curso/detalle', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 78
+[09-May-2022 21:39:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getTitulo() on array in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php:78
 Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(75): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso))
-#1 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#2 [internal function]: {closure}()
-#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#6 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#7 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#8 {main}
-  thrown in C:\xampp\htdocs\cursos\src\controllers\CursoController.php on line 94
-[09-May-2022 04:58:37 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign array to property Sebas\Cursos\models\Leccion::$video of type string in C:\xampp\htdocs\cursos\src\models\Leccion.php:82
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('curso/detalle', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(29): Sebas\Cursos\lib\Controller->render('curso/detalle', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 78
+[09-May-2022 21:39:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getTitulo() on array in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php:80
 Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(99): Sebas\Cursos\models\Leccion->setVideo(Array)
-#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(76): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso))
-#2 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#3 [internal function]: {closure}()
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#7 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#9 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 82
-[09-May-2022 04:59:12 Europe/Berlin] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\cursos\src\controllers\CursoController.php on line 101
-[09-May-2022 04:59:12 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Sebas\Cursos\models\Leccion::$orden of type int in C:\xampp\htdocs\cursos\src\models\Leccion.php:88
-Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(101): Sebas\Cursos\models\Leccion->setOrden(NULL)
-#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(76): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso))
-#2 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#3 [internal function]: {closure}()
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#7 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#9 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 88
-[09-May-2022 04:59:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Typed property Sebas\Cursos\models\Curso::$idCurso must not be accessed before initialization in C:\xampp\htdocs\cursos\src\models\Curso.php:98
-Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(103): Sebas\Cursos\models\Curso->getIdCurso()
-#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(76): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso))
-#2 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#3 [internal function]: {closure}()
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#7 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#9 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 98
-[09-May-2022 05:01:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot access uninitialized non-nullable property Sebas\Cursos\models\Curso::$lecciones by reference in C:\xampp\htdocs\cursos\src\models\Curso.php:175
-Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(105): Sebas\Cursos\models\Curso->setLeccion(Object(Sebas\Cursos\models\Leccion))
-#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(76): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso))
-#2 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#3 [internal function]: {closure}()
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#7 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#9 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 175
-[09-May-2022 05:07:29 Europe/Berlin] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\cursos\src\models\Curso.php on line 25
-[09-May-2022 05:07:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot access uninitialized non-nullable property Sebas\Cursos\models\Curso::$lecciones by reference in C:\xampp\htdocs\cursos\src\models\Curso.php:176
-Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(105): Sebas\Cursos\models\Curso->setLeccion(Object(Sebas\Cursos\models\Leccion))
-#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(76): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso))
-#2 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#3 [internal function]: {closure}()
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#7 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#9 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 176
-[09-May-2022 05:09:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot access uninitialized non-nullable property Sebas\Cursos\models\Curso::$lecciones by reference in C:\xampp\htdocs\cursos\src\models\Curso.php:176
-Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(105): Sebas\Cursos\models\Curso->setLeccion(Object(Sebas\Cursos\models\Leccion))
-#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(76): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso))
-#2 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#3 [internal function]: {closure}()
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#7 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#9 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 176
-[09-May-2022 18:48:46 Europe/Berlin] Usuario loggeado
-[09-May-2022 18:48:54 Europe/Berlin] Usuario loggeado
-[09-May-2022 18:49:00 Europe/Berlin] Usuario loggeado
-[09-May-2022 18:49:31 Europe/Berlin] Usuario loggeado
-[09-May-2022 18:49:38 Europe/Berlin] Usuario loggeado
-[09-May-2022 18:52:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot access uninitialized non-nullable property Sebas\Cursos\models\Curso::$lecciones by reference in C:\xampp\htdocs\cursos\src\models\Curso.php:176
-Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(105): Sebas\Cursos\models\Curso->setLeccion(Object(Sebas\Cursos\models\Leccion))
-#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(76): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso))
-#2 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#3 [internal function]: {closure}()
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#7 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#9 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 176
-[09-May-2022 19:00:36 Europe/Berlin] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'titulo' in 'field list'
-[09-May-2022 19:00:36 Europe/Berlin] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'titulo' in 'field list'
-[09-May-2022 19:11:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Typed property Sebas\Cursos\models\Leccion::$video must not be accessed before initialization in C:\xampp\htdocs\cursos\src\models\Leccion.php:32
-Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(101): Sebas\Cursos\models\Leccion->crea()
-#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(75): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso))
-#2 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#3 [internal function]: {closure}()
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#7 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#9 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 32
-[09-May-2022 19:12:03 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Curso 2' for key 'nombre'
-[09-May-2022 19:12:03 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Sebas\Cursos\models\Leccion::$video of type string in C:\xampp\htdocs\cursos\src\models\Leccion.php:82
-Stack trace:
-#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(98): Sebas\Cursos\models\Leccion->setVideo(NULL)
-#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(75): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso))
-#2 C:\xampp\htdocs\cursos\src\lib\routes.php(115): Sebas\Cursos\controllers\CursoController->creaCurso()
-#3 [internal function]: {closure}()
-#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
-#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
-#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
-#7 C:\xampp\htdocs\cursos\src\lib\routes.php(118): Bramus\Router\Router->run()
-#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
-#9 {main}
-  thrown in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 82
-[09-May-2022 19:12:30 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Curso 2' for key 'nombre'
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('curso/detalle', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(29): Sebas\Cursos\lib\Controller->render('curso/detalle', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(46): Sebas\Cursos\controllers\CursoController->detalleCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(126): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 80
+[09-May-2022 21:53:32 Europe/Berlin] Usuario loggeado

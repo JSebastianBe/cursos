@@ -41,6 +41,31 @@ class Leccion extends Model{
 		}
 	}
 
+	public static function getByIdCurso($idCurso):Array{
+		$lecciones=[];
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idLeccion, titulo, objetivo, teoria, video, ejercicio, orden, idCurso FROM leccion WHERE idCurso = :idCurso ORDER BY orden ASC');
+			$query->execute(['idCurso' => $idCurso]);
+			while($c = $query->fetch(PDO::FETCH_ASSOC)){
+				$leccion = new Leccion();
+				$leccion->setIdLeccion($c['idLeccion']);
+				$leccion->setTitulo($c['titulo']);
+				$leccion->setObjetivo($c['objetivo']);
+				$leccion->setTeoria($c['teoria']);
+				$leccion->setVideo($c['video']);
+				$leccion->setEjercicio($c['ejercicio']);
+				$leccion->setOrden($c['orden']);
+				$leccion->setIdCurso($c['idCurso']);
+				array_push($lecciones, $leccion);
+			}
+			return $lecciones;	
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return [];
+		}
+	}
+
 	public function getIdLeccion(){
 		return $this->idLeccion;
 	}
@@ -90,12 +115,4 @@ class Leccion extends Model{
 	public function setIdCurso($idCurso){
 		$this->idCurso = $idCurso;
 	}
-
-
-
-
-
-
-
-
 }

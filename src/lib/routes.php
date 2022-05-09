@@ -41,6 +41,14 @@ $router->get('/catalogo', function(){
 	$controller->catalogo();
 });
 
+$router->get('/detalleCurso', function(){
+	$controller = new CursoController();
+	$controller->detalleCurso();
+});
+
+
+
+
 $router->get('/registro', function(){
 	//auth();
 	$controller = new UsuarioController();
