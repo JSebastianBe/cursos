@@ -81,7 +81,7 @@
 					<tbody id="lecciones">
 					</tbody>
 				 </table>
-				 <input name="arr_lecciones" id="arr_lecciones" required>
+				 <input name="arr_lecciones" id="arr_lecciones" type="hidden" required>
 				 <div class="col-lg-12">
 					<input class="btn boton-p" type="submit" value="Crear Curso">
 				</div>
@@ -125,13 +125,13 @@
 									<textarea class="form-control" rows="5" maxlength="1000" placeholder="Máximo 1000 caracteres.." name="ejercicio"  id="ejercicio" required></textarea>
 								</div>
 							</div>
-							<div class="col-lg-12">
+							<!-- <div class="col-lg-12">
 								<label for="validationCustomVideo" class="form-model"> Video</label>
 								<div class="input-group has-validation">
 									<span class="input-group-text" id="inputGroupVideo"><i class="bi bi-camera-video"></i></span>
 									<input type="file" class="form-control" name="video" id="video" value="" accept="video/mp4" required>
 								</div>
-							</div>
+							</div> -->
 						</form>
 					</div>
 					<div class="modal-footer" id="footerLeccion">
@@ -148,12 +148,12 @@ function addLeccion(){
 	var objetivo = document.getElementById("objetivo");
 	var teoria = document.getElementById("teoria");
 	var ejercicio = document.getElementById("ejercicio");
-	var video = document.getElementById("video");
+	// var video = document.getElementById("video");
 
-	if(titulo.value =="" || objetivo.value =="" || teoria.value =="" || ejercicio.value =="" || video.value ==""){
+	if(titulo.value =="" || objetivo.value =="" || teoria.value =="" || ejercicio.value ==""){
 		window.alert('Diligencie todos los datos');
 	}else{
-		array_lecciones.push([titulo.value, objetivo.value, teoria.value, ejercicio.value, video.files[0]]);
+		array_lecciones.push([titulo.value, objetivo.value, teoria.value, ejercicio.value]);
 	}
 	mostrarLeeciones();
 	limpiarCampos()
@@ -177,12 +177,12 @@ function limpiarCampos(){
 	document.getElementById("objetivo").value = '';
 	document.getElementById("teoria").value = '';
 	document.getElementById("ejercicio").value = '';
-	document.getElementById("video").value = '';
+	// document.getElementById("video").value = '';
 }
 
 function borrarLeccion(id){
 	array_lecciones.splice(id,1);
-	mostrarLeeciones()
+	mostrarLeeciones();
 }
 
 function modalLeecion(id){
@@ -208,7 +208,7 @@ function rellenaCamposLeccion(id){
 		document.getElementById("objetivo").value = array_lecciones[id][1];
 		document.getElementById("teoria").value = array_lecciones[id][2];
 		document.getElementById("ejercicio").value = array_lecciones[id][3];
-		rellenaVideo(id);
+		// rellenaVideo(id);
 	}
 }
 
@@ -227,9 +227,9 @@ function modifLeccion(){
 	var objetivo = document.getElementById("objetivo");
 	var teoria = document.getElementById("teoria");
 	var ejercicio = document.getElementById("ejercicio");
-	var video = document.getElementById("video");
+	// var video = document.getElementById("video");
 
-	if(idLeccion.value =="" || titulo.value =="" || objetivo.value =="" || teoria.value =="" || ejercicio.value =="" || video.value ==""){
+	if(idLeccion.value =="" || titulo.value =="" || objetivo.value =="" || teoria.value =="" || ejercicio.value ==""){
 		window.alert('Diligencie todos los datos');
 	}else{
 		if(idLeccion.value >= 0){
@@ -237,7 +237,7 @@ function modifLeccion(){
 			array_lecciones[idLeccion.value][1] = objetivo.value;
 			array_lecciones[idLeccion.value][2] = teoria.value;
 			array_lecciones[idLeccion.value][3] = ejercicio.value;
-			array_lecciones[idLeccion.value][4] = video.value;
+			// array_lecciones[idLeccion.value][4] = video.value;
 		}
 	}
 	mostrarLeeciones();

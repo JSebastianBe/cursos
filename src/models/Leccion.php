@@ -24,7 +24,7 @@ class Leccion extends Model{
 
 	public function crea(){
 		try{
-			$query = $this->prepare('INSERT INTO curso (titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES(:titulo, :objetivo, :teoria, :video, :ejercicio, :orden, :idCurso)');
+			$query = $this->prepare('INSERT INTO leccion (titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES(:titulo, :objetivo, :teoria, :video, :ejercicio, :orden, :idCurso)');
 			$query->execute([
 				'titulo' => $this->titulo, 
 				'objetivo' => $this->objetivo, 
