@@ -22,6 +22,11 @@ GIT
 	git commit
 	git push
 
+	git branch
+	git branch <nombre_rama>
+	git checkout <nombre_rama>
+
+
 	git fetch
 	git checkout
 	git merge
