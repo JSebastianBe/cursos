@@ -73,6 +73,35 @@ class Curso extends Model{
 		}
 	}
 
+	public function modifica(){
+		try{
+			$query = $this->prepare('UPDATE curso SET nombre = :nombre,
+					precio = :precio,
+					descripcionCorta = :descripcionCorta,
+					descripcionLarga = :descripcionLarga,
+					duracion = :duracion,
+					profesor = :profesor,
+					imagen = :imagen,
+					videoIntroduc = :videoIntroduc
+					WHERE idCurso = :idCurso;');
+			$query->execute([
+				'nombre' => $this->nombre, 
+				'precio' => $this->precio, 
+				'descripcionCorta' => $this->descripcionCorta, 
+				'descripcionLarga' => $this->descripcionLarga, 
+				'duracion' => $this->duracion, 
+				'profesor' => $this->profesor, 
+				'imagen' => $this->imagen, 
+				'videoIntroduc' => $this->videoIntroduc,
+				'idCurso' => $this->idCurso,
+			]);
+			return true;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
+		}
+	}
+
 	public static function get($nombre):Curso{
 		try{
 			$db = new Database();
@@ -206,5 +235,9 @@ class Curso extends Model{
 
 	public function setLeccion($leccion){
 		array_push($this->lecciones,$leccion);
+	}
+
+	public function setLecciones($lecciones){
+		$this->lecciones = $lecciones;
 	}
 }

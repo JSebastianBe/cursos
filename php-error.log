@@ -283,3 +283,102 @@ Stack trace:
 #10 {main}
   thrown in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 80
 [09-May-2022 21:53:32 Europe/Berlin] Usuario loggeado
+[10-May-2022 00:46:06 Europe/Berlin] Usuario loggeado
+[10-May-2022 00:46:27 Europe/Berlin] Usuario loggeado
+[10-May-2022 00:46:38 Europe/Berlin] Usuario loggeado
+[10-May-2022 00:56:56 Europe/Berlin] Usuario loggeado
+[10-May-2022 00:57:15 Europe/Berlin] Usuario loggeado
+[10-May-2022 00:57:37 Europe/Berlin] Usuario loggeado
+[10-May-2022 00:57:43 Europe/Berlin] Usuario loggeado
+[10-May-2022 00:59:39 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Introducción' for key 'titulo'
+[10-May-2022 00:59:39 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Conclusión' for key 'titulo'
+[10-May-2022 01:07:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\controllers\CursoController::modificaCurso() in C:\xampp\htdocs\cursos\src\lib\routes.php:52
+Stack trace:
+#0 [internal function]: {closure}()
+#1 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#2 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#4 C:\xampp\htdocs\cursos\src\lib\routes.php(131): Bramus\Router\Router->run()
+#5 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\cursos\src\lib\routes.php on line 52
+[10-May-2022 01:10:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\models\Curso::getByIdUsuario() in C:\xampp\htdocs\cursos\src\controllers\CursoController.php:29
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\routes.php(52): Sebas\Cursos\controllers\CursoController->modificaCurso()
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#5 C:\xampp\htdocs\cursos\src\lib\routes.php(131): Bramus\Router\Router->run()
+#6 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\cursos\src\controllers\CursoController.php on line 29
+[10-May-2022 01:20:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\models\Curso::getLeccion() in C:\xampp\htdocs\cursos\src\views\Curso\registro.php:33
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('curso/registro', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(30): Sebas\Cursos\lib\Controller->render('curso/registro', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(52): Sebas\Cursos\controllers\CursoController->modificaCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(131): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 33
+[10-May-2022 01:37:24 Europe/Berlin] PHP Warning:  Undefined variable $vidvideoIntroduceo in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 93
+[10-May-2022 01:37:39 Europe/Berlin] PHP Warning:  Undefined variable $vidvideoIntroduceo in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 93
+[10-May-2022 01:38:03 Europe/Berlin] PHP Warning:  Undefined variable $vidvideoIntroduceo in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 93
+[10-May-2022 01:49:34 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 124
+[10-May-2022 01:51:19 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 36
+[10-May-2022 01:51:19 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 124
+[10-May-2022 01:52:16 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 124
+[10-May-2022 01:53:06 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 124
+[10-May-2022 01:54:17 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 124
+[10-May-2022 01:54:56 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 124
+[10-May-2022 01:56:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 124
+[10-May-2022 01:56:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 306
+[10-May-2022 02:01:56 Europe/Berlin] PHP Warning:  Undefined variable $curso in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 311
+[10-May-2022 02:01:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getLecciones() on null in C:\xampp\htdocs\cursos\src\views\Curso\registro.php:311
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('curso/registro', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(30): Sebas\Cursos\lib\Controller->render('curso/registro', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(52): Sebas\Cursos\controllers\CursoController->modificaCurso()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(131): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 311
+[10-May-2022 02:17:55 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\controllers\CursoController.php on line 123
+[10-May-2022 02:47:25 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Sebas\Cursos\models\Curso::setVideoIntroduc(), 0 passed in C:\xampp\htdocs\cursos\src\controllers\CursoController.php on line 125 and exactly 1 expected in C:\xampp\htdocs\cursos\src\models\Curso.php:232
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(125): Sebas\Cursos\models\Curso->setVideoIntroduc()
+#1 C:\xampp\htdocs\cursos\src\lib\routes.php(58): Sebas\Cursos\controllers\CursoController->modificarCurso()
+#2 [internal function]: {closure}()
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#6 C:\xampp\htdocs\cursos\src\lib\routes.php(137): Bramus\Router\Router->run()
+#7 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Curso.php on line 232
+[10-May-2022 02:49:01 Europe/Berlin] Usuario loggeado
+[10-May-2022 02:50:28 Europe/Berlin] Usuario loggeado
+[10-May-2022 02:50:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Typed property Sebas\Cursos\models\Leccion::$video must not be accessed before initialization in C:\xampp\htdocs\cursos\src\models\Leccion.php:58
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(189): Sebas\Cursos\models\Leccion->modifica()
+#1 C:\xampp\htdocs\cursos\src\controllers\CursoController.php(141): Sebas\Cursos\controllers\CursoController->agregaLecciones(Array, Object(Sebas\Cursos\models\Curso), 'Modifica')
+#2 C:\xampp\htdocs\cursos\src\lib\routes.php(58): Sebas\Cursos\controllers\CursoController->modificarCurso()
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\cursos\src\lib\routes.php(137): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\cursos\src\models\Leccion.php on line 58

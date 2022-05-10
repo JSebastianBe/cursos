@@ -46,6 +46,17 @@ $router->get('/detalleCurso', function(){
 	$controller->detalleCurso();
 });
 
+$router->get('/modificaCurso', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->modificaCurso();
+});
+
+$router->post('/modificarCurso', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->modificarCurso();
+});
 
 
 

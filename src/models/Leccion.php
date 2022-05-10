@@ -41,6 +41,33 @@ class Leccion extends Model{
 		}
 	}
 
+	public function modifica(){
+		try{
+			$query = $this->prepare('UPDATE leccion SET 	titulo = :titulo,
+					objetivo = :objetivo,
+					teoria = :teoria,
+					video = :video,
+					ejercicio = :ejercicio,
+					orden = :orden,
+					idCurso = :idCurso
+				WHERE idLeccion = :idLeccion;');
+			$query->execute([
+				'titulo' => $this->titulo, 
+				'objetivo' => $this->objetivo, 
+				'teoria' => $this->teoria, 
+				'video' => $this->video, 
+				'ejercicio' => $this->ejercicio, 
+				'orden' => $this->orden, 
+				'idCurso' => $this->idCurso,
+				'idLeccion' => $this->idLeccion,
+			]);
+			return true;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
+		}
+	}
+
 	public static function getByIdCurso($idCurso):Array{
 		$lecciones=[];
 		try{
@@ -63,6 +90,29 @@ class Leccion extends Model{
 		}catch(PDOException $e){
 			error_log($e->getMessage());
 			return [];
+		}
+	}
+
+
+	public static function getByIdLeccion($idLeccion):Leccion{
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idLeccion, titulo, objetivo, teoria, video, ejercicio, orden, idCurso FROM leccion WHERE idLeccion = :idLeccion');
+			$query->execute(['idLeccion' => $idLeccion]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+			$leccion = new Leccion();
+			$leccion->setIdLeccion($data['idLeccion']);
+			$leccion->setTitulo($data['titulo']);
+			$leccion->setObjetivo($data['objetivo']);
+			$leccion->setTeoria($data['teoria']);
+			$leccion->setVideo($data['video']);
+			$leccion->setEjercicio($data['ejercicio']);
+			$leccion->setOrden($data['orden']);
+			$leccion->setIdCurso($data['idCurso']);
+			return $leccion;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
 		}
 	}
 

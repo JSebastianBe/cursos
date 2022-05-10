@@ -25,7 +25,7 @@
 						<th><?php echo $c->getPrecio(); ?></th>
 						<th><?php echo $c->getDuracion(); ?></th>
 						<th><?php echo $c->getProfesor(); ?></th>
-				      <th scope="col"><a class="btn boton-p" href="detalleCurso?id=<?php echo $c->getIdCurso(); ?>"><i class="bi bi-zoom-in"></i></a></th>
+				      <th scope="col"><a class="btn boton-p" href="modificaCurso?id=<?php echo $c->getIdCurso(); ?>"><i class="bi bi-zoom-in"></i></a></th>
 				    </tr>
 				<?php
 			}

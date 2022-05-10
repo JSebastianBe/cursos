@@ -5,64 +5,114 @@
 		if($usuario->getPerfil()=="Cliente"){
 			header('location: /Cursos/inicio');
 		}
+		$idCurso = "";
+		$nombre = "";
+		$precio = "";
+		$descripcionCorta = "";
+		$descripcionLarga = "";
+		$duracion = "";
+		$profesor = "";
+		$imagen = "";
+		$videoIntroduc = "";
+		$lecciones = "";
+		$nombreBoton = "Crear";
 		?>
 		<div class="col col-lg-12">
-			<h1  class="text-center">Registro de cursos</h1>
-			<form class="row g-3" action="/Cursos/creaCurso" method="POST" enctype="multipart/form-data">
+			<?php
+			if(isset($this->d['cursoModificar'])){
+				$nombreBoton = "Modificar";
+				$cursoModificar = $this->d['cursoModificar'];
+
+				$idCurso = $cursoModificar->getIdCurso();
+				$nombre = $cursoModificar->getNombre();
+				$precio = $cursoModificar->getPrecio();
+				$descripcionCorta = $cursoModificar->getDescripcionCorta();
+				$descripcionLarga = $cursoModificar->getDescripcionLarga();
+				$duracion = $cursoModificar->getDuracion();
+				$profesor = $cursoModificar->getProfesor();
+				$imagen = $cursoModificar->getImagen();
+				$videoIntroduc = $cursoModificar->getVideoIntroduc();
+				$lecciones = $cursoModificar->getLecciones();
+				?>
+				<h1  class="text-center">Actualización de curso <?php echo $nombre;?></h1>
+				<form class="row g-3" action="/Cursos/modificarCurso" method="POST" enctype="multipart/form-data">
+					<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $idCurso; ?>" required>
+				<?php
+			}else{
+				?>
+				<h1  class="text-center">Registro de cursos</h1>
+				<form class="row g-3" action="/Cursos/creaCurso" method="POST" enctype="multipart/form-data">
+				<?php
+			}
+			?>
 				<div class="col-lg-4">
 					<label for="validationCustomNombre" class="form-model"> Nombre</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupNombre"><i class="bi bi-card-text"></i></span>
-						<input type="text" class="form-control" name="nombre" value="" required>
+						<input type="text" class="form-control" name="nombre" value="<?php echo $nombre; ?>" required>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<label for="validationCustomPrecio" class="form-model"> Precio (cop)</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupPrecio"><i class="bi bi-currency-dollar"></i></span>
-						<input type="number" class="form-control" name="precio" min="0" step="0.01" value="" required>
+						<input type="number" class="form-control" name="precio" min="0" step="0.01" value="<?php echo $precio; ?>" required>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<label for="validationCustomProfesor" class="form-model"> Profesor</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupProfesor"><i class="bi bi-person-circle"></i></span>
-						<input type="text" class="form-control" name="profesor" value="" required>
+						<input type="text" class="form-control" name="profesor" value="<?php echo $profesor; ?>" required>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<label for="validationCustomDuracion" class="form-model"> Duración (horas)</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupDuracion"><i class="bi bi-alarm"></i></span>
-						<input type="number" class="form-control" name="duracion" min="0" step="0.1" value="" required>
+						<input type="number" class="form-control" name="duracion" min="0" step="0.1" value="<?php echo $duracion; ?>" required>
 					</div>
 				</div>
 				<div class="col-lg-4">
+					<?php
+					if($imagen != ""){
+					?>
+					<img src="/Cursos/public/img/photos/<?php echo $imagen; ?>" class="card-img-top" alt="Curso <?php echo $imagen; ?>">
+					<?php
+					}
+					?>
 					<label for="validationCustomImagen" class="form-model"> Imagen</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupImagen"><i class="bi bi-card-image"></i></span>
-						<input type="file" class="form-control" name="imagen" value="" accept="image/png, .jpeg, .jpg" required>
+						<input type="file" class="form-control" name="imagen" value="" width="300" accept="image/png, .jpeg, .jpg">
 					</div>
 				</div>
 				<div class="col-lg-4">
+					<?php
+					if($videoIntroduc != ""){
+					?>
+					<video class="form-model" src="/Cursos/public/img/videos/<?php echo $videoIntroduc; ?>" width="300" height="200" controls></video>
+					<?php
+					}
+					?>
 					<label for="validationCustomVideo" class="form-model"> Video introductorio</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupVideo"><i class="bi bi-camera-video"></i></span>
-						<input type="file" class="form-control" name="videoIntroduc" value="" accept="video/mp4" required>
+						<input type="file" class="form-control" name="videoIntroduc" value="" accept="video/mp4">
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<label for="validationCustomDescripcionCorta" class="form-model"> Descripción Corta</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupDescripcionCorta"><i class="bi bi-card-text"></i></span>
-						<textarea class="form-control" rows="5" maxlength="100" placeholder="Máximo 100 caracteres.." name="descripcionCorta" required></textarea>
+						<textarea class="form-control" rows="5" maxlength="100" placeholder="Máximo 100 caracteres.." name="descripcionCorta" required><?php echo $descripcionCorta; ?></textarea>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<label for="validationCustomDescripcionLarga" class="form-model"> Descripción Larga</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupDescripcionlarga"><i class="bi bi-card-text"></i></span>
-						<textarea class="form-control" rows="5" maxlength="1000" placeholder="Máximo 1000 caracteres.." name="descripcionLarga" required></textarea>
+						<textarea class="form-control" rows="5" maxlength="1000" placeholder="Máximo 1000 caracteres.." name="descripcionLarga" required><?php echo $descripcionLarga; ?></textarea>
 					</div>
 				</div>
 				<div class="col-lg-12">
@@ -70,7 +120,17 @@
 				 		<i class="bi bi-node-plus"></i> Agregar Lección
 					</button>
 				</div>
+				<?php
+				if($videoIntroduc != ""){
+				?>
 				<table class="table table-hover">
+				<?php
+				}else{
+				?>
+				<table class="table table-hover">
+				<?php
+				}
+				?>
 					<thead>   
 						<tr>		
 							<th scope="col"> idLeccion </th>		
@@ -83,7 +143,7 @@
 				 </table>
 				 <input name="arr_lecciones" id="arr_lecciones" type="hidden" required>
 				 <div class="col-lg-12">
-					<input class="btn boton-p" type="submit" value="Crear Curso">
+					<input class="btn boton-p" type="submit" value="<?php echo $nombreBoton;?> Curso">
 				</div>
 			</form>
 		</div>
@@ -242,4 +302,29 @@ function modifLeccion(){
 	}
 	mostrarLeeciones();
 }
+
+
+window.onload=function() {
+	var titulo ="";
+	var objetivo ="";
+	var teoria ="";
+	var ejercicio ="";
+	var idLeccion = "";
+
+	<?php 
+	foreach($lecciones as $l){ ?>
+		titulo = '<?php echo $l->getTitulo(); ?>';
+		objetivo = '<?php echo $l->getObjetivo(); ?>';
+		teoria = '<?php echo $l->getTeoria(); ?>';
+		ejercicio = '<?php echo $l->getEjercicio(); ?>';
+		idLeccion = '<?php echo $l->getidLeccion(); ?>';
+		// var video = document.getElementById("video");
+		array_lecciones.push([titulo, objetivo, teoria, ejercicio,idLeccion]);
+	<?php
+	}
+	?>
+	mostrarLeeciones();
+	limpiarCampos()
+}
+
 </script>
