@@ -40,7 +40,9 @@
 						</div>
 						<a href="detalleCurso?id=<?php echo $c->getIdCurso(); ?>"><img src="/Cursos/public/img/photos/<?php echo $c->getImagen(); ?>" class="card-img-top" alt="Curso <?php echo $c->getNombre(); ?>"></a>
 						<div class="card-body">
-							<p class="card-text"><?php echo $c->getDescripcionCorta(); ?></p>
+							<p class="card-text opacity-75"><?php echo $c->getPerfil(); ?></p>
+							<hr class="featurette-divider">
+							<p class="card-text mb-0 text_recor"><?php echo $c->getObjetivo(); ?></p>
 							<a href="detalleCurso?id=<?php echo $c->getIdCurso(); ?>" class="btn boton-p">Ver más</a>
 							<small class="text-muted">
 								<font style="vertical-align: inherit;">

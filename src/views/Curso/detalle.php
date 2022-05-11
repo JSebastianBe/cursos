@@ -11,7 +11,7 @@ if(isset($this->d['curso'])){
 	  </div>
 	  <div class="col-lg-6">
 	    <h1 class="display-5 fw-bold lh-1 mb-3"><?php echo $curso->getNombre(); ?></h1>
-	    <p class="lead"><?php echo $curso->getDescripcionCorta(); ?></p>
+	    <p class="lead"><?php echo $curso->getObjetivo(); ?></p>
 	    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
 	      <button type="button" class="btn boton-p btn-lg px-4 me-md-2">Inscribirse</button>
 	      <button type="button" class="btn btn-outline-secondary btn-lg px-4">Ver más</button>
@@ -22,7 +22,7 @@ if(isset($this->d['curso'])){
 	<div class="row featurette">
 	  <div class="col-md-7 order-md-2">
 	    <h2 class="featurette-heading"><?php echo $curso->getNombre(); ?> <span class="text-muted"><?php echo $curso->getDuracion(); ?>(horas)</span></h2>
-	    <p class="lead"><?php echo $curso->getDescripcionLarga(); ?></p>
+	    <p class="lead"><?php echo $curso->getDescripcion(); ?></p>
 	  </div>
 	  <div class="col-md-5 order-md-1">
 	  	<video class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="/Cursos/public/img/videos/<?php echo $curso->getVideoIntroduc(); ?>" width="500" height="500" controls></video>
@@ -51,8 +51,8 @@ if(isset($this->d['curso'])){
 	  <div class="col d-flex align-items-start">
 	    <div class="fs-4 mb-3">
 		    <div>
-	      		<h4 class="fw-bold mb-0">Cantidad de lecciones</h4>
-	      		<p><i class="bi bi-book"></i> <?php echo $curso->getCantidadLecciones(); ?></p>
+	      		<h4 class="fw-bold mb-0">Cantidad de Capítulos</h4>
+	      		<p><i class="bi bi-book"></i> <?php echo $curso->getCantidadCapitulos(); ?></p>
 	      	</div>
 	    </div>
 	  </div>
@@ -66,26 +66,33 @@ if(isset($this->d['curso'])){
 	  </div>
 	</div>
 	<hr class="featurette-divider">
-	<h2 class="pb-2 border-bottom">Lecciones</h2>
-	<div class="list-group">
 	<?php
-	$lecciones = $curso->getLecciones();
-	foreach($lecciones as $l){
+	$capitulos = $curso->getCapitulos();
+	foreach($capitulos as $c){
 	?>
-	  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-	    <i class="fs-4 mb-3 bi bi-book"></i>
-	    <div class="d-flex gap-2 w-100 justify-content-between">
-	      <div>
-	        <h6 class="mb-0"><?php echo $l->getTitulo(); ?></h6>
-	        <p class="mb-0 opacity-75 text_recor"><?php echo $l->getObjetivo(); ?></p>
-	      </div>
-	      <small class="opacity-50 text-nowrap"><?php echo $l->getOrden(); ?></small>
-	    </div>
-	  </a>
+	<h2 class="pb-2 border-bottom"><?php echo $c['capitulo'];?></h2>
+		<div class="list-group">
+		<?php
+		$lecciones = $curso->getLeccionesByCap($c['capitulo']);
+		foreach($lecciones as $l){
+		?>
+		  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+		    <i class="fs-4 mb-3 bi bi-book"></i>
+		    <div class="d-flex gap-2 w-100 justify-content-between">
+		      <div>
+		        <h6 class="mb-0"><?php echo $l->getTitulo(); ?></h6>
+		        <p class="mb-0 opacity-75 text_recor"><?php echo $l->getObjetivo(); ?></p>
+		      </div>
+		      <small class="opacity-50 text-nowrap"><?php echo $l->getOrden(); ?></small>
+		    </div>
+		  </a>
+		<?php
+		}
+		?>
+		</div>
 	<?php
 	}
 	?>
-	</div>
 </div>
 <?php
 }else{

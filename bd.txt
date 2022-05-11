@@ -8,19 +8,22 @@ correo varchar(100) UNIQUE NOT NULL,
 telefono varchar(100) NOT NULL,
 usuario varchar(100) UNIQUE NOT NULL,
 perfil varchar(100) NOT NULL,
-clave varchar(100) NOT NULL);
+clave varchar(100) NOT NULL)
+ENGINE=InnoDB;
 
 
 create table Curso(
 idCurso integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
 nombre varchar(100) UNIQUE NOT NULL,
 precio double NOT NULL,
-descripcionCorta varchar(100) NOT NULL,
-descripcionLarga varchar(1000) NOT NULL,
+objetivo varchar(1000) NOT NULL,
+descripcion varchar(1000) NOT NULL,
+perfil varchar(100) NOT NULL,
 duracion integer NOT NULL,
 profesor varchar(100) NOT NULL,
 imagen varchar(200) NOT NULL,
-videoIntroduc varchar(200)NOT NULL);
+videoIntroduc varchar(200)NOT NULL)
+ENGINE=InnoDB;
 
 
 create table Pago(
@@ -32,19 +35,23 @@ estado varchar(10) NOT NULL,
 idUsuario integer NOT NULL,
 idCurso integer NOT NULL,
 FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario),
-FOREIGN KEY (idCurso) REFERENCES Curso (idCurso));
+FOREIGN KEY (idCurso) REFERENCES Curso (idCurso))
+ENGINE=InnoDB;
 
 
 create table Leccion(
 idLeccion integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
-titulo varchar(100) UNIQUE NOT NULL,
-objetivo varchar(100) NOT NULL,
-teoria varchar(100) NOT NULL,
+capitulo varchar(100) NOT NULL, 
+titulo varchar(100) NOT NULL,
+objetivo varchar(1000) NOT NULL,
+teoria varchar(1000) NOT NULL,
 video varchar(100) ,
-ejercicio varchar(100) NOT NULL,
+ejercicio varchar(1000) NOT NULL,
 orden integer NOT NULL,
 idCurso integer NOT NULL,
-FOREIGN KEY (idCurso) REFERENCES Curso (idCurso));
+FOREIGN KEY (idCurso) REFERENCES Curso (idCurso),
+UNIQUE `kunique_02` (`capitulo`,`titulo`,`idCurso`))
+ENGINE=InnoDB;
 
 
 create table Material(
@@ -52,14 +59,16 @@ idMaterial integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
 nombre varchar(100) NOT NULL,
 archivo varchar(100) NOT NULL,
 idLeccion integer NOT NULL,
-FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion));
+FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion))
+ENGINE=InnoDB;
 
 create table AvanceCurso(
 idAvanceCurso integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
 idUsuario integer NOT NULL,
 idCurso integer NOT NULL,
 FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario),
-FOREIGN KEY (idCurso) REFERENCES Curso (idCurso));
+FOREIGN KEY (idCurso) REFERENCES Curso (idCurso))
+ENGINE=InnoDB;
 
 create table AvanceLeccion(
 idAvanceLeccion integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
@@ -67,7 +76,8 @@ visto integer NOT NULL,
 idLeccion integer NOT NULL,
 idAvanceCurso integer NOT NULL,
 FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion),
-FOREIGN KEY (idAvanceCurso) REFERENCES AvanceCurso (idAvanceCurso));
+FOREIGN KEY (idAvanceCurso) REFERENCES AvanceCurso (idAvanceCurso))
+ENGINE=InnoDB;
 
 
 INSERT INTO `usuario` (`idUsuario`, `nombre`, `correo`, `telefono`, `usuario`, `perfil`, `clave`) VALUES (NULL, 'Juan', 'juan@gmail.com', '123', 'juan@gmail.com', 'Administrador', '$2y$10$tr6i1d2t2ZWKi1akO/Klo.Y6tPN2LFrD15.2LlFWR5aJeet1Ej6Sq');

@@ -13,8 +13,9 @@ class Curso extends Model{
 	private int $idCurso;
 	private string $nombre;
 	private float $precio;
-	private string $descripcionCorta;
-	private string $descripcionLarga;
+	private string $objetivo;
+	private string $descripcion;
+	private string $perfil;
 	private int $duracion;
 	private string $profesor;
 	private string $imagen;
@@ -30,15 +31,16 @@ class Curso extends Model{
 		$cursos=[];
 		try{
 			$db = new Database();
-			$query = $db->connect()->prepare('SELECT idCurso, nombre, precio, descripcionCorta, descripcionLarga, duracion, profesor, imagen, videoIntroduc FROM curso ORDER BY idCurso ASC');
+			$query = $db->connect()->prepare('SELECT idCurso, nombre, precio, objetivo, descripcion, perfil, duracion, profesor, imagen, videoIntroduc FROM curso ORDER BY idCurso ASC');
 			$query->execute();
 			while($c = $query->fetch(PDO::FETCH_ASSOC)){
 				$curso = new Curso();
 				$curso->setIdCurso($c['idCurso']);
 				$curso->setNombre($c['nombre']);
 				$curso->setPrecio($c['precio']);
-				$curso->setDescripcionCorta($c['descripcionCorta']);
-				$curso->setDescripcionLarga($c['descripcionLarga']);
+				$curso->setObjetivo($c['objetivo']);
+				$curso->setDescripcion($c['descripcion']);
+				$curso->setPerfil($c['perfil']);
 				$curso->setDuracion($c['duracion']);
 				$curso->setProfesor($c['profesor']);
 				$curso->setImagen($c['imagen']);
@@ -55,13 +57,14 @@ class Curso extends Model{
 
 	public function crea(){
 		try{
-			$query = $this->prepare('INSERT INTO curso (nombre, precio, descripcionCorta, descripcionLarga, duracion, profesor, imagen, videoIntroduc) VALUES(:nombre, :precio, :descripcionCorta, :descripcionLarga, :duracion, :profesor, :imagen, :videoIntroduc)');
+			$query = $this->prepare('INSERT INTO curso (nombre, precio, objetivo, descripcion, perfil, duracion, profesor, imagen, videoIntroduc) VALUES(:nombre, :precio, :objetivo, :descripcion, :perfil, :duracion, :profesor, :imagen, :videoIntroduc)');
 			$query->execute([
 				'nombre' => $this->nombre, 
 				'precio' => $this->precio, 
-				'descripcionCorta' => $this->descripcionCorta, 
-				'descripcionLarga' => $this->descripcionLarga, 
+				'objetivo' => $this->objetivo, 
+				'descripcion' => $this->descripcion, 
 				'duracion' => $this->duracion, 
+				'perfil' => $this->perfil,
 				'profesor' => $this->profesor, 
 				'imagen' => $this->imagen, 
 				'videoIntroduc' => $this->videoIntroduc,
@@ -77,9 +80,10 @@ class Curso extends Model{
 		try{
 			$query = $this->prepare('UPDATE curso SET nombre = :nombre,
 					precio = :precio,
-					descripcionCorta = :descripcionCorta,
-					descripcionLarga = :descripcionLarga,
+					objetivo = :objetivo,
+					descripcion = :descripcion,
 					duracion = :duracion,
+					perfil = :perfil,
 					profesor = :profesor,
 					imagen = :imagen,
 					videoIntroduc = :videoIntroduc
@@ -87,9 +91,10 @@ class Curso extends Model{
 			$query->execute([
 				'nombre' => $this->nombre, 
 				'precio' => $this->precio, 
-				'descripcionCorta' => $this->descripcionCorta, 
-				'descripcionLarga' => $this->descripcionLarga, 
-				'duracion' => $this->duracion, 
+				'objetivo' => $this->objetivo, 
+				'descripcion' => $this->descripcion, 
+				'duracion' => $this->duracion,  
+				'perfil' => $this->perfil,
 				'profesor' => $this->profesor, 
 				'imagen' => $this->imagen, 
 				'videoIntroduc' => $this->videoIntroduc,
@@ -105,7 +110,7 @@ class Curso extends Model{
 	public static function get($nombre):Curso{
 		try{
 			$db = new Database();
-			$query = $db->connect()->prepare('SELECT idCurso, nombre, precio, descripcionCorta, descripcionLarga, duracion, profesor, imagen, videoIntroduc FROM curso WHERE nombre = :nombre');
+			$query = $db->connect()->prepare('SELECT idCurso, nombre, precio, objetivo, descripcion, perfil, duracion, profesor, imagen, videoIntroduc FROM curso WHERE nombre = :nombre');
 			$query->execute(['nombre' => $nombre]);
 			$data = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -113,8 +118,9 @@ class Curso extends Model{
 			$curso->setIdCurso($data['idCurso']);
 			$curso->setNombre($data['nombre']);
 			$curso->setPrecio($data['precio']);
-			$curso->setDescripcionCorta($data['descripcionCorta']);
-			$curso->setDescripcionLarga($data['descripcionLarga']);
+			$curso->setObjetivo($data['objetivo']);
+			$curso->setDescripcion($data['descripcion']);
+			$curso->setPerfil($data['perfil']);
 			$curso->setDuracion($data['duracion']);
 			$curso->setProfesor($data['profesor']);
 			$curso->setImagen($data['imagen']);
@@ -130,7 +136,7 @@ class Curso extends Model{
 	public static function getByIdCurso($idCurso):Curso{
 		try{
 			$db = new Database();
-			$query = $db->connect()->prepare('SELECT idCurso, nombre, precio, descripcionCorta, descripcionLarga, duracion, profesor, imagen, videoIntroduc FROM curso WHERE idCurso = :idCurso');
+			$query = $db->connect()->prepare('SELECT idCurso, nombre, precio, objetivo, descripcion, perfil, duracion, profesor, imagen, videoIntroduc FROM curso WHERE idCurso = :idCurso');
 			$query->execute(['idCurso' => $idCurso]);
 			$data = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -138,8 +144,9 @@ class Curso extends Model{
 			$curso->setIdCurso($data['idCurso']);
 			$curso->setNombre($data['nombre']);
 			$curso->setPrecio($data['precio']);
-			$curso->setDescripcionCorta($data['descripcionCorta']);
-			$curso->setDescripcionLarga($data['descripcionLarga']);
+			$curso->setObjetivo($data['objetivo']);
+			$curso->setDescripcion($data['descripcion']);
+			$curso->setPerfil($data['perfil']);
 			$curso->setDuracion($data['duracion']);
 			$curso->setProfesor($data['profesor']);
 			$curso->setImagen($data['imagen']);
@@ -164,14 +171,17 @@ class Curso extends Model{
 		return $this->precio;
 	}
 
-	public function getDescripcionCorta(){
-		return $this->descripcionCorta;
+	public function getObjetivo(){
+		return $this->objetivo;
 	}
 
-	public function getDescripcionLarga(){
-		return $this->descripcionLarga;
+	public function getDescripcion(){
+		return $this->descripcion;
 	}
 
+	public function getPerfil(){
+		return $this->perfil;
+	}
 	public function getDuracion(){
 		return $this->duracion;
 	}
@@ -196,6 +206,42 @@ class Curso extends Model{
 		return count($this->lecciones[0]);
 	}
 
+	public function getCantidadCapitulos(){
+		try{
+			$query =  $this->prepare('SELECT count(A.capitulo)cantidad FROM (SELECT count(idLeccion), capitulo FROM leccion WHERE idCurso = :idCurso GROUP BY capitulo)A;');
+			$query->execute(['idCurso' => $this->idCurso]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+			return $data['cantidad'];
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
+		}
+	}
+
+	public function getCapitulos(){
+		$capitulos=[];
+		try{
+			$query =  $this->prepare('SELECT count(idLeccion)cantidad, capitulo FROM leccion WHERE idCurso = :idCurso GROUP BY capitulo;');
+			$query->execute(['idCurso' => $this->idCurso]);
+			while($data = $query->fetch(PDO::FETCH_ASSOC)){
+				array_push($capitulos, $data);
+			}
+			return $capitulos;	
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return [];
+		}
+	}
+
+	public function getLeccionesByCap($capitulo){
+		$leccionesByCap =[];
+		foreach($this->lecciones[0] as $l){
+			if($l->getCapitulo()==$capitulo){
+				array_push($leccionesByCap, $l);
+			}
+		}
+		return $leccionesByCap;
+	}
 
 	public function setIdCurso($idCurso){
 		$this->idCurso = $idCurso;
@@ -209,14 +255,17 @@ class Curso extends Model{
 		$this->precio = $precio;
 	}
 
-	public function setDescripcionCorta($descripcionCorta){
-		$this->descripcionCorta = $descripcionCorta;
+	public function setObjetivo($objetivo){
+		$this->objetivo = $objetivo;
 	}
 
-	public function setDescripcionLarga($descripcionLarga){
-		$this->descripcionLarga = $descripcionLarga;
+	public function setDescripcion($descripcion){
+		$this->descripcion = $descripcion;
 	}
 
+	public function setPerfil($perfil){
+		$this->perfil = $perfil;
+	}
 	public function setDuracion($duracion){
 		$this->duracion = $duracion;
 	}

@@ -10,6 +10,7 @@ use PDOException;
 class Leccion extends Model{
 
 	private int $idLeccion;
+	private string $capitulo;
 	private string $titulo;
 	private string $objetivo;
 	private string $teoria;
@@ -24,8 +25,9 @@ class Leccion extends Model{
 
 	public function crea(){
 		try{
-			$query = $this->prepare('INSERT INTO leccion (titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES(:titulo, :objetivo, :teoria, :video, :ejercicio, :orden, :idCurso)');
+			$query = $this->prepare('INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES(:capitulo, :titulo, :objetivo, :teoria, :video, :ejercicio, :orden, :idCurso)');
 			$query->execute([
+				'capitulo' => $this->capitulo, 
 				'titulo' => $this->titulo, 
 				'objetivo' => $this->objetivo, 
 				'teoria' => $this->teoria, 
@@ -43,24 +45,44 @@ class Leccion extends Model{
 
 	public function modifica(){
 		try{
-			$query = $this->prepare('UPDATE leccion SET 	titulo = :titulo,
-					objetivo = :objetivo,
-					teoria = :teoria,
-					video = :video,
-					ejercicio = :ejercicio,
-					orden = :orden,
-					idCurso = :idCurso
-				WHERE idLeccion = :idLeccion;');
-			$query->execute([
-				'titulo' => $this->titulo, 
-				'objetivo' => $this->objetivo, 
-				'teoria' => $this->teoria, 
-				'video' => $this->video, 
-				'ejercicio' => $this->ejercicio, 
-				'orden' => $this->orden, 
-				'idCurso' => $this->idCurso,
-				'idLeccion' => $this->idLeccion,
-			]);
+			if($this->titulo == ""){
+				$query = $this->prepare('UPDATE leccion SET 
+						objetivo = :objetivo,
+						teoria = :teoria,
+						video = :video,
+						ejercicio = :ejercicio,
+						orden = :orden,
+						idCurso = :idCurso
+					WHERE idLeccion = :idLeccion;');
+				$query->execute([
+					'objetivo' => $this->objetivo, 
+					'teoria' => $this->teoria, 
+					'video' => $this->video, 
+					'ejercicio' => $this->ejercicio, 
+					'orden' => $this->orden, 
+					'idCurso' => $this->idCurso,
+					'idLeccion' => $this->idLeccion,
+				]);
+			}else{
+				$query = $this->prepare('UPDATE leccion SET 	titulo = :titulo,
+						objetivo = :objetivo,
+						teoria = :teoria,
+						video = :video,
+						ejercicio = :ejercicio,
+						orden = :orden,
+						idCurso = :idCurso
+					WHERE idLeccion = :idLeccion;');
+				$query->execute([
+					'titulo' => $this->titulo, 
+					'objetivo' => $this->objetivo, 
+					'teoria' => $this->teoria, 
+					'video' => $this->video, 
+					'ejercicio' => $this->ejercicio, 
+					'orden' => $this->orden, 
+					'idCurso' => $this->idCurso,
+					'idLeccion' => $this->idLeccion,
+				]);
+			}	
 			return true;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
@@ -72,11 +94,12 @@ class Leccion extends Model{
 		$lecciones=[];
 		try{
 			$db = new Database();
-			$query = $db->connect()->prepare('SELECT idLeccion, titulo, objetivo, teoria, video, ejercicio, orden, idCurso FROM leccion WHERE idCurso = :idCurso ORDER BY orden ASC');
+			$query = $db->connect()->prepare('SELECT idLeccion, capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso FROM leccion WHERE idCurso = :idCurso ORDER BY orden ASC');
 			$query->execute(['idCurso' => $idCurso]);
 			while($c = $query->fetch(PDO::FETCH_ASSOC)){
 				$leccion = new Leccion();
 				$leccion->setIdLeccion($c['idLeccion']);
+				$leccion->setCapitulo($c['capitulo']);
 				$leccion->setTitulo($c['titulo']);
 				$leccion->setObjetivo($c['objetivo']);
 				$leccion->setTeoria($c['teoria']);
@@ -97,11 +120,12 @@ class Leccion extends Model{
 	public static function getByIdLeccion($idLeccion):Leccion{
 		try{
 			$db = new Database();
-			$query = $db->connect()->prepare('SELECT idLeccion, titulo, objetivo, teoria, video, ejercicio, orden, idCurso FROM leccion WHERE idLeccion = :idLeccion');
+			$query = $db->connect()->prepare('SELECT idLeccion, capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso FROM leccion WHERE idLeccion = :idLeccion');
 			$query->execute(['idLeccion' => $idLeccion]);
 			$data = $query->fetch(PDO::FETCH_ASSOC);
 			$leccion = new Leccion();
 			$leccion->setIdLeccion($data['idLeccion']);
+			$leccion->setCapitulo($data['capitulo']);
 			$leccion->setTitulo($data['titulo']);
 			$leccion->setObjetivo($data['objetivo']);
 			$leccion->setTeoria($data['teoria']);
@@ -119,6 +143,9 @@ class Leccion extends Model{
 	public function getIdLeccion(){
 		return $this->idLeccion;
 	}
+	public function getCapitulo(){
+		return $this->capitulo;
+	}	
 	public function getTitulo(){
 		return $this->titulo;
 	}
@@ -143,6 +170,9 @@ class Leccion extends Model{
 
 	public function setIdLeccion($idLeccion){
 		$this->idLeccion = $idLeccion;
+	}
+	public function setCapitulo($capitulo){
+		$this->capitulo = $capitulo;
 	}
 	public function setTitulo($titulo){
 		$this->titulo = $titulo;
