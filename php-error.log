@@ -370,3 +370,163 @@ Stack trace:
 [11-May-2022 23:12:26 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\cursos\src\models\Curso.php on line 244
 [11-May-2022 23:12:26 Europe/Berlin] PHP Warning:  Undefined property: Sebas\Cursos\models\Curso::$Array in C:\xampp\htdocs\cursos\src\models\Curso.php on line 244
 [11-May-2022 23:12:26 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\detalle.php on line 77
+[13-May-2022 21:45:52 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:47:02 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:47:11 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:47:11 Europe/Berlin] PHP Warning:  require(src/views/Cursos/.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\cursos\src\lib\View.php on line 12
+[13-May-2022 21:47:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'src/views/Cursos/.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\cursos\src\lib\View.php:12
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('Cursos/', Array)
+#1 C:\xampp\htdocs\cursos\src\controllers\UsuarioController.php(53): Sebas\Cursos\lib\Controller->render('Cursos/', Array)
+#2 C:\xampp\htdocs\cursos\src\lib\routes.php(92): Sebas\Cursos\controllers\UsuarioController->inicioSesion()
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#7 C:\xampp\htdocs\cursos\src\lib\routes.php(137): Bramus\Router\Router->run()
+#8 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#9 {main}
+  thrown in C:\xampp\htdocs\cursos\src\lib\View.php on line 12
+[13-May-2022 21:47:36 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:47:41 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:47:41 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 33
+[13-May-2022 21:47:41 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 34
+[13-May-2022 21:48:38 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:48:42 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:48:42 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 33
+[13-May-2022 21:48:42 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 34
+[13-May-2022 21:49:54 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:49:54 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 33
+[13-May-2022 21:49:54 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 34
+[13-May-2022 21:50:19 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:50:19 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 33
+[13-May-2022 21:50:19 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 34
+[13-May-2022 21:50:23 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:50:23 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 33
+[13-May-2022 21:50:23 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 34
+[13-May-2022 21:50:39 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:50:39 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 33
+[13-May-2022 21:50:39 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 34
+[13-May-2022 21:50:42 Europe/Berlin] Usuario loggeado
+[13-May-2022 21:50:42 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 33
+[13-May-2022 21:50:42 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 34
+[14-May-2022 02:44:49 Europe/Berlin] Usuario loggeado
+[14-May-2022 02:44:49 Europe/Berlin] PHP Warning:  Undefined array key "cursos" in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 90
+[14-May-2022 02:44:49 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\cursos\src\views\Curso\catalogo.php on line 91
+[14-May-2022 02:49:07 Europe/Berlin] PHP Warning:  Undefined variable $lecciones in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 348
+[14-May-2022 03:38:38 Europe/Berlin] PHP Warning:  Undefined variable $c in C:\xampp\htdocs\cursos\src\views\Leccion\listar.php on line 3
+[14-May-2022 03:38:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getIdCurso() on null in C:\xampp\htdocs\cursos\src\views\Leccion\listar.php:3
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('Leccion/listar', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\LeccionController.php(27): Sebas\Cursos\lib\Controller->render('Leccion/listar', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(60): Sebas\Cursos\controllers\LeccionController->listar()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(152): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Leccion\listar.php on line 3
+[14-May-2022 03:39:25 Europe/Berlin] PHP Warning:  Undefined variable $l in C:\xampp\htdocs\cursos\src\views\Leccion\listar.php on line 3
+[14-May-2022 03:39:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getIdCurso() on null in C:\xampp\htdocs\cursos\src\views\Leccion\listar.php:3
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('Leccion/listar', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\LeccionController.php(27): Sebas\Cursos\lib\Controller->render('Leccion/listar', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(60): Sebas\Cursos\controllers\LeccionController->listar()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(152): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Leccion\listar.php on line 3
+[14-May-2022 03:39:55 Europe/Berlin] PHP Warning:  Undefined variable $l in C:\xampp\htdocs\cursos\src\views\Leccion\listar.php on line 4
+[14-May-2022 03:39:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getIdCurso() on null in C:\xampp\htdocs\cursos\src\views\Leccion\listar.php:4
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\View.php(12): require()
+#1 C:\xampp\htdocs\cursos\src\lib\Controller.php(14): Sebas\Cursos\lib\View->render('Leccion/listar', Array)
+#2 C:\xampp\htdocs\cursos\src\controllers\LeccionController.php(27): Sebas\Cursos\lib\Controller->render('Leccion/listar', Array)
+#3 C:\xampp\htdocs\cursos\src\lib\routes.php(60): Sebas\Cursos\controllers\LeccionController->listar()
+#4 [internal function]: {closure}()
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#6 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#7 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#8 C:\xampp\htdocs\cursos\src\lib\routes.php(152): Bramus\Router\Router->run()
+#9 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\cursos\src\views\Leccion\listar.php on line 4
+[14-May-2022 03:41:18 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "=>", expecting ")" in C:\xampp\htdocs\cursos\src\controllers\LeccionController.php on line 26
+[14-May-2022 03:41:53 Europe/Berlin] PHP Warning:  Undefined variable $lecciones in C:\xampp\htdocs\cursos\src\views\Curso\registro.php on line 348
+[14-May-2022 03:41:57 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_merge(): Argument #1 must be of type array, string given in C:\xampp\htdocs\cursos\src\controllers\LeccionController.php:26
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\controllers\LeccionController.php(26): array_merge('1', Array, Array)
+#1 C:\xampp\htdocs\cursos\src\lib\routes.php(60): Sebas\Cursos\controllers\LeccionController->listar()
+#2 [internal function]: {closure}()
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#5 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#6 C:\xampp\htdocs\cursos\src\lib\routes.php(152): Bramus\Router\Router->run()
+#7 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\cursos\src\controllers\LeccionController.php on line 26
+[14-May-2022 03:48:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\models\Curso::getById() in C:\xampp\htdocs\cursos\src\controllers\LeccionController.php:32
+Stack trace:
+#0 C:\xampp\htdocs\cursos\src\lib\routes.php(60): Sebas\Cursos\controllers\LeccionController->listar()
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#4 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#5 C:\xampp\htdocs\cursos\src\lib\routes.php(157): Bramus\Router\Router->run()
+#6 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\cursos\src\controllers\LeccionController.php on line 32
+[14-May-2022 03:50:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Sebas\Cursos\controllers\LeccionController::agregarLecciones() in C:\xampp\htdocs\cursos\src\lib\routes.php:66
+Stack trace:
+#0 [internal function]: {closure}()
+#1 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(458): call_user_func_array(Object(Closure), Array)
+#2 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#3 C:\xampp\htdocs\cursos\vendor\bramus\router\src\Bramus\Router\Router.php(287): Bramus\Router\Router->handle(Array, true)
+#4 C:\xampp\htdocs\cursos\src\lib\routes.php(157): Bramus\Router\Router->run()
+#5 C:\xampp\htdocs\cursos\index.php(13): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\cursos\src\lib\routes.php on line 66
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $nombre in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 18
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $precio in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 25
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $profesor in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 32
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $duracion in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 39
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $imagen in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 44
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $videoIntroduc in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 58
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $objetivo in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 74
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 81
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $descripcion in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 88
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $nombreBoton in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 117
+[14-May-2022 03:54:10 Europe/Berlin] PHP Warning:  Undefined variable $lecciones in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 312
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $nombre in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 18
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $precio in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 25
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $profesor in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 32
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $duracion in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 39
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $imagen in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 44
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $videoIntroduc in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 58
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $objetivo in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 74
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 81
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $descripcion in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 88
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $nombreBoton in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 117
+[14-May-2022 03:54:16 Europe/Berlin] PHP Warning:  Undefined variable $lecciones in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 312
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $nombre in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 18
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $precio in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 25
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $profesor in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 32
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $duracion in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 39
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $imagen in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 44
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $videoIntroduc in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 58
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $objetivo in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 74
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 81
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $descripcion in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 88
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $nombreBoton in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 117
+[14-May-2022 03:54:26 Europe/Berlin] PHP Warning:  Undefined variable $lecciones in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 312
+[14-May-2022 03:55:37 Europe/Berlin] PHP Warning:  Undefined variable $lecciones in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 192
+[14-May-2022 03:58:19 Europe/Berlin] PHP Warning:  Undefined variable $lecciones in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 199
+[14-May-2022 03:58:35 Europe/Berlin] PHP Warning:  Undefined variable $lecciones in C:\xampp\htdocs\cursos\src\views\Leccion\registro.php on line 199

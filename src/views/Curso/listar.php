@@ -11,6 +11,7 @@
 					<th scope="col"> Precio </th>
 					<th scope="col"> Duracion </th>
 					<th scope="col"> Profesor </th>
+					<th scope="col"> Lecciones </th>
 					<th scope="col"> Detalle </th>
 			    </tr>
 			  </thead>
@@ -25,6 +26,7 @@
 						<th><?php echo $c->getPrecio(); ?></th>
 						<th><?php echo $c->getDuracion(); ?></th>
 						<th><?php echo $c->getProfesor(); ?></th>
+						<th scope="col"><a class="btn boton-s" href="listarLecciones?id=<?php echo $c->getIdCurso(); ?>"><i class="bi bi-book"></i></a></th>
 				      <th scope="col"><a class="btn boton-p" href="modificaCurso?id=<?php echo $c->getIdCurso(); ?>"><i class="bi bi-zoom-in"></i></a></th>
 				    </tr>
 				<?php

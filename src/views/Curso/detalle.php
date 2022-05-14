@@ -4,67 +4,66 @@ if(isset($this->d['curso'])){
 	$curso = $this->d['curso'];
 
 ?>
-<div class="container col-xxl-8 px-4 py-5">
-	<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-	  <div class="col-10 col-sm-8 col-lg-6">
-	    <img src="/Cursos/public/img/photos/<?php echo $curso->getImagen(); ?>" class="d-block mx-lg-auto img-fluid" alt="Curso <?php echo $curso->getNombre(); ?>" width="700" height="500" loading="lazy">
-	  </div>
-	  <div class="col-lg-6">
-	    <h1 class="display-5 fw-bold lh-1 mb-3"><?php echo $curso->getNombre(); ?></h1>
-	    <p class="lead"><?php echo $curso->getObjetivo(); ?></p>
-	    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-	      <button type="button" class="btn boton-p btn-lg px-4 me-md-2">Inscribirse</button>
-	      <button type="button" class="btn btn-outline-secondary btn-lg px-4">Ver más</button>
-	    </div>
-	  </div>
-	</div>
-	<hr class="featurette-divider">
-	<div class="row featurette">
-	  <div class="col-md-7 order-md-2">
-	    <h2 class="featurette-heading"><?php echo $curso->getNombre(); ?> <span class="text-muted"><?php echo $curso->getDuracion(); ?>(horas)</span></h2>
-	    <p class="lead"><?php echo $curso->getDescripcion(); ?></p>
-	  </div>
-	  <div class="col-md-5 order-md-1">
-	  	<video class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="/Cursos/public/img/videos/<?php echo $curso->getVideoIntroduc(); ?>" width="500" height="500" controls></video>
-	  	<h3><span class="text-muted">Video introductorio</span></h3>
-	  </div>
-	</div>
-	<hr class="featurette-divider">
-	<h2 class="pb-2 border-bottom">Detalles</h2>
-	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
-	  <div class="col d-flex align-items-start">
-	    <div class="fs-4 mb-3">
-		    <div>
-		      <h4 class="fw-bold mb-0">Precio</h4>
-		      <p><i class="bi bi-currency-dollar"></i> <?php echo $curso->getPrecio(); ?> </p>
-		    </div>
-		 </div>
-	  </div>
-	  <div class="col d-flex align-items-start">
-	    <div class="fs-4 mb-3">
-		    <div>
-		      <h4 class="fw-bold mb-0">Profesor</h4>
-		      <p><i class="bi bi-file-person"></i> <?php echo $curso->getProfesor(); ?></p>
-		     </div>
-	    </div>
-	  </div>
-	  <div class="col d-flex align-items-start">
-	    <div class="fs-4 mb-3">
-		    <div>
-	      		<h4 class="fw-bold mb-0">Cantidad de Capítulos</h4>
-	      		<p><i class="bi bi-book"></i> <?php echo $curso->getCantidadCapitulos(); ?></p>
-	      	</div>
-	    </div>
-	  </div>
-	  <div class="col d-flex align-items-start">
-	    <div class="fs-4 mb-3">
-		    <div>
-	      		<h4 class="fw-bold mb-0">Duración</h4>
-	     		<p><i class="bi bi-alarm"></i> <?php echo $curso->getDuracion(); ?>(horas)</p>
-	     	</div>
-	    </div>
-	  </div>
-	</div>
+<div class="container" id="contenido-ppal">
+	<h1 class="display-5 fw-bold lh-1 mb-3"><?php echo $curso->getNombre(); ?> <!-- <span class="text-muted"><?php echo $curso->getDuracion(); ?>(horas)</span> --></h1>
+	<div class="row">
+		<div class="col col-lg-12">
+			<h2 class="featurette-heading">Descripción: </h2>
+			<p class="lead"><?php echo $curso->getDescripcion(); ?></p>
+		</div>
+		<div class="col col-lg-12">
+			<h2 class="featurette-heading">Objetivo: </h2>
+			<p class="lead"><?php echo $curso->getObjetivo(); ?></p>			
+		</div>
+		<div class="col col-lg-12">
+			<div class="row">
+				<div class="col col-lg-5">
+					<h3><span class="text-muted">Video introductorio</span></h3>
+					<video class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="/Cursos/public/img/videos/<?php echo $curso->getVideoIntroduc(); ?>" width="500" height="500" controls></video>
+				</div>
+				<div class="col col-lg-7">
+					<h2 class="pb-2 border-bottom">Detalles</h2>
+					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+						<div class="col d-flex align-items-start">
+							<div class="fs-4 mb-3">
+								<div>
+									<h4 class="fw-bold mb-0">Precio</h4>
+									<p><i class="bi bi-currency-dollar"></i> <?php echo $curso->getPrecio(); ?> </p>
+								</div>
+							</div>
+						</div>
+						<div class="col d-flex align-items-start">
+							<div class="fs-4 mb-3">
+								<div>
+									<h4 class="fw-bold mb-0">Profesor</h4>
+									<p><i class="bi bi-file-person"></i> <?php echo $curso->getProfesor(); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="col d-flex align-items-start">
+							<div class="fs-4 mb-3">
+								<div>
+									<h4 class="fw-bold mb-0">Cantidad de Capítulos</h4>
+									<p><i class="bi bi-book"></i> <?php echo $curso->getCantidadCapitulos(); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="col d-flex align-items-start">
+							<div class="fs-4 mb-3">
+								<div>
+									<h4 class="fw-bold mb-0">Duración</h4>
+									<p><i class="bi bi-alarm"></i> <?php echo $curso->getDuracion(); ?>(horas)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<button type="button" class="btn boton-p btn-lg px-4 me-md-2">Inscribirse</button>
+						<!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Ver más</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
 	<hr class="featurette-divider">
 	<?php
 	$capitulos = $curso->getCapitulos();
@@ -93,6 +92,7 @@ if(isset($this->d['curso'])){
 	<?php
 	}
 	?>
+	</div>
 </div>
 <?php
 }else{

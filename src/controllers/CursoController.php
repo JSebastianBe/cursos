@@ -17,6 +17,7 @@ class CursoController extends Controller{
 		$cursos = Curso::retornaCursos();
 		$data = array_merge(['cursos' => $cursos]);
 		$this->render('Curso/catalogo',$data);
+
 	}
 
 	public function agregarCruso(){
@@ -64,7 +65,7 @@ class CursoController extends Controller{
 		$profesor = $this->post('profesor');
 		$imagen = $this->file('imagen');
 		$videoIntroduc = $this->file('videoIntroduc');
-		$lecciones=json_decode($_POST["arr_lecciones"], true );
+		//$lecciones=json_decode($_POST["arr_lecciones"], true );
 		if(	!is_null($nombre) &&
 			!is_null($precio) &&
 			!is_null($objetivo) &&
@@ -88,7 +89,7 @@ class CursoController extends Controller{
 			$curso->setVideoIntroduc($videoIntroduc);
 			if($curso->crea()){
 				$curso->setIdCurso(Curso::get($nombre)->getIdCurso());
-				$this->agregaLecciones($lecciones,$curso,"Crea");
+				//$this->agregaLecciones($lecciones,$curso,"Crea");
 				$notificacion = [
 				    "mensaje" => "Curso ". $nombre." registrado correctamente",
 				    "error" => FALSE,
@@ -121,7 +122,7 @@ class CursoController extends Controller{
 		$profesor = $this->post('profesor');
 		$imagen = $this->file('imagen');
 		$videoIntroduc = $this->file('videoIntroduc');
-		$lecciones=json_decode($_POST["arr_lecciones"], true );
+		//$lecciones=json_decode($_POST["arr_lecciones"], true );
 		if(	!is_null($nombre) &&
 			!is_null($idCurso) &&
 			!is_null($precio) &&
@@ -150,7 +151,7 @@ class CursoController extends Controller{
 			$curso->setProfesor($profesor);
 			$curso->setImagen($imagen);
 			$curso->setVideoIntroduc($videoIntroduc);
-			$this->agregaLecciones($lecciones,$curso,"Modifica");
+			//$this->agregaLecciones($lecciones,$curso,"Modifica");
 			if($curso->modifica()){
 				$this->agregaLecciones($lecciones,$curso,"Modifica");
 				$notificacion = [

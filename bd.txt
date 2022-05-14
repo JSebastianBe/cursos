@@ -62,6 +62,23 @@ idLeccion integer NOT NULL,
 FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion))
 ENGINE=InnoDB;
 
+create table Pregunta(
+idPregunta integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+nombre varchar(150) NOT NULL,
+descripcion varchar(1000) NOT NULL,
+idLeccion integer NOT NULL,
+FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion))
+ENGINE=InnoDB;
+
+create table Respuesta(
+idRespuesta integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+opcion varchar(100) NOT NULL,
+nombre varchar(1000) NOT NULL,
+correcta int NOT NULL,
+idPregunta integer NOT NULL,
+FOREIGN KEY (idPregunta) REFERENCES Pregunta (idPregunta))
+ENGINE=InnoDB;
+
 create table AvanceCurso(
 idAvanceCurso integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
 idUsuario integer NOT NULL,
@@ -81,3 +98,6 @@ ENGINE=InnoDB;
 
 
 INSERT INTO `usuario` (`idUsuario`, `nombre`, `correo`, `telefono`, `usuario`, `perfil`, `clave`) VALUES (NULL, 'Juan', 'juan@gmail.com', '123', 'juan@gmail.com', 'Administrador', '$2y$10$tr6i1d2t2ZWKi1akO/Klo.Y6tPN2LFrD15.2LlFWR5aJeet1Ej6Sq');
+--
+
+INSERT INTO curso (nombre, precio, objetivo, descripcion, perfil, duracion, profesor, imagen, videoIntroduc) VALUES('Diagrama de clases', '250000', 'Brindar a todas las personas que adquieran el curso las herramientas necesarias para la construcción adecuada de un diagrama de clases', 'En el transcurso del presente curso, se presentarán las pautas necesarias para Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui leo, accumsan sed arcu non, pretium faucibus ante. Quisque mi leo, tempor ac urna eget, lobortis elementum quam. Proin euismod, elit quis feugiat ornare, elit odio ultricies erat, vel lacinia tortor ex in dolor. Fusce volutpat, risus at pretium consectetur, felis elit cursus nunc, id congue justo tellus ac dolor. Quisque pretium nisl ut ante vulputate bibendum. Nulla blandit finibus est, eget semper purus accumsan sit amet. Quisque porta dui nisl, id scelerisque tellus sodales vel. Duis vitae dolor egestas, aliquet enim nec, cursus nisl. Maecenas molestie tellus vitae interdum.', 'Analista y diseñador de diagrama de clases', '35', 'Juanito Alimaña', '3a17aef847eed12c8dacdb6230bd91b6.jpg', '5eb0423806ad8782e5ea75847dfe5c18.mp4'

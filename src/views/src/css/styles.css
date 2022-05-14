@@ -110,14 +110,6 @@ body {
 
 
 
-.text_recor{
-	width:250px;
-	white-space:nowrap;
-	word-break:keep-all;
-	overflow:hidden;
-	text-overflow:ellipsis;
-}
-
 .list-group-item{
 	color: #1a171b;
 	background-color: #F3E7CC;

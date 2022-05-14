@@ -4,6 +4,7 @@ use Sebas\Cursos\controllers\HomeController;
 use Sebas\Cursos\controllers\UsuarioController;
 use Sebas\Cursos\controllers\ClienteController;
 use Sebas\Cursos\controllers\CursoController;
+use Sebas\Cursos\controllers\LeccionController;
 use Sebas\Cursos\controllers\AdministradorController;
 
 $router = new \Bramus\Router\Router();
@@ -27,13 +28,13 @@ function auth(){
 }
 
 $router->get('/', function(){
-	$controller = new HomeController();
-	$controller->index();
+	$controller = new CursoController();
+	$controller->catalogo();
 });
 
 $router->get('/inicio', function(){
-	$controller = new HomeController();
-	$controller->index();
+	$controller = new CursoController();
+	$controller->catalogo();
 });
 
 $router->get('/catalogo', function(){
@@ -44,6 +45,25 @@ $router->get('/catalogo', function(){
 $router->get('/detalleCurso', function(){
 	$controller = new CursoController();
 	$controller->detalleCurso();
+});
+
+$router->get('/detalleLecciones', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->detalleLecciones();
+});
+
+
+$router->get('/listarLecciones', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->listar();
+});
+
+$router->get('/crearLecciones', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->agregarLeccion();
 });
 
 $router->get('/modificaCurso', function(){
