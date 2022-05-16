@@ -50,8 +50,8 @@ class UsuarioController extends Controller{
 						    "mensaje" => "Inicio de sesión exitoso. Hola, " . $usuario->getNombre(),
 						    "error" => FALSE,
 						];
-						
-						$this->render('Curso/catalogo',['notificacion' => $notificacion]);
+						header('location: /Cursos/catalogo');
+						//$this->render('Curso/catalogo',['notificacion' => $notificacion]);
 					}else{
 						error_log('No coincide la contraseña');
 						$notificacion = [

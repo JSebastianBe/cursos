@@ -60,10 +60,28 @@ $router->get('/listarLecciones', function(){
 	$controller->listar();
 });
 
-$router->get('/crearLecciones', function(){
+$router->get('/creaLecciones', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->agregaLeccion();
+});
+
+$router->post('/crearLeccion', function(){
 	noAuth();
 	$controller = new LeccionController();
 	$controller->agregarLeccion();
+});
+
+$router->get('/modificaLeccion', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->modificaLeccion();
+});
+
+$router->post('/modificarLeccion', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->modificarLeccion();
 });
 
 $router->get('/modificaCurso', function(){

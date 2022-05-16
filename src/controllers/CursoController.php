@@ -65,7 +65,6 @@ class CursoController extends Controller{
 		$profesor = $this->post('profesor');
 		$imagen = $this->file('imagen');
 		$videoIntroduc = $this->file('videoIntroduc');
-		//$lecciones=json_decode($_POST["arr_lecciones"], true );
 		if(	!is_null($nombre) &&
 			!is_null($precio) &&
 			!is_null($objetivo) &&
@@ -88,8 +87,6 @@ class CursoController extends Controller{
 			$curso->setImagen($imagen);
 			$curso->setVideoIntroduc($videoIntroduc);
 			if($curso->crea()){
-				$curso->setIdCurso(Curso::get($nombre)->getIdCurso());
-				//$this->agregaLecciones($lecciones,$curso,"Crea");
 				$notificacion = [
 				    "mensaje" => "Curso ". $nombre." registrado correctamente",
 				    "error" => FALSE,
@@ -122,7 +119,6 @@ class CursoController extends Controller{
 		$profesor = $this->post('profesor');
 		$imagen = $this->file('imagen');
 		$videoIntroduc = $this->file('videoIntroduc');
-		//$lecciones=json_decode($_POST["arr_lecciones"], true );
 		if(	!is_null($nombre) &&
 			!is_null($idCurso) &&
 			!is_null($precio) &&
@@ -151,9 +147,7 @@ class CursoController extends Controller{
 			$curso->setProfesor($profesor);
 			$curso->setImagen($imagen);
 			$curso->setVideoIntroduc($videoIntroduc);
-			//$this->agregaLecciones($lecciones,$curso,"Modifica");
 			if($curso->modifica()){
-				$this->agregaLecciones($lecciones,$curso,"Modifica");
 				$notificacion = [
 				    "mensaje" => "Curso ". $nombre." modificado correctamente",
 				    "error" => FALSE,
@@ -173,57 +167,5 @@ class CursoController extends Controller{
 			];
 			$this->render('Curso/registro',['notificacion' => $notificacion]);
 		}
-	}
-
-	public function agregaLecciones(array $lecciones_p, Curso $curso, String $accion){
-		$lecciones=[];
-		$i=1;
-		if ($accion == "Crea"){
-			foreach($lecciones_p as $l){
-				$leccion = new Leccion();
-				$leccion->setCapitulo($l[0]);
-				$leccion->setTitulo($l[1]);
-				$leccion->setObjetivo($l[2]);
-				$leccion->setTeoria($l[3]);
-				$leccion->setEjercicio($l[4]);
-				$leccion->setVideo("");
-				$leccion->setOrden($i);
-				$leccion->setIdCurso($curso->getIdCurso());
-				$leccion->crea();
-				$i=$i+1;
-				array_push($lecciones, $leccion);
-			}
-		}
-		if ($accion == "Modifica"){
-			foreach($lecciones_p as $l){
-				if (!isset($l[5])) {
-					$leccion = new Leccion();
-					$leccion->setCapitulo($l[0]);
-					$leccion->setTitulo($l[1]);
-					$leccion->setObjetivo($l[2]);
-					$leccion->setTeoria($l[3]);
-					$leccion->setEjercicio($l[4]);
-					$leccion->setVideo("");
-					$leccion->setOrden($i);
-					$leccion->setIdCurso($curso->getIdCurso());
-					$leccion->crea();
-				}else{
-					$leccion = Leccion::getByIdLeccion($l[5]);
-					if($l[1] == $leccion->getTitulo()){
-						$leccion->setTitulo("");
-					}else{
-						$leccion->setTitulo($l[1]);	
-					}					
-					$leccion->setObjetivo($l[2]);
-					$leccion->setTeoria($l[3]);
-					$leccion->setEjercicio($l[4]);
-					$leccion->setOrden($i);
-					$leccion->modifica();
-				}
-				$i=$i+1;
-				array_push($lecciones, $leccion);
-			}
-		}
-		$curso->setLecciones($lecciones);
 	}
 }

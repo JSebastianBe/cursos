@@ -2,7 +2,7 @@
 $curso = $this->d['curso'];?>
 <div class="container" id="contenedor">
 <h1>Listado de lecciones para el Curso: <?php echo $curso->getNombre();?></h1>
-<a class="btn boton-s" href="/Cursos/crearLecciones?id=<?php echo $curso->getIdCurso(); ?>" role="button"><i class="bi bi-plus-circle"></i></a>
+<a class="btn boton-s" href="/Cursos/creaLecciones?id=<?php echo $curso->getIdCurso(); ?>" role="button"><i class="bi bi-plus-circle"></i></a>
 <?php require 'src/views/templates/notificaciones.php'; ?>
 	<div class="table-responsive">
 		<table class="table table-hover">
@@ -12,7 +12,8 @@ $curso = $this->d['curso'];?>
 					<th scope="col"> Capitulo </th>	
 					<th scope="col"> Lección </th>	
 					<th scope="col"> Preguntas </th>
-					<th scope="col"> Detalle </th>
+					<th scope="col"> Material de Apoyo </th>
+					<th scope="col"> Modificar </th>
 				</tr> 
 			  </thead>
 			<tbody>
@@ -24,8 +25,9 @@ $curso = $this->d['curso'];?>
 						<th scope="col"><?php echo $l->getOrden(); ?></th>
 						<th><?php echo $l->getCapitulo(); ?></th>
 						<th><?php echo $l->getTitulo(); ?></th>
-						<th scope="col"><a class="btn boton-s" href="listarPreguntas?id=<?php echo $c->getIdLeccion(); ?>"><i class="bi bi-book"></i></a></th>
-				      <th scope="col"><a class="btn boton-p" href="modificaLeccion?id=<?php echo $c->getIdLeccion(); ?>"><i class="bi bi-zoom-in"></i></a></th>
+						<th scope="col"><a class="btn boton-p" href="listarPreguntas?id=<?php echo $l->getIdLeccion(); ?>"><i class="bi bi-list"></i></a></th>
+						<th scope="col"><a class="btn boton-p" href="listarMaterial?id=<?php echo $l->getIdLeccion(); ?>"><i class="bi bi-book"></i></a></th>
+				      	<th scope="col"><a class="btn boton-p" href="modificaLeccion?id=<?php echo $l->getIdLeccion(); ?>"><i class="bi bi-pencil"></i></a></th>
 				    </tr>
 				<?php
 			}
