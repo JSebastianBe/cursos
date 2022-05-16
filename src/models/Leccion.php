@@ -18,6 +18,7 @@ class Leccion extends Model{
 	private string $ejercicio;
 	private int $orden;
 	private int $idCurso;
+	private Array $materiales = [];
 
 	function __construct(){
 		parent::__construct();
@@ -168,6 +169,10 @@ class Leccion extends Model{
 		return $this->idCurso;
 	}
 
+	public function getMateriales(){
+		return $this->materiales;
+	}
+
 	public function setIdLeccion($idLeccion){
 		$this->idLeccion = $idLeccion;
 	}
@@ -194,5 +199,9 @@ class Leccion extends Model{
 	}
 	public function setIdCurso($idCurso){
 		$this->idCurso = $idCurso;
+	}
+
+	public function setMateriales($materiales){
+		$this->materiales = $materiales;
 	}
 }

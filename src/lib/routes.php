@@ -5,6 +5,7 @@ use Sebas\Cursos\controllers\UsuarioController;
 use Sebas\Cursos\controllers\ClienteController;
 use Sebas\Cursos\controllers\CursoController;
 use Sebas\Cursos\controllers\LeccionController;
+use Sebas\Cursos\controllers\MaterialController;
 use Sebas\Cursos\controllers\AdministradorController;
 
 $router = new \Bramus\Router\Router();
@@ -51,6 +52,13 @@ $router->get('/detalleLecciones', function(){
 	noAuth();
 	$controller = new LeccionController();
 	$controller->detalleLecciones();
+});
+
+
+$router->get('/listarMaterial', function(){
+	noAuth();
+	$controller = new MaterialController();
+	$controller->listar();
 });
 
 
