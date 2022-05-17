@@ -11,7 +11,7 @@ if(isset($this->d['curso'])){
 		if($usuario->getPerfil()=="Cliente"){
 			header('location: /Cursos/inicio');
 		}
-		$idCurso = "";
+		$idCurso = $curso -> getIdCurso();
 		$idLeccion = "";
 		$capitulo = "";
 		$titulo = "";

@@ -60,30 +60,6 @@
 			    </button>
 			</div>
 		<div class="col-12" id="contenido-ppal">
-			<!-- <section class="py-5 text-center container">
-				<div class="row py-lg-5">
-					<div class="col-lg-6 col-md-8 mx-auto">
-						<h1 class="fw-light">
-							<font style="vertical-align: inherit;">
-								<font style="vertical-align: inherit;">
-									Catalogo de cursos
-								</font>
-							</font>
-						</h1>
-						<p class="lead text-muted">
-							<font style="vertical-align: inherit;">
-								<font style="vertical-align: inherit;">
-									A continuación encontrarás la oferta de los cursos disponibles
-								</font>
-								<font style="vertical-align: inherit;">
-									Selecciona el curso de tu preferencia, entérate de los detalles e inscríbete.
-								</font>
-							</font>
-						</p>
-						<p></p>
-					</div>
-				</div>
-			</section>  -->
 			<hr class="featurette-divider">
 			<div id="catalogo" class="row album">
 				<?php

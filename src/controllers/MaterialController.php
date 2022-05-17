@@ -21,62 +21,48 @@ class MaterialController extends Controller{
 
 	public function modificaMaterial(){
 		$id = $this->get('id');
-		$leccion = Leccion::getByIdLeccion($id);
-		$this->render('leccion/registro',['leccionModificar'=>$leccion]);
+		$material = Material::getByIdMaterial($id);
+		$this->render('material/registro',['materialModificar'=>$material]);
 	}
 
 	public function agregaMaterial(){
-		$idCurso = $this->get('id');
-		$curso = Curso::getByIdCurso($idCurso);
-		$this->render('leccion/registro', ['curso'=> $curso]);
+		$idLeccion = $this->get('id');
+		$leccion = Leccion::getByIdLeccion($idLeccion);
+		$this->render('Material/registro', ['leccion'=> $leccion]);
 	}
 
 	public function agregarMaterial(){
-		$idCurso = $this->post('idCurso');
-		$capitulo = $this->post('capitulo');
-		$titulo = $this->post('titulo');
-		$objetivo = $this->post('objetivo');
-		$teoria = $this->post('teoria');
-		$ejercicio = $this->post('ejercicio');
-		$video = $this->file('video');
-		if(	!is_null($idCurso) &&
-			!is_null($capitulo) &&
-			!is_null($titulo) &&
-			!is_null($objetivo) &&
-			!is_null($teoria) &&
-			!is_null($ejercicio) &&
-			!is_null($video)){
-			$video = UtilResources::storeVideo($video);
-			$leccion = new Leccion();
-			$curso = Curso::getByIdCurso($idCurso);
-			$leccion->setIdCurso($idCurso);
-			$leccion->setCapitulo($capitulo);
-			$leccion->setTitulo($titulo);
-			$leccion->setObjetivo($objetivo);
-			$leccion->setTeoria($teoria);
-			$leccion->setEjercicio($ejercicio);
-			$leccion->setVideo($video);
-			$orden = ($curso->getCantidadLecciones())+1;
-			$leccion->setOrden($orden);
-			if($leccion->crea()){
+		$idLeccion = $this->post('idLeccion');
+		$nombre = $this->post('nombre');
+		$archivo = $this->file('archivo');
+		if(	!is_null($idLeccion) &&
+			!is_null($nombre) &&
+			!is_null($archivo)){
+			$archivo = UtilResources::storeFile($archivo);
+			$material = new Material();
+			$Leccion = Leccion::getByIdLeccion($idLeccion);
+			$material->setidLeccion($idLeccion);
+			$material->setNombre($nombre);
+			$material->setArchivo($archivo);
+			if($material->crea()){
 				$notificacion = [
-				    "mensaje" => "Lección ". $titulo." registrado correctamente",
+				    "mensaje" => "Material ". $nombre." registrado correctamente",
 				    "error" => FALSE,
 				];
-				$this->listar(['notificacion' => $notificacion], ['idCurso' => $idCurso]);
+				$this->listar(['notificacion' => $notificacion], ['idLeccion' => $idLeccion]);
 			}else{
 				$notificacion = [
-			    "mensaje" => "Ocurrió un error al registrar la leccion",
+			    "mensaje" => "Ocurrió un error al registrar el material",
 			    "error" => TRUE,
 				];
-				$this->render('Leccion/registro',['notificacion' => $notificacion]);
+				$this->render('Material/registro',['notificacion' => $notificacion]);
 			}
 		}else{
 			$notificacion = [
 			    "mensaje" => "Complete todos los campos..",
 			    "error" => TRUE,
 			];
-			$this->render('Leccion/registro',['notificacion' => $notificacion]);
+			$this->render('Material/registro',['notificacion' => $notificacion]);
 		}
 	}
 
@@ -105,45 +91,29 @@ class MaterialController extends Controller{
 
 	public function modificarMaterial(){
 		$idLeccion = $this->post('idLeccion'); 
-		$idCurso = $this->post('idCurso');
-		$capitulo = $this->post('capitulo');
-		$titulo = $this->post('titulo');
-		$objetivo = $this->post('objetivo');
-		$teoria = $this->post('teoria');
-		$ejercicio = $this->post('ejercicio');
-		$video = $this->file('video');
-		$orden = $this->post('orden');
-		if(	!is_null($idCurso) &&
-			!is_null($capitulo) &&
-			!is_null($titulo) &&
-			!is_null($objetivo) &&
-			!is_null($teoria) &&
-			!is_null($ejercicio) &&
-			!is_null($idLeccion) &&
-			!is_null($orden)){
-			$leccion = Leccion::getByIdLeccion($idLeccion);
-			if($video["name"] != ""){
-				$video = UtilResources::storeVideo($video);
+		$idMaterial = $this->post('idMaterial');
+		$nombre = $this->post('nombre');
+		$archivo = $this->file('archivo');
+		if(	!is_null($idLeccion) &&
+			!is_null($nombre) &&
+			!is_null($idLeccion)){
+			$material = Material::getByIdMaterial($idMaterial);
+			if($archivo["name"] != ""){
+				$archivo = UtilResources::storeFile($archivo);
 			}else{
-				$video = $leccion->getVideo();
+				$archivo = $material->getArchivo();
 			}
-			$leccion->setIdCurso($idCurso);
-			$leccion->setCapitulo($capitulo);
-			$leccion->setTitulo($titulo);
-			$leccion->setObjetivo($objetivo);
-			$leccion->setTeoria($teoria);
-			$leccion->setEjercicio($ejercicio);
-			$leccion->setVideo($video);
-			$leccion->setOrden($orden);
-			if($leccion->modifica()){
+			$material->setIdLeccion($idLeccion);
+			$material->setNombre($nombre);
+			if($material->modifica()){
 				$notificacion = [
-				    "mensaje" => "Lección ". $titulo." modificado correctamente",
+				    "mensaje" => "Material ". $nombre." modificado correctamente",
 				    "error" => FALSE,
 				];
-				$this->listar(['notificacion' => $notificacion], ['idCurso' => $idCurso]);
+				$this->listar(['notificacion' => $notificacion], ['idLeccion' => $idLeccion]);
 			}else{
 				$notificacion = [
-			    "mensaje" => "Ocurrió un error al actualizar la leccion",
+			    "mensaje" => "Ocurrió un error al actualizar el material",
 			    "error" => TRUE,
 				];
 				$this->render('Leccion/registro',['notificacion' => $notificacion]);

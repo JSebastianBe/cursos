@@ -108,6 +108,7 @@ class Leccion extends Model{
 				$leccion->setEjercicio($c['ejercicio']);
 				$leccion->setOrden($c['orden']);
 				$leccion->setIdCurso($c['idCurso']);
+				$leccion->setMateriales(Material::getByIdLeccion($leccion->getIdLeccion()));
 				array_push($lecciones, $leccion);
 			}
 			return $lecciones;	
@@ -134,6 +135,7 @@ class Leccion extends Model{
 			$leccion->setEjercicio($data['ejercicio']);
 			$leccion->setOrden($data['orden']);
 			$leccion->setIdCurso($data['idCurso']);
+			$leccion->setMateriales(Material::getByIdLeccion($leccion->getIdLeccion()));
 			return $leccion;
 		}catch(PDOException $e){
 			error_log($e->getMessage());

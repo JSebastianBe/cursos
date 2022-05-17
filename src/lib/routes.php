@@ -61,6 +61,30 @@ $router->get('/listarMaterial', function(){
 	$controller->listar();
 });
 
+$router->get('/creaMaterial', function(){
+	noAuth();
+	$controller = new MaterialController();
+	$controller->agregaMaterial();
+});
+
+$router->post('/crearMaterial', function(){
+	noAuth();
+	$controller = new MaterialController();
+	$controller->agregarMaterial();
+});
+
+$router->get('/modificaMaterial', function(){
+	noAuth();
+	$controller = new MaterialController();
+	$controller->modificaMaterial();
+});
+
+$router->post('/modificarMaterial', function(){
+	noAuth();
+	$controller = new MaterialController();
+	$controller->modificarMaterial();
+});
+
 
 $router->get('/listarLecciones', function(){
 	noAuth();
