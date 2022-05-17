@@ -7,6 +7,7 @@ use Sebas\Cursos\controllers\CursoController;
 use Sebas\Cursos\controllers\LeccionController;
 use Sebas\Cursos\controllers\MaterialController;
 use Sebas\Cursos\controllers\PreguntaController;
+use Sebas\Cursos\controllers\RespuestaController;
 use Sebas\Cursos\controllers\AdministradorController;
 
 $router = new \Bramus\Router\Router();
@@ -238,5 +239,37 @@ $router->post('/modificarPregunta', function(){
 	$controller->modificarPregunta();
 });
 /*END Pregunta*/
+
+/*BEGIN Respuesta*/
+$router->get('/listarRespuestas', function(){
+	noAuth();
+	$controller = new RespuestaController();
+	$controller->listar();
+});
+
+$router->get('/creaRespuesta', function(){
+	noAuth();
+	$controller = new RespuestaController();
+	$controller->agregaRespuesta();
+});
+
+$router->post('/crearRespuesta', function(){
+	noAuth();
+	$controller = new RespuestaController();
+	$controller->agregarRespuesta();
+});
+
+$router->get('/modificaRespuesta', function(){
+	noAuth();
+	$controller = new RespuestaController();
+	$controller->modificaRespuesta();
+});
+
+$router->post('/modificarRespuesta', function(){
+	noAuth();
+	$controller = new RespuestaController();
+	$controller->modificarRespuesta();
+});
+/*END Respuestas*/
 
 $router->run();

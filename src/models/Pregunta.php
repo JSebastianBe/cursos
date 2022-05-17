@@ -13,6 +13,7 @@ class Pregunta extends Model{
 	private string $nombre;
 	private string $descripcion;
 	private int $idLeccion;
+	private Array $respuestas = [];
 
 	function __construct(){
 		parent::__construct();
@@ -77,6 +78,7 @@ class Pregunta extends Model{
 				$pregunta->setIdPregunta($c['idPregunta']);
 				$pregunta->setNombre($c['nombre']);
 				$pregunta->setDescripcion($c['descripcion']);
+				$pregunta->setRespuestas(Respuesta::getByIdPregunta($pregunta->getIdPregunta()));
 				array_push($preguntas, $pregunta);
 			}
 			return $preguntas;	
@@ -98,6 +100,7 @@ class Pregunta extends Model{
 			$pregunta->setIdPregunta($data['idPregunta']);
 			$pregunta->setNombre($data['nombre']);
 			$pregunta->setDescripcion($data['descripcion']);
+			$pregunta->setRespuestas(Respuesta::getByIdPregunta($pregunta->getIdPregunta()));
 			return $pregunta;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
@@ -117,7 +120,9 @@ class Pregunta extends Model{
 	public function getIdPregunta(){
 		return $this->idPregunta;
 	}
-
+	public function getRespuestas(){
+		return $this->respuestas;
+	}
 	
 	public function setIdLeccion($idLeccion){
 		$this->idLeccion = $idLeccion;
@@ -130,5 +135,8 @@ class Pregunta extends Model{
 	}
 	public function setIdPregunta($idPregunta){
 		$this->idPregunta = $idPregunta;
+	}
+	public function setRespuestas($respuestas){
+		$this->respuestas = $respuestas;
 	}
 }

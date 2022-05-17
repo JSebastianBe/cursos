@@ -25,7 +25,7 @@ $curso = $this->d['curso'];?>
 						<th scope="col"><?php echo $l->getOrden(); ?></th>
 						<th><?php echo $l->getCapitulo(); ?></th>
 						<th><?php echo $l->getTitulo(); ?></th>
-						<th scope="col"><a class="btn boton-p" href="listarPreguntas?id=<?php echo $l->getIdLeccion(); ?>"><i class="bi bi-list"></i></a></th>
+						<th scope="col"><a class="btn boton-s" href="listarPreguntas?id=<?php echo $l->getIdLeccion(); ?>"><i class="bi bi-list"></i></a></th>
 						<th scope="col"><a class="btn boton-p" href="listarMaterial?id=<?php echo $l->getIdLeccion(); ?>"><i class="bi bi-book"></i></a></th>
 				      	<th scope="col"><a class="btn boton-p" href="modificaLeccion?id=<?php echo $l->getIdLeccion(); ?>"><i class="bi bi-pencil"></i></a></th>
 				    </tr>
