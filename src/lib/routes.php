@@ -38,6 +38,7 @@ $router->get('/inicio', function(){
 	$controller->catalogo();
 });
 
+/*BEGIN Cursos */
 $router->get('/catalogo', function(){
 	$controller = new CursoController();
 	$controller->catalogo();
@@ -48,13 +49,38 @@ $router->get('/detalleCurso', function(){
 	$controller->detalleCurso();
 });
 
-$router->get('/detalleLecciones', function(){
+$router->get('/listarCursos', function(){
 	noAuth();
-	$controller = new LeccionController();
-	$controller->detalleLecciones();
+	$controller = new CursoController();
+	$controller->listar();
 });
 
+$router->get('/crearCursos', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->agregarCruso();
+});
 
+$router->post('/creaCurso', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->creaCurso();
+});
+
+$router->get('/modificaCurso', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->modificaCurso();
+});
+
+$router->post('/modificarCurso', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->modificarCurso();
+});
+/*END Cursos */
+
+/*BEGIN Material */
 $router->get('/listarMaterial', function(){
 	noAuth();
 	$controller = new MaterialController();
@@ -84,8 +110,9 @@ $router->post('/modificarMaterial', function(){
 	$controller = new MaterialController();
 	$controller->modificarMaterial();
 });
+/*END Material */
 
-
+/*BEGIN Leccion*/
 $router->get('/listarLecciones', function(){
 	noAuth();
 	$controller = new LeccionController();
@@ -116,26 +143,19 @@ $router->post('/modificarLeccion', function(){
 	$controller->modificarLeccion();
 });
 
-$router->get('/modificaCurso', function(){
+$router->get('/detalleLecciones', function(){
 	noAuth();
-	$controller = new CursoController();
-	$controller->modificaCurso();
+	$controller = new LeccionController();
+	$controller->detalleLecciones();
 });
+/*END Leccion*/
 
-$router->post('/modificarCurso', function(){
-	noAuth();
-	$controller = new CursoController();
-	$controller->modificarCurso();
-});
-
-
-
+/*BEGIN Usuario*/
 $router->get('/registro', function(){
 	//auth();
 	$controller = new UsuarioController();
 	$controller->registro();
 });
-
 
 $router->post('/registrarse', function(){
 	auth();
@@ -148,7 +168,6 @@ $router->post('/registrarUsuario', function(){
 	$controller = new AdministradorController();
 	$controller->registrarUsuario();
 });
-
 
 $router->get('/iniciarSesion', function(){
 	auth();
@@ -185,23 +204,5 @@ $router->post('/modificarUsuario', function(){
 	$controller = new AdministradorController();
 	$controller->modificarUsuario();
 });
-
-$router->get('/listarCursos', function(){
-	noAuth();
-	$controller = new CursoController();
-	$controller->listar();
-});
-
-$router->get('/crearCursos', function(){
-	noAuth();
-	$controller = new CursoController();
-	$controller->agregarCruso();
-});
-
-$router->post('/creaCurso', function(){
-	noAuth();
-	$controller = new CursoController();
-	$controller->creaCurso();
-});
-
+/*END Usuario*/
 $router->run();
