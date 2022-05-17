@@ -19,6 +19,7 @@ class Leccion extends Model{
 	private int $orden;
 	private int $idCurso;
 	private Array $materiales = [];
+	private Array $preguntas = [];
 
 	function __construct(){
 		parent::__construct();
@@ -109,6 +110,7 @@ class Leccion extends Model{
 				$leccion->setOrden($c['orden']);
 				$leccion->setIdCurso($c['idCurso']);
 				$leccion->setMateriales(Material::getByIdLeccion($leccion->getIdLeccion()));
+				$leccion->setPreguntas(Pregunta::getByIdLeccion($leccion->getIdLeccion()));
 				array_push($lecciones, $leccion);
 			}
 			return $lecciones;	
@@ -136,6 +138,7 @@ class Leccion extends Model{
 			$leccion->setOrden($data['orden']);
 			$leccion->setIdCurso($data['idCurso']);
 			$leccion->setMateriales(Material::getByIdLeccion($leccion->getIdLeccion()));
+			$leccion->setPreguntas(Pregunta::getByIdLeccion($leccion->getIdLeccion()));
 			return $leccion;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
@@ -175,6 +178,10 @@ class Leccion extends Model{
 		return $this->materiales;
 	}
 
+	public function getPreguntas(){
+		return $this->preguntas;
+	}
+
 	public function setIdLeccion($idLeccion){
 		$this->idLeccion = $idLeccion;
 	}
@@ -205,5 +212,9 @@ class Leccion extends Model{
 
 	public function setMateriales($materiales){
 		$this->materiales = $materiales;
+	}
+
+	public function setPreguntas($preguntas){
+		$this->preguntas = $preguntas;
 	}
 }

@@ -4,65 +4,64 @@ namespace Sebas\Cursos\controllers;
 
 use Sebas\Cursos\lib\Controller;
 use Sebas\Cursos\models\Leccion;
-use Sebas\Cursos\models\Material;
+use Sebas\Cursos\models\Pregunta;
 use Sebas\Cursos\lib\UtilResources;
 
-class MaterialController extends Controller{
+class PreguntaController extends Controller{
 
 	function __construct(){
 		parent::__construct();
 	}
 
-	public function detalleMaterial(){
+	public function detallePregunta(){
 		$id = $this->get('id');
 		$leccion = Leccion::getByIdLeccion($id);
 		$this->render('leccion/detalle',['leccion'=>$leccion]);
 	}
 
-	public function modificaMaterial(){
+	public function modificaPregunta(){
 		$id = $this->get('id');
-		$material = Material::getByIdMaterial($id);
-		$this->render('material/registro',['materialModificar'=>$material]);
+		$pregunta = Pregunta::getByIdPregunta($id);
+		$this->render('pregunta/registro',['preguntaModificar'=>$pregunta]);
 	}
 
-	public function agregaMaterial(){
+	public function agregaPregunta(){
 		$idLeccion = $this->get('id');
 		$leccion = Leccion::getByIdLeccion($idLeccion);
-		$this->render('Material/registro', ['leccion'=> $leccion]);
+		$this->render('pregunta/registro', ['leccion'=> $leccion]);
 	}
 
-	public function agregarMaterial(){
+	public function agregarPregunta(){
 		$idLeccion = $this->post('idLeccion');
 		$nombre = $this->post('nombre');
-		$archivo = $this->file('archivo');
+		$descripcion = $this->post('descripcion');
 		if(	!is_null($idLeccion) &&
 			!is_null($nombre) &&
-			!is_null($archivo)){
-			$archivo = UtilResources::storeFile($archivo);
-			$material = new Material();
+			!is_null($descripcion)){
+			$pregunta = new Pregunta();
 			$Leccion = Leccion::getByIdLeccion($idLeccion);
-			$material->setidLeccion($idLeccion);
-			$material->setNombre($nombre);
-			$material->setArchivo($archivo);
-			if($material->crea()){
+			$pregunta->setidLeccion($idLeccion);
+			$pregunta->setNombre($nombre);
+			$pregunta->setDescripcion($descripcion);
+			if($pregunta->crea()){
 				$notificacion = [
-				    "mensaje" => "Material ". $nombre." registrado correctamente",
+				    "mensaje" => "Pregunta ". $nombre." registrado correctamente",
 				    "error" => FALSE,
 				];
 				$this->listar(['notificacion' => $notificacion], ['idLeccion' => $idLeccion]);
 			}else{
 				$notificacion = [
-			    "mensaje" => "Ocurrió un error al registrar el material",
+			    "mensaje" => "Ocurrió un error al registrar la Pregunta",
 			    "error" => TRUE,
 				];
-				$this->render('Material/registro',['notificacion' => $notificacion]);
+				$this->render('Pregunta/registro',['notificacion' => $notificacion]);
 			}
 		}else{
 			$notificacion = [
 			    "mensaje" => "Complete todos los campos..",
 			    "error" => TRUE,
 			];
-			$this->render('Material/registro',['notificacion' => $notificacion]);
+			$this->render('Pregunta/registro',['notificacion' => $notificacion]);
 		}
 	}
 
@@ -77,7 +76,7 @@ class MaterialController extends Controller{
 			
 			$leccion = Leccion::getByIdLeccion($idLeccion);
 			$data = array_merge(['leccion' => $leccion], $notificacion);
-			$this->render('Material/listar',$data);
+			$this->render('Pregunta/listar',$data);
 		}else{
 			error_log('No tiene permisos');
 			$notificacion = [
@@ -89,41 +88,37 @@ class MaterialController extends Controller{
 		
 	}
 
-	public function modificarMaterial(){
+	public function modificarPregunta(){
 		$idLeccion = $this->post('idLeccion'); 
-		$idMaterial = $this->post('idMaterial');
+		$idPregunta = $this->post('idPregunta');
 		$nombre = $this->post('nombre');
-		$archivo = $this->file('archivo');
+		$descripcion = $this->post('descripcion');
 		if(	!is_null($idLeccion) &&
 			!is_null($nombre) &&
 			!is_null($idLeccion)){
-			$material = Material::getByIdMaterial($idMaterial);
-			if($archivo["name"] != ""){
-				$archivo = UtilResources::storeFile($archivo);
-			}else{
-				$archivo = $material->getArchivo();
-			}
-			$material->setIdLeccion($idLeccion);
-			$material->setNombre($nombre);
-			if($material->modifica()){
+			$pregunta = Pregunta::getByIdPregunta($idPregunta);
+			$pregunta->setDescripcion($descripcion);
+			$pregunta->setIdLeccion($idLeccion);
+			$pregunta->setNombre($nombre);
+			if($pregunta->modifica()){
 				$notificacion = [
-				    "mensaje" => "Material ". $nombre." modificado correctamente",
+				    "mensaje" => "Pregunta ". $nombre." modificado correctamente",
 				    "error" => FALSE,
 				];
 				$this->listar(['notificacion' => $notificacion], ['idLeccion' => $idLeccion]);
 			}else{
 				$notificacion = [
-			    "mensaje" => "Ocurrió un error al actualizar el material",
+			    "mensaje" => "Ocurrió un error al actualizar la Pregunta",
 			    "error" => TRUE,
 				];
-				$this->render('Material/registro',['notificacion' => $notificacion]);
+				$this->render('Pregunta/registro',['notificacion' => $notificacion]);
 			}
 		}else{
 			$notificacion = [
 			    "mensaje" => "Complete todos los campos..",
 			    "error" => TRUE,
 			];
-			$this->render('Material/registro',['notificacion' => $notificacion]);
+			$this->render('Pregunta/registro',['notificacion' => $notificacion]);
 		}
 	}
 }

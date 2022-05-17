@@ -12,7 +12,7 @@ if(isset($this->d['leccion'])){
 			header('location: /Cursos/inicio');
 		}
 		$idMaterial = "";
-		$idLeccion = "";
+		$idLeccion = $leccion -> getIdLeccion();
 		$nombre = "";
 		$archivo = "";
 		$nombreBoton = "";

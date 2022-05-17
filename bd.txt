@@ -151,3 +151,9 @@ INSERT INTO material (nombre, archivo, idLeccion) VALUES('Video de muestra', '6b
 INSERT INTO material (nombre, archivo, idLeccion) VALUES('Requerimientos', 'edeacf85cf8c3db2e08b39c2031fb76e.pdf', 2);
 
 INSERT INTO material (nombre, archivo, idLeccion) VALUES('Casos de uso', 'f60f7d3b6e2a43ba2a041e37b60b6cf4.docx', 2);
+
+INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Un objeto representa una entidad en la vida real?', 'Pregunta para concer si quedó claro el concepto de objeto.', 1);
+
+INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Cuáles son los principales tipos de relaciones entre clases?', 'Pregunta para conocer si quedó claro el concepto de relaciones.', 2);
+
+INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Entendiste todo el curso?', 'Pregunta final del curso.', 5);

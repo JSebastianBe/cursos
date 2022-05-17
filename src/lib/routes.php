@@ -6,6 +6,7 @@ use Sebas\Cursos\controllers\ClienteController;
 use Sebas\Cursos\controllers\CursoController;
 use Sebas\Cursos\controllers\LeccionController;
 use Sebas\Cursos\controllers\MaterialController;
+use Sebas\Cursos\controllers\PreguntaController;
 use Sebas\Cursos\controllers\AdministradorController;
 
 $router = new \Bramus\Router\Router();
@@ -37,118 +38,6 @@ $router->get('/inicio', function(){
 	$controller = new CursoController();
 	$controller->catalogo();
 });
-
-/*BEGIN Cursos */
-$router->get('/catalogo', function(){
-	$controller = new CursoController();
-	$controller->catalogo();
-});
-
-$router->get('/detalleCurso', function(){
-	$controller = new CursoController();
-	$controller->detalleCurso();
-});
-
-$router->get('/listarCursos', function(){
-	noAuth();
-	$controller = new CursoController();
-	$controller->listar();
-});
-
-$router->get('/crearCursos', function(){
-	noAuth();
-	$controller = new CursoController();
-	$controller->agregarCruso();
-});
-
-$router->post('/creaCurso', function(){
-	noAuth();
-	$controller = new CursoController();
-	$controller->creaCurso();
-});
-
-$router->get('/modificaCurso', function(){
-	noAuth();
-	$controller = new CursoController();
-	$controller->modificaCurso();
-});
-
-$router->post('/modificarCurso', function(){
-	noAuth();
-	$controller = new CursoController();
-	$controller->modificarCurso();
-});
-/*END Cursos */
-
-/*BEGIN Material */
-$router->get('/listarMaterial', function(){
-	noAuth();
-	$controller = new MaterialController();
-	$controller->listar();
-});
-
-$router->get('/creaMaterial', function(){
-	noAuth();
-	$controller = new MaterialController();
-	$controller->agregaMaterial();
-});
-
-$router->post('/crearMaterial', function(){
-	noAuth();
-	$controller = new MaterialController();
-	$controller->agregarMaterial();
-});
-
-$router->get('/modificaMaterial', function(){
-	noAuth();
-	$controller = new MaterialController();
-	$controller->modificaMaterial();
-});
-
-$router->post('/modificarMaterial', function(){
-	noAuth();
-	$controller = new MaterialController();
-	$controller->modificarMaterial();
-});
-/*END Material */
-
-/*BEGIN Leccion*/
-$router->get('/listarLecciones', function(){
-	noAuth();
-	$controller = new LeccionController();
-	$controller->listar();
-});
-
-$router->get('/creaLecciones', function(){
-	noAuth();
-	$controller = new LeccionController();
-	$controller->agregaLeccion();
-});
-
-$router->post('/crearLeccion', function(){
-	noAuth();
-	$controller = new LeccionController();
-	$controller->agregarLeccion();
-});
-
-$router->get('/modificaLeccion', function(){
-	noAuth();
-	$controller = new LeccionController();
-	$controller->modificaLeccion();
-});
-
-$router->post('/modificarLeccion', function(){
-	noAuth();
-	$controller = new LeccionController();
-	$controller->modificarLeccion();
-});
-
-$router->get('/detalleLecciones', function(){
-	noAuth();
-	$controller = new LeccionController();
-	$controller->detalleLecciones();
-});
-/*END Leccion*/
 
 /*BEGIN Usuario*/
 $router->get('/registro', function(){
@@ -205,4 +94,149 @@ $router->post('/modificarUsuario', function(){
 	$controller->modificarUsuario();
 });
 /*END Usuario*/
+
+/*BEGIN Cursos */
+$router->get('/catalogo', function(){
+	$controller = new CursoController();
+	$controller->catalogo();
+});
+
+$router->get('/detalleCurso', function(){
+	$controller = new CursoController();
+	$controller->detalleCurso();
+});
+
+$router->get('/listarCursos', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->listar();
+});
+
+$router->get('/crearCursos', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->agregarCruso();
+});
+
+$router->post('/creaCurso', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->creaCurso();
+});
+
+$router->get('/modificaCurso', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->modificaCurso();
+});
+
+$router->post('/modificarCurso', function(){
+	noAuth();
+	$controller = new CursoController();
+	$controller->modificarCurso();
+});
+/*END Cursos */
+
+/*BEGIN Leccion*/
+$router->get('/listarLecciones', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->listar();
+});
+
+$router->get('/creaLecciones', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->agregaLeccion();
+});
+
+$router->post('/crearLeccion', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->agregarLeccion();
+});
+
+$router->get('/modificaLeccion', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->modificaLeccion();
+});
+
+$router->post('/modificarLeccion', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->modificarLeccion();
+});
+
+$router->get('/detalleLecciones', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->detalleLecciones();
+});
+/*END Leccion*/
+
+/*BEGIN Material */
+$router->get('/listarMaterial', function(){
+	noAuth();
+	$controller = new MaterialController();
+	$controller->listar();
+});
+
+$router->get('/creaMaterial', function(){
+	noAuth();
+	$controller = new MaterialController();
+	$controller->agregaMaterial();
+});
+
+$router->post('/crearMaterial', function(){
+	noAuth();
+	$controller = new MaterialController();
+	$controller->agregarMaterial();
+});
+
+$router->get('/modificaMaterial', function(){
+	noAuth();
+	$controller = new MaterialController();
+	$controller->modificaMaterial();
+});
+
+$router->post('/modificarMaterial', function(){
+	noAuth();
+	$controller = new MaterialController();
+	$controller->modificarMaterial();
+});
+/*END Material*/
+
+/*BEGIN Pregunta*/
+$router->get('/listarPreguntas', function(){
+	noAuth();
+	$controller = new PreguntaController();
+	$controller->listar();
+});
+
+$router->get('/creaPregunta', function(){
+	noAuth();
+	$controller = new PreguntaController();
+	$controller->agregaPregunta();
+});
+
+$router->post('/crearPregunta', function(){
+	noAuth();
+	$controller = new PreguntaController();
+	$controller->agregarPregunta();
+});
+
+$router->get('/modificaPregunta', function(){
+	noAuth();
+	$controller = new PreguntaController();
+	$controller->modificaPregunta();
+});
+
+$router->post('/modificarPregunta', function(){
+	noAuth();
+	$controller = new PreguntaController();
+	$controller->modificarPregunta();
+});
+/*END Pregunta*/
+
 $router->run();

@@ -11,7 +11,7 @@ if(isset($this->d['curso'])){
 		if($usuario->getPerfil()=="Cliente"){
 			header('location: /Cursos/inicio');
 		}
-		$idCurso = $curso -> getIdCurso();
+		$idCurso = "";
 		$idLeccion = "";
 		$capitulo = "";
 		$titulo = "";
@@ -41,16 +41,17 @@ if(isset($this->d['curso'])){
 					<form class="row g-3" action="/Cursos/modificarLeccion" method="POST" enctype="multipart/form-data">
 						<input type="hidden" class="form-control" name="orden" id="oden" value="<?php echo $orden; ?>" required> 
 						<input type="hidden" class="form-control" name="idLeccion" id="idLeccion" value="<?php echo $idLeccion; ?>" required>
+						<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $idCurso; ?>" required>
 					<?php
 				}else{
 					$nombreBoton = "Registrar";
 					?>
 					<h1  class="text-center">Registro de Lecciones para el curso: <?php echo $curso->getNombre();?></h1>
 					<form class="row g-3" action="/Cursos/crearLeccion" method="POST" enctype="multipart/form-data">
+					<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $curso -> getIdCurso(); ?>" required>
 					<?php
 				}
 			?>
-				<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $idCurso; ?>" required>
 				<div class="col-lg-6">
 					<label for="validationCustomCapitulo" class="form-model"> Capitulo</label>
 					<div class="input-group has-validation">
