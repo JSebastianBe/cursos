@@ -189,6 +189,23 @@ class Usuario extends Model{
 		}
 	}
 
+	public function getInscrito($idCurso){
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idPago FROM pago WHERE idCurso = :idCurso AND idUsuario = :idUsuario;');
+			$query->execute(['idCurso' => $idCurso]);
+			$query->execute(['idUsuario' => $this->idUsuario]);
+			if($query->rowCount()>0){
+				return true;
+			}else{
+				return false;
+			}
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return true;
+		}
+	}
+
 	private function getHashedPassword($password){
 		return password_hash($password, PASSWORD_DEFAULT, ['cost' => 10]);
 	}

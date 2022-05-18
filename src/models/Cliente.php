@@ -53,8 +53,11 @@ class Cliente extends Usuario{
 			return NULL;
 		}
 	}
+
+
 	public function setIdCliente($id){
 		$this->idCliente=$id;
 	}
+
 
 }

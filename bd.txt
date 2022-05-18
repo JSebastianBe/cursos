@@ -35,7 +35,8 @@ estado varchar(10) NOT NULL,
 idUsuario integer NOT NULL,
 idCurso integer NOT NULL,
 FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario),
-FOREIGN KEY (idCurso) REFERENCES Curso (idCurso))
+FOREIGN KEY (idCurso) REFERENCES Curso (idCurso),
+UNIQUE `kunique_01` (`idUsuario`,`idCurso`))
 ENGINE=InnoDB;
 
 

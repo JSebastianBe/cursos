@@ -4,6 +4,8 @@ namespace Sebas\Cursos\controllers;
 
 use Sebas\Cursos\lib\Controller;
 use Sebas\Cursos\models\Cliente;
+use Sebas\Cursos\models\Curso;
+use Sebas\Cursos\models\Pago;
 
 class ClienteController extends Controller{
 
@@ -42,6 +44,20 @@ class ClienteController extends Controller{
 			    "error" => TRUE,
 			];
 			$this->render('Usuario/registro',['notificacion' => $notificacion]);
+		}
+	}
+
+	public function inscribirCurso(){
+		$idCurso = $this->post('idCurso');
+		$usuario = $this->post('usuario');
+		if(!is_null($idCurso) &&
+			!is_null($usuario)){
+			$cliente = Cliente::get($usuario);
+			$curso = Curso::getByIdCurso($idCurso);
+			$fecha_inscrip = getdate();
+			$valor = $curso->getPrecio();
+			$estado = 'Inscrito';
+			
 		}
 	}
 }

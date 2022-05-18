@@ -22,13 +22,21 @@ if(isset($this->d['curso'])){
 					<video class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="/Cursos/public/img/videos/<?php echo $curso->getVideoIntroduc(); ?>" width="500" height="500" controls></video>
 				</div>
 				<div class="col col-lg-7">
-					<h2 class="pb-2 border-bottom">Detalles</h2>
+					<!-- <h2 class="pb-2 border-bottom">Detalles</h2> -->
 					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
 						<div class="col d-flex align-items-start">
 							<div class="fs-4 mb-3">
 								<div>
-									<h4 class="fw-bold mb-0">Precio</h4>
-									<p><i class="bi bi-currency-dollar"></i> <?php echo $curso->getPrecio(); ?> </p>
+									<h4 class="fw-bold mb-0"># Capítulos</h4>
+									<p><i class="bi bi-book"></i> <?php echo $curso->getCantidadCapitulos(); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="col d-flex align-items-start">
+							<div class="fs-4 mb-3">
+								<div>
+									<h4 class="fw-bold mb-0">Duración</h4>
+									<p><i class="bi bi-alarm"></i> <?php echo $curso->getDuracion(); ?> (horas)</p>
 								</div>
 							</div>
 						</div>
@@ -43,22 +51,40 @@ if(isset($this->d['curso'])){
 						<div class="col d-flex align-items-start">
 							<div class="fs-4 mb-3">
 								<div>
-									<h4 class="fw-bold mb-0">Cantidad de Capítulos</h4>
-									<p><i class="bi bi-book"></i> <?php echo $curso->getCantidadCapitulos(); ?></p>
-								</div>
-							</div>
-						</div>
-						<div class="col d-flex align-items-start">
-							<div class="fs-4 mb-3">
-								<div>
-									<h4 class="fw-bold mb-0">Duración</h4>
-									<p><i class="bi bi-alarm"></i> <?php echo $curso->getDuracion(); ?>(horas)</p>
+									<h4 class="fw-bold mb-0">Precio</h4>
+									<p><i class="bi bi-currency-dollar"></i> <?php echo $curso->getPrecio(); ?> </p>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="">
-						<button type="button" class="btn boton-p btn-lg px-4 me-md-2">Inscribirse</button>
+						<?php
+						if(!isset($_SESSION['usuario'])){
+							?>
+							<a href="#" class="btn boton-p btn-lg px-4 me-md-2 disabled" aria-current="true" >Registrarse</a>
+							<?php
+						}else{
+							if($usuario->getPerfil()=="Cliente"){
+								if($usuario->getInscrito($curso->getIdCurso())){
+									?>	
+									<form action="/Cursos/pagarCurso" method="POST">
+										<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $curso->getIdCurso(); ?>" required>
+										<input type="hidden" class="form-control" name="usuario" id="usuario" value="<?php echo $usuario->getUsuario(); ?>" required>
+										<input class="btn boton-s" type="submit" value="Realizar inversión">
+									</form>
+								<?php
+								}else{
+								?>	
+									<form action="/Cursos/inscribirCurso" method="POST">
+										<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $curso->getIdCurso(); ?>" required>
+										<input type="hidden" class="form-control" name="usuario" id="usuario" value="<?php echo $usuario->getUsuario(); ?>" required>
+										<input class="btn boton-p" type="submit" value="Inscribirse">
+									</form>
+								<?php
+								}
+							}
+						}
+						?>
 						<!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Ver más</button> -->
 					</div>
 				</div>
@@ -75,7 +101,7 @@ if(isset($this->d['curso'])){
 		$lecciones = $curso->getLeccionesByCap($c['capitulo']);
 		foreach($lecciones as $l){
 		?>
-		  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3 disabled" aria-current="true" >
+		  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true" >
 		    <i class="fs-4 mb-3 bi bi-book"></i>
 		    <div class="d-flex gap-2 w-100 justify-content-between">
 		      <div>

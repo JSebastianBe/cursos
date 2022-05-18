@@ -272,4 +272,11 @@ $router->post('/modificarRespuesta', function(){
 });
 /*END Respuestas*/
 
+/**/
+$router->post('/inscribirCurso', function(){
+	noAuth();
+	$controller = new ClienteController();
+	$controller->inscribirCurso();
+});
+
 $router->run();
