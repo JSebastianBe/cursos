@@ -19,7 +19,12 @@ class UsuarioController extends Controller{
 	}
 
 	public function registro(){
-		$this->render('usuario/registro');
+		$idCurso = $this->post('idCurso');
+		if($idCurso == ""){
+			$this->render('usuario/registro');
+		}else{
+			$this->render('usuario/registro',['idCurso' => $idCurso]);	
+		}
 	}
 
 	public function iniciarSesion(){
@@ -85,6 +90,7 @@ class UsuarioController extends Controller{
 		    "mensaje" => "Sesión cerrada con éxito",
 		    "error" => FALSE,
 		];
-		$this->render('Curso/catalogo',['notificacion' => $notificacion]);
+		header('location: /Cursos/catalogo');
+		//$this->render('Curso/catalogo',['notificacion' => $notificacion]);
 	}
 }

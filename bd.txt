@@ -28,8 +28,8 @@ ENGINE=InnoDB;
 
 create table Pago(
 idPago integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-fecha_inscrip date NOT NULL,
-fecha_pago date,
+fecha_inscrip datetime NOT NULL,
+fecha_pago datetime,
 valor double NOT NULL,
 estado varchar(10) NOT NULL,
 idUsuario integer NOT NULL,

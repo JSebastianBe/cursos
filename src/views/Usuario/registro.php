@@ -3,8 +3,13 @@
 	<h1  class="text-center">Registro de usuarios</h1>
 	<div class="row">
 		<div class="col col-lg-4 offset-lg-4">
-			<?php require 'src/views/templates/notificaciones.php'; ?>
-			<?php 
+			<?php require 'src/views/templates/notificaciones.php'; 
+			if(isset($this->d['idCurso'])){
+				$idCurso = $this->d['idCurso'];
+			}else{
+				$idCurso = "";
+			}
+
 			$nombre ="";
 			$perfil ="";
 			$telefono ="";
@@ -46,6 +51,7 @@
 			}else{
 				?>
 				<form class="row g-3" action="/Cursos/registrarse" method="POST">
+				<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $idCurso; ?>">
 				<?php
 			}?>
 				<div class="col-lg-12">

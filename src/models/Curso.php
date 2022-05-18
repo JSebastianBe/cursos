@@ -159,6 +159,43 @@ class Curso extends Model{
 		}
 	}
 
+	public function getCantidadCapitulos(){
+		try{
+			$query =  $this->prepare('SELECT count(A.capitulo)cantidad FROM (SELECT count(idLeccion), capitulo FROM leccion WHERE idCurso = :idCurso GROUP BY capitulo)A;');
+			$query->execute(['idCurso' => $this->idCurso]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+			return $data['cantidad'];
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
+		}
+	}
+
+	public function getCapitulos(){
+		$capitulos=[];
+		try{
+			$query =  $this->prepare('SELECT count(idLeccion)cantidad, capitulo FROM leccion WHERE idCurso = :idCurso GROUP BY capitulo;');
+			$query->execute(['idCurso' => $this->idCurso]);
+			while($data = $query->fetch(PDO::FETCH_ASSOC)){
+				array_push($capitulos, $data);
+			}
+			return $capitulos;	
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return [];
+		}
+	}
+
+	public function getLeccionesByCap($capitulo){
+		$leccionesByCap =[];
+		foreach($this->lecciones[0] as $l){
+			if($l->getCapitulo()==$capitulo){
+				array_push($leccionesByCap, $l);
+			}
+		}
+		return $leccionesByCap;
+	}
+
 	public function getIdCurso(){
 		return $this->idCurso;
 	}
@@ -204,43 +241,6 @@ class Curso extends Model{
 
 	public function getCantidadLecciones(){
 		return count($this->lecciones[0]);
-	}
-
-	public function getCantidadCapitulos(){
-		try{
-			$query =  $this->prepare('SELECT count(A.capitulo)cantidad FROM (SELECT count(idLeccion), capitulo FROM leccion WHERE idCurso = :idCurso GROUP BY capitulo)A;');
-			$query->execute(['idCurso' => $this->idCurso]);
-			$data = $query->fetch(PDO::FETCH_ASSOC);
-			return $data['cantidad'];
-		}catch(PDOException $e){
-			error_log($e->getMessage());
-			return NULL;
-		}
-	}
-
-	public function getCapitulos(){
-		$capitulos=[];
-		try{
-			$query =  $this->prepare('SELECT count(idLeccion)cantidad, capitulo FROM leccion WHERE idCurso = :idCurso GROUP BY capitulo;');
-			$query->execute(['idCurso' => $this->idCurso]);
-			while($data = $query->fetch(PDO::FETCH_ASSOC)){
-				array_push($capitulos, $data);
-			}
-			return $capitulos;	
-		}catch(PDOException $e){
-			error_log($e->getMessage());
-			return [];
-		}
-	}
-
-	public function getLeccionesByCap($capitulo){
-		$leccionesByCap =[];
-		foreach($this->lecciones[0] as $l){
-			if($l->getCapitulo()==$capitulo){
-				array_push($leccionesByCap, $l);
-			}
-		}
-		return $leccionesByCap;
 	}
 
 	public function setIdCurso($idCurso){

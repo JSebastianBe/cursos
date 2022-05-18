@@ -6,6 +6,7 @@ use Sebas\Cursos\lib\Controller;
 use Sebas\Cursos\models\Cliente;
 use Sebas\Cursos\models\Curso;
 use Sebas\Cursos\models\Pago;
+use Sebas\Cursos\models\Usuario;
 
 class ClienteController extends Controller{
 
@@ -14,6 +15,8 @@ class ClienteController extends Controller{
 	}
 
 	public function registrarse(){
+		$idCurso = $this->post('idCurso');
+
 		$nombre = $this->post('nombre');
 		$correo = $this->post('correo');
 		$telefono = $this->post('telefono');
@@ -28,7 +31,17 @@ class ClienteController extends Controller{
 					    "mensaje" => "Cliente registrado, por favor inicie sesión con el usuario y clave enviados a su correo..",
 					    "error" => FALSE,
 					];
-					$this->render('Usuario/iniciarSesion',['notificacion' => $notificacion]);
+					if($idCurso == ""){
+						$this->render('Usuario/iniciarSesion',['notificacion' => $notificacion]);	
+					}else{
+						$cliente = Cliente::get($cliente->getUsuario());
+						if(!$cliente->getInscrito($idCurso)){
+
+							$this->inscribe($idCurso,$cliente->getIdUsuario());
+							header('location: /Cursos/detalleCurso?id='.$idCurso);
+						}
+					}
+					
 				}else{
 					error_log('Correo ya existe');
 					$notificacion = [
@@ -50,14 +63,27 @@ class ClienteController extends Controller{
 	public function inscribirCurso(){
 		$idCurso = $this->post('idCurso');
 		$usuario = $this->post('usuario');
+		$usuario = Usuario::get($usuario);
+		$idUsuario = $usuario->getIdUsuario();
+		$this->inscribe($idCurso,$idUsuario);
+	}
+
+	public function inscribe($idCurso,$idUsuario){
 		if(!is_null($idCurso) &&
-			!is_null($usuario)){
-			$cliente = Cliente::get($usuario);
+			!is_null($idUsuario)){
 			$curso = Curso::getByIdCurso($idCurso);
-			$fecha_inscrip = getdate();
+			$fecha_inscrip = date('Y-m-d H:i:s', time());
 			$valor = $curso->getPrecio();
 			$estado = 'Inscrito';
-			
+			$pago = new Pago();
+			$pago->setFecha_inscrip($fecha_inscrip);
+			$pago->setValor($valor);
+			$pago->setEstado($estado);
+			$pago->setIdUsuario($idUsuario);
+			$pago->setIdCurso($idCurso);
+
+			$pago->registrar();
+			header('location: /Cursos/detalleCurso?id='.$idCurso);
 		}
 	}
 }

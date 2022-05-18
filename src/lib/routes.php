@@ -279,4 +279,10 @@ $router->post('/inscribirCurso', function(){
 	$controller->inscribirCurso();
 });
 
+$router->post('/registrarCurso', function(){
+	auth();
+	$controller = new UsuarioController();
+	$controller->registro();
+});
+
 $router->run();

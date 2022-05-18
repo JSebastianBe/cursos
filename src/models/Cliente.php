@@ -59,5 +59,21 @@ class Cliente extends Usuario{
 		$this->idCliente=$id;
 	}
 
+	public function getInscrito($idCurso){
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idPago FROM pago WHERE idCurso = :idCurso AND idUsuario = :idUsuario;');
+			$query->execute(['idCurso' => $idCurso,
+							'idUsuario' => $this->idCliente]);
+			if($query->rowCount()>0){
+				return true;
+			}else{
+				return false;
+			}
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
+		}
+	}
 
 }

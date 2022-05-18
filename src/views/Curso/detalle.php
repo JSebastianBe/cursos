@@ -61,11 +61,15 @@ if(isset($this->d['curso'])){
 						<?php
 						if(!isset($_SESSION['usuario'])){
 							?>
-							<a href="#" class="btn boton-p btn-lg px-4 me-md-2 disabled" aria-current="true" >Registrarse</a>
+								<form action="/Cursos/registrarCurso" method="POST">
+									<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $curso->getIdCurso(); ?>" required>
+									<input class="btn boton-p" type="submit" value="Registrarse">
+								</form>
 							<?php
 						}else{
 							if($usuario->getPerfil()=="Cliente"){
-								if($usuario->getInscrito($curso->getIdCurso())){
+								$cliente = $usuario->getCliente();
+								if($cliente->getInscrito($curso->getIdCurso())){
 									?>	
 									<form action="/Cursos/pagarCurso" method="POST">
 										<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $curso->getIdCurso(); ?>" required>
@@ -82,6 +86,10 @@ if(isset($this->d['curso'])){
 									</form>
 								<?php
 								}
+							}else{
+								?>
+								<a href="#" class="btn boton-p btn-lg px-4 me-md-2 disabled" aria-current="true"  >Registrarse</a>
+								<?php
 							}
 						}
 						?>

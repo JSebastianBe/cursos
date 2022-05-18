@@ -10,8 +10,8 @@ use PDOException;
 class Pago extends Model{
 
 	private int $idPago;
-	private date $fecha_inscrip;
-	private date $fecha_pago;
+	private string $fecha_inscrip;
+	private string $fecha_pago;
 	private float $valor;
 	private string $estado;
 	private int $idUsuario;
@@ -23,7 +23,7 @@ class Pago extends Model{
 
 	public function registrar(){
 		try{
-			$query = $this->prepare('INSERT INTO respuesta (fecha_inscrip, valor, estado, idUsuario, idCurso) VALUES(:fecha_inscrip, :valor, :estado, :idUsuario, :idCurso)');
+			$query = $this->prepare('INSERT INTO pago (fecha_inscrip, valor, estado, idUsuario, idCurso) VALUES(:fecha_inscrip, :valor, :estado, :idUsuario, :idCurso)');
 			$query->execute([
 				'fecha_inscrip' => $this->fecha_inscrip, 
 				'valor' => $this->valor, 
@@ -40,7 +40,7 @@ class Pago extends Model{
 
 	public function pagar(){
 		try{
-			$query = $this->prepare('UPDATE respuesta SET fecha_pago = :fecha_pago WHERE idUsuario = :idUsuario AND idCurso = :idCurso');
+			$query = $this->prepare('UPDATE pago SET fecha_pago = :fecha_pago WHERE idUsuario = :idUsuario AND idCurso = :idCurso');
 			$query->execute([
 				'fecha_pago' => $this->fecha_pago, 
 				'idUsuario' => $this->idUsuario,
@@ -130,17 +130,6 @@ class Pago extends Model{
 	// 		return NULL;
 	// 	}
 	// }
-
-
-
-private date $fecha_inscrip;
-	private date $fecha_pago;
-	private float $valor;
-	private string $estado;
-	private int $idUsuario;
-	private int $idCurso;
-
-
 	public function getIdPago(){
 		return $this->idPago;
 	}
