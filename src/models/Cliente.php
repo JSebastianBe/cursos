@@ -10,6 +10,7 @@ use PDOException;
 class Cliente extends Usuario{
 
 	private int $idCliente;
+	private Array $cursos;
 
 	function __construct($nombre,$telefono,$correo){
 		parent::__construct($correo,$nombre, $telefono);
@@ -59,6 +60,7 @@ class Cliente extends Usuario{
 		$this->idCliente=$id;
 	}
 
+
 	public function getInscrito($idCurso){
 		try{
 			$db = new Database();
@@ -67,6 +69,29 @@ class Cliente extends Usuario{
 							'idUsuario' => $this->idCliente]);
 			if($query->rowCount()>0){
 				return true;
+			}else{
+				return false;
+			}
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
+		}
+	}
+
+	public function getPago($idCurso){
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT fecha_pago FROM pago WHERE idCurso = :idCurso AND idUsuario = :idUsuario;');
+			$query->execute(['idCurso' => $idCurso,
+							'idUsuario' => $this->idCliente]);
+			if($query->rowCount()>0){
+				$data = $query->fetch(PDO::FETCH_ASSOC);
+				if(!is_null($data['fecha_pago'])){
+					return true;	
+				}else{
+					return false;
+				}
+				
 			}else{
 				return false;
 			}

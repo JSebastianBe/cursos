@@ -93,39 +93,91 @@ if(isset($this->d['curso'])){
 							}
 						}
 						?>
-						<!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Ver más</button> -->
 					</div>
 				</div>
 			</div>
 		</div>
-	<hr class="featurette-divider">
-	<?php
-	$capitulos = $curso->getCapitulos();
-	foreach($capitulos as $c){
-	?>
-	<h2 class="pb-2 border-bottom"><?php echo $c['capitulo'];?></h2>
-		<div class="list-group">
+		<hr class="featurette-divider">
+		<h2 class="featurette-heading">Contenido </h2>
+		<ol class="list-group list-group-numbered">
 		<?php
-		$lecciones = $curso->getLeccionesByCap($c['capitulo']);
-		foreach($lecciones as $l){
-		?>
-		  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true" >
-		    <i class="fs-4 mb-3 bi bi-book"></i>
-		    <div class="d-flex gap-2 w-100 justify-content-between">
-		      <div>
-		        <h6 class="mb-0"><?php echo $l->getTitulo(); ?></h6>
-		        <!-- <p class="mb-0 opacity-75 text_recor"><?php echo $l->getObjetivo(); ?></p> -->
-		      </div>
-		      <small class="opacity-50 text-nowrap"><?php echo $l->getOrden(); ?></small>
-		    </div>
-		  </a>
-		<?php
+		$capitulos = $curso->getCapitulos();
+		if(isset($_SESSION['usuario']) && 
+			$usuario->getPerfil()=="Cliente"){
+			$cliente = $usuario->getCliente();
+			if($cliente->getPago($curso->getIdCurso())){
+				foreach($capitulos as $c){
+				?>
+					<li class="list-group-item d-flex justify-content-between align-items-start">
+	   					<div class="ms-2 me-auto">
+	      				<div class="fw-bold"><?php echo $c['capitulo'];?></div>
+						<?php
+						$lecciones = $curso->getLeccionesByCap($c['capitulo']);
+						foreach($lecciones as $l){
+						?>
+							<ol class="list-group list-group-numbered">
+								<li class="list-group-item"><?php echo $l->getTitulo(); ?></li>
+								<form action="/Cursos/abreLeccion" method="POST">
+									<input type="hidden" class="form-control" name="idLeccion" id="idLeccion" value="<?php echo $l->getIdLeccion(); ?>" required>
+									<input class="btn boton-p" type="submit" value="Ver lección">
+								</form>
+						  	</ol>
+						<?php
+						}
+					?>
+						</div>
+				    <!-- <span class="badge bg-primary rounded-pill">14</span> -->
+				  </li>
+				<?php
+				}
+			}else{
+				foreach($capitulos as $c){
+				?>
+					<li class="list-group-item d-flex justify-content-between align-items-start">
+	   					<div class="ms-2 me-auto">
+	      				<div class="fw-bold"><?php echo $c['capitulo'];?></div>
+						<?php
+						$lecciones = $curso->getLeccionesByCap($c['capitulo']);
+						foreach($lecciones as $l){
+						?>
+							<ol class="list-group list-group-numbered">
+								<li class="list-group-item"><?php echo $l->getTitulo(); ?></li>
+						  	</ol>
+						<?php
+						}
+					?>
+						</div>
+				    <!-- <span class="badge bg-primary rounded-pill">14</span> -->
+				  </li>
+				<?php
+				}
+			}
+			
+		}else{
+			foreach($capitulos as $c){
+			?>
+				<li class="list-group-item d-flex justify-content-between align-items-start">
+   					<div class="ms-2 me-auto">
+      				<div class="fw-bold"><?php echo $c['capitulo'];?></div>
+					<?php
+					$lecciones = $curso->getLeccionesByCap($c['capitulo']);
+					foreach($lecciones as $l){
+					?>
+						<ol class="list-group list-group-numbered">
+							<li class="list-group-item"><?php echo $l->getTitulo(); ?></li>
+					  	</ol>
+					<?php
+					}
+				?>
+					</div>
+			    <!-- <span class="badge bg-primary rounded-pill">14</span> -->
+			  </li>
+			<?php
+			}
 		}
+		
 		?>
-		</div>
-	<?php
-	}
-	?>
+		</ol>
 	</div>
 </div>
 <?php

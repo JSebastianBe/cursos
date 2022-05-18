@@ -6,6 +6,8 @@ use Sebas\Cursos\lib\Controller;
 use Sebas\Cursos\models\Cliente;
 use Sebas\Cursos\models\Curso;
 use Sebas\Cursos\models\Pago;
+use Sebas\Cursos\models\AvanceCurso;
+use Sebas\Cursos\models\AvanceLeccion;
 use Sebas\Cursos\models\Usuario;
 
 class ClienteController extends Controller{
@@ -16,7 +18,6 @@ class ClienteController extends Controller{
 
 	public function registrarse(){
 		$idCurso = $this->post('idCurso');
-
 		$nombre = $this->post('nombre');
 		$correo = $this->post('correo');
 		$telefono = $this->post('telefono');
@@ -68,7 +69,7 @@ class ClienteController extends Controller{
 		$this->inscribe($idCurso,$idUsuario);
 	}
 
-	public function inscribe($idCurso,$idUsuario){
+	private function inscribe($idCurso,$idUsuario){
 		if(!is_null($idCurso) &&
 			!is_null($idUsuario)){
 			$curso = Curso::getByIdCurso($idCurso);
@@ -81,9 +82,30 @@ class ClienteController extends Controller{
 			$pago->setEstado($estado);
 			$pago->setIdUsuario($idUsuario);
 			$pago->setIdCurso($idCurso);
-
 			$pago->registrar();
+			$this->creaAvanceCurso($idCurso,$idUsuario);
 			header('location: /Cursos/detalleCurso?id='.$idCurso);
 		}
+	}
+
+	private function creaAvanceCurso($idCurso,$idUsuario) {
+		$curso = Curso::getByIdCurso($idCurso);
+		$avanceCurso = new AvanceCurso();
+		$avanceCurso->setIdCurso($idCurso);
+		$avanceCurso->setIdUsuario($idUsuario);
+		$avanceCurso->crea();
+		$avanceCurso = AvanceCurso::get($idUsuario, $idCurso);
+		$this->creaAvanceLeccion($idCurso, $avanceCurso->getIdAvanceCurso());
+	}
+
+	private function creaAvanceLeccion($idCurso, $idAvanceCurso) {
+		$lecciones = (Curso::getByIdCurso($idCurso))->getLecciones();
+		foreach($lecciones as $l){
+			$avanceLeccion = new AvanceLeccion();
+			$avanceLeccion->setIdAvanceCurso($idAvanceCurso);
+			$avanceLeccion->setIdLeccion($l->getIdLeccion());
+			$avanceLeccion->setVisto(0);
+			$avanceLeccion->crea();
+		}		
 	}
 }
