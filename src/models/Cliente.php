@@ -10,10 +10,12 @@ use PDOException;
 class Cliente extends Usuario{
 
 	private int $idCliente;
+	private Array $pagos;
 	private Array $cursos;
 
 	function __construct($nombre,$telefono,$correo){
 		parent::__construct($correo,$nombre, $telefono);
+		$this->cursos =[];
 	}
 
 	public function crear(){
@@ -48,18 +50,14 @@ class Cliente extends Usuario{
 			$cliente->setPerfil($data['perfil']);
 			$cliente->setClave($data['clave']);
 			$cliente->setUsuario($usuario);
+			$cliente->setPagos(Pago::getByIdCliente($cliente->getIdCliente()));
+			$cliente->setCursos($cliente->getCursosByPagos());
 			return $cliente;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
 			return NULL;
 		}
 	}
-
-
-	public function setIdCliente($id){
-		$this->idCliente=$id;
-	}
-
 
 	public function getInscrito($idCurso){
 		try{
@@ -72,6 +70,30 @@ class Cliente extends Usuario{
 			}else{
 				return false;
 			}
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
+		}
+	}
+
+	public function getCursosByPagos():Array{
+		$cursos = [];
+		foreach($this->getPagos() as $p){
+			$curso = Curso::getByIdCurso($p->getIdCurso());
+			array_push($cursos, $curso);
+		}
+		return $cursos;
+	}
+
+	public function pagar($idCurso, $fecha_pago){
+		try{
+			$query = $this->prepare('UPDATE pago SET fecha_pago = :fecha_pago WHERE idUsuario = :idUsuario AND idCurso = :idCurso');
+			$query->execute([
+				'fecha_pago' => $fecha_pago, 
+				'idUsuario' => $this->idCliente,
+				'idCurso' => $idCurso,
+			]);
+			return true;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
 			return false;
@@ -100,5 +122,29 @@ class Cliente extends Usuario{
 			return false;
 		}
 	}
+
+	public function getCursos(){
+		return $this->cursos;
+	}
+
+	public function setCursos($cursos){
+		$this->cursos = $cursos;
+	}
+
+	public function getPagos(){
+		return $this->pagos;
+	}
+
+	public function setPagos($pagos){
+		$this->pagos = $pagos;
+	}
+
+	public function getIdCliente(){
+		return $this->idCliente;
+	}
+
+	public function setIdCliente($id){
+		$this->idCliente=$id;
+	}	
 
 }

@@ -108,4 +108,22 @@ class ClienteController extends Controller{
 			$avanceLeccion->crea();
 		}		
 	}
+
+	public function pagarCurso(){
+		$idCurso = $this->post('idCurso');
+		$usuario = $this->post('usuario');
+		$cliente = Cliente::get($usuario);
+		$fecha_pago = date('Y-m-d H:i:s', time());
+		$cliente->pagar($idCurso,$fecha_pago);
+		header('location: /Cursos/detalleCurso?id='.$idCurso);
+	}
+
+	public function listarCursos(){
+
+		$cliente = Cliente::get(unserialize($_SESSION['usuario'])->getUsuario());
+		$cursos = $cliente->getCursos();
+		$data = array_merge(['cursos' => $cursos]);
+		$this->render('Curso/misCursos',$data);
+
+	}
 }

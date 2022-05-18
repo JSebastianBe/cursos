@@ -32,6 +32,7 @@ class AvanceLeccion extends Model{
 			return false;
 		}
 	}
+	
 	public function getIdAvanceLeccion(){
 		return $this->idAvanceLeccion;
 	}

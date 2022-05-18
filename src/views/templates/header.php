@@ -48,7 +48,7 @@
 						  	<?php
 						  	if($usuario->getPerfil()=="Cliente"){
 							?>
-								<li><a class="dropdown-item" href="#">Mis Cursos</a></li>
+								<li><a class="dropdown-item" href="/Cursos/misCursos">Mis Cursos</a></li>
 							<?php
 							}
 						  	if($usuario->getPerfil()=="Asistente"){

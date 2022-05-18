@@ -38,21 +38,30 @@ class Pago extends Model{
 		}
 	}
 
-	public function pagar(){
+	public static function getByIdCliente($idCliente):Array{
+		$pagos=[];
 		try{
-			$query = $this->prepare('UPDATE pago SET fecha_pago = :fecha_pago WHERE idUsuario = :idUsuario AND idCurso = :idCurso');
-			$query->execute([
-				'fecha_pago' => $this->fecha_pago, 
-				'idUsuario' => $this->idUsuario,
-				'idCurso' => $this->idCurso,
-			]);
-			return true;
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idPago, fecha_inscrip, fecha_pago, valor, estado, idUsuario, idCurso FROM pago WHERE idUsuario = :idUsuario');
+			$query->execute(['idUsuario' => $idCliente]);
+			while($a = $query->fetch(PDO::FETCH_ASSOC)){
+				$pago = new Pago();
+				$pago->setIdPago($a['idPago']);
+				$pago->setFecha_pago($a['fecha_pago']);
+				$pago->setFecha_inscrip($a['fecha_inscrip']);
+				$pago->setValor($a['valor']);
+				$pago->setEstado($a['estado']);
+				$pago->setIdUsuario($a['idUsuario']);
+				$pago->setIdCurso($a['idCurso']);
+				array_push($pagos, $pago);
+			}
+			return $pagos;	
 		}catch(PDOException $e){
 			error_log($e->getMessage());
-			return false;
+			return [];
 		}
 	}
-	
+
 	public function getIdPago(){
 		return $this->idPago;
 	}
@@ -79,7 +88,9 @@ class Pago extends Model{
 		$this->idPago = $idPago;
 	}
 	public function setFecha_pago($fecha_pago){
-		$this->fecha_pago = $fecha_pago;
+		if(!is_null($fecha_pago)){
+			$this->fecha_pago = $fecha_pago;
+		}
 	}
 	public function setFecha_inscrip($fecha_inscrip){
 		$this->fecha_inscrip = $fecha_inscrip;

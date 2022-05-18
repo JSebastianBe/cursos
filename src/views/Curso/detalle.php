@@ -69,22 +69,28 @@ if(isset($this->d['curso'])){
 						}else{
 							if($usuario->getPerfil()=="Cliente"){
 								$cliente = $usuario->getCliente();
-								if($cliente->getInscrito($curso->getIdCurso())){
+								if($cliente->getPago($curso->getIdCurso())){
 									?>	
-									<form action="/Cursos/pagarCurso" method="POST">
-										<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $curso->getIdCurso(); ?>" required>
-										<input type="hidden" class="form-control" name="usuario" id="usuario" value="<?php echo $usuario->getUsuario(); ?>" required>
-										<input class="btn boton-s" type="submit" value="Realizar inversión">
-									</form>
-								<?php
+										<span>¡Es tuyo!</span>
+									<?php
 								}else{
-								?>	
-									<form action="/Cursos/inscribirCurso" method="POST">
-										<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $curso->getIdCurso(); ?>" required>
-										<input type="hidden" class="form-control" name="usuario" id="usuario" value="<?php echo $usuario->getUsuario(); ?>" required>
-										<input class="btn boton-p" type="submit" value="Inscribirse">
-									</form>
-								<?php
+									if($cliente->getInscrito($curso->getIdCurso())){
+										?>	
+										<form action="/Cursos/pagarCurso" method="POST">
+											<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $curso->getIdCurso(); ?>" required>
+											<input type="hidden" class="form-control" name="usuario" id="usuario" value="<?php echo $usuario->getUsuario(); ?>" required>
+											<input class="btn boton-s" type="submit" value="Realizar inversión">
+										</form>
+									<?php
+									}else{
+									?>	
+										<form action="/Cursos/inscribirCurso" method="POST">
+											<input type="hidden" class="form-control" name="idCurso" id="idCurso" value="<?php echo $curso->getIdCurso(); ?>" required>
+											<input type="hidden" class="form-control" name="usuario" id="usuario" value="<?php echo $usuario->getUsuario(); ?>" required>
+											<input class="btn boton-p" type="submit" value="Inscribirse">
+										</form>
+									<?php
+									}
 								}
 							}else{
 								?>

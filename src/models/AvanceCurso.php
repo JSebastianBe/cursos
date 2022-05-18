@@ -52,6 +52,25 @@ class AvanceCurso extends Model{
 		}
 	}
 
+	public static function getByIdCliente($idCliente):Array{
+		$avancesCurso=[];
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idAvanceCurso, idUsuario, idCurso FROM avanceCurso WHERE idUsuario = :idUsuario');
+			$query->execute(['idUsuario' => $idUsuario]);
+			while($a = $query->fetch(PDO::FETCH_ASSOC)){
+				$avanceCurso = new AvanceCurso();
+				$avanceCurso->setIdAvanceCurso($a['idAvanceCurso']);
+				$avanceCurso->setIdUsuario($a['idUsuario']);
+				$avanceCurso->setIdCurso($a['idCurso']);
+				array_push($avancesCurso, $avanceCurso);
+			}
+			return $avancesCurso;	
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return [];
+		}
+	}
 
 	public function getIdAvanceCurso(){
 		return $this->idAvanceCurso;

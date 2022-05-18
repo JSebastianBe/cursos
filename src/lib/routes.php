@@ -285,4 +285,18 @@ $router->post('/registrarCurso', function(){
 	$controller->registro();
 });
 
+$router->post('/pagarCurso', function(){
+	noAuth();
+	$controller = new ClienteController();
+	$controller->pagarCurso();
+});
+
+$router->get('/misCursos', function(){
+	noAuth();
+	$controller = new ClienteController();
+	$controller->listarCursos();
+});
+
+
+
 $router->run();
