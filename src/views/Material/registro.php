@@ -44,7 +44,7 @@ if(isset($this->d['leccion'])){
 					<label for="validationCustomArchivo" class="form-model"> Archivo</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupVideo"><i class="bi bi-cloud-upload"></i></span>
-						<input type="file" class="form-control" name="archivo" id="archivo" value="" accept="application/pdf, .doc, .docx, .odf, video/mp4">
+						<input type="file" class="form-control" name="archivo" id="archivo" value="" accept="application/pdf, .doc, .docx, .odf, video/mp4, image/png, .jpeg, .jpg, .csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, .txt">
 					</div>
 				</div>
 				<div class="col-lg-6">

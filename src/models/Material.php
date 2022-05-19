@@ -105,6 +105,12 @@ class Material extends Model{
 		}
 	}
 
+	public function getExtension(){
+		$extarr = explode('.',$this->archivo);
+		$extension = $extarr[1];
+		return $extension;
+	}
+
 	public function getIdLeccion(){
 		return $this->idLeccion;
 	}

@@ -155,6 +155,12 @@ INSERT INTO material (nombre, archivo, idLeccion) VALUES('Requerimientos', 'edea
 
 INSERT INTO material (nombre, archivo, idLeccion) VALUES('Casos de uso', 'f60f7d3b6e2a43ba2a041e37b60b6cf4.docx', 2);
 
+INSERT INTO material (nombre, archivo, idLeccion) VALUES('Imagen de prueba', 'f9bdf9125a7e8a7bbad0539e92bed131.jpg', 3);
+
+INSERT INTO material (nombre, archivo, idLeccion) VALUES('Excel de prueba', 'edd60661fe777c1bafd52f9221a75eec.xlsx', 4);
+
+INSERT INTO material (nombre, archivo, idLeccion) VALUES('Texto de prueba', 'f60f7d3b6e2a43ba2a041e37b60b6cf4.docx', 5);
+
 INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Un objeto representa una entidad en la vida real?', 'Pregunta para concer si quedó claro el concepto de objeto.', 1);
 
 INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Cuáles son los principales tipos de relaciones entre clases?', 'Pregunta para conocer si quedó claro el concepto de relaciones.', 2);

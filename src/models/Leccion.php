@@ -146,11 +146,11 @@ class Leccion extends Model{
 		}
 	}
 
-	public function habilitaLeccion($idCurso, $idCliente):int{
+	public function habilitaLeccion($idCliente):int{
 		try{
 			$db = new Database();
 			$query = $db->connect()->prepare('SELECT al.visto visto FROM avanceleccion al INNER JOIN avancecurso ac ON al.idAvanceCurso=ac.idAvanceCurso INNER JOIN usuario u ON ac.idUsuario = u.idUsuario INNER JOIN leccion l ON al.idLeccion = l.idLeccion INNER JOIN curso c ON ac.idCurso = c.idCurso WHERE c.idCurso = :idCurso AND u.idUsuario = :idUsuario AND l.idLeccion = :idLeccion;');
-			$query->execute(['idCurso' => $idCurso,
+			$query->execute(['idCurso' => $this->idCurso,
 							 'idUsuario' => $idCliente,
 							'idLeccion' => $this->idLeccion]);
 			if($query->rowCount()>0){
@@ -165,11 +165,11 @@ class Leccion extends Model{
 		}
 	}
 
-	public function leccionActual($idCurso, $idCliente){
+	public function leccionActual($idCliente){
 		try{
 			$db = new Database();
 			$query = $db->connect()->prepare('SELECT min(l.idLeccion) idLeccion FROM avanceleccion al INNER JOIN avancecurso ac ON al.idAvanceCurso=ac.idAvanceCurso INNER JOIN usuario u ON ac.idUsuario = u.idUsuario INNER JOIN leccion l ON al.idLeccion = l.idLeccion INNER JOIN curso c ON ac.idCurso = c.idCurso WHERE c.idCurso = :idCurso AND u.idUsuario = :idUsuario AND al.visto = 0;');
-			$query->execute(['idCurso' => $idCurso,
+			$query->execute(['idCurso' => $this->idCurso,
 							 'idUsuario' => $idCliente]);
 			if($query->rowCount()>0){
 				$data = $query->fetch(PDO::FETCH_ASSOC);
@@ -185,6 +185,10 @@ class Leccion extends Model{
 			error_log($e->getMessage());
 			return false;
 		}
+	}
+
+	public function getCurso():Curso{
+		return Curso::getByIdCurso($this->idCurso);
 	}
 
 	public function getIdLeccion(){

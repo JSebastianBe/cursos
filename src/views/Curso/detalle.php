@@ -5,7 +5,7 @@ if(isset($this->d['curso'])){
 
 ?>
 <div class="container" id="contenido-ppal">
-	<h1 class="display-5 fw-bold lh-1 mb-3"><?php echo $curso->getNombre(); ?> <!-- <span class="text-muted"><?php echo $curso->getDuracion(); ?>(horas)</span> --></h1>
+	<h1 class="display-5 fw-bold lh-1 mb-3  text-center"><?php echo $curso->getNombre(); ?> <!-- <span class="text-muted"><?php echo $curso->getDuracion(); ?>(horas)</span> --></h1>
 	<div class="row">
 		<div class="col col-lg-12">
 			<h2 class="featurette-heading">Descripción: </h2>
@@ -120,9 +120,9 @@ if(isset($this->d['curso'])){
 						<?php
 						$lecciones = $curso->getLeccionesByCap($c['capitulo']);
 						foreach($lecciones as $l){
-							$visto = $l->habilitaLeccion($curso->getIdCurso(), $cliente->getIdCliente());
+							$visto = $l->habilitaLeccion($cliente->getIdCliente());
 							if($visto == 0){
-								if($l->leccionActual($curso->getIdCurso(), $cliente->getIdCliente())){
+								if($l->leccionActual($cliente->getIdCliente())){
 									$valorBtnLeccion = 'Ver lección';
 									$disabled = '';
 								}else{
