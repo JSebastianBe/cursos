@@ -123,6 +123,24 @@ class Cliente extends Usuario{
 		}
 	}
 
+	public function getProgreso($idCurso):float{
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT sum(al.visto)/count(al.visto)progreso FROM avanceleccion al INNER JOIN avancecurso ac ON al.idAvanceCurso=ac.idAvanceCurso INNER JOIN usuario u ON ac.idUsuario = u.idUsuario INNER JOIN curso c ON ac.idCurso = c.idCurso WHERE c.idCurso = :idCurso AND u.idUsuario = :idUsuario;');
+			$query->execute(['idCurso' => $idCurso,
+							'idUsuario' => $this->idCliente]);
+			if($query->rowCount()>0){
+				$data = $query->fetch(PDO::FETCH_ASSOC);
+				return $data['progreso'];
+			}else{
+				return 0;
+			}
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return 0;
+		}
+	}
+
 	public function getCursos(){
 		return $this->cursos;
 	}

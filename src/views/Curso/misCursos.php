@@ -7,9 +7,11 @@
 			<div id="catalogo" class="row album">
 				<?php
 				$cursos = $this->d['cursos'];
+				$cliente = $this->d['cliente'];
 				foreach($cursos as $c){
 				?>
 				<div class="col col-lg-3 col-md-6">
+
 					<div class="card">
 						<div class="card-header">
 						    <h5 class="card-title"><?php echo $c->getNombre(); ?>
@@ -25,10 +27,11 @@
 							<p class="card-text opacity-75"><?php echo $c->getPerfil(); ?></p>
 							<hr class="featurette-divider">
 							<p class="card-text mb-0"><?php echo substr($c->getDescripcion(), 0, 150); ?></p>
-							<a href="detalleCurso?id=<?php echo $c->getIdCurso(); ?>" class="btn boton-p">Ver más</a>
-							<font style="vertical-align: inherit;">
-								<font style="vertical-align: inherit;">$ <?php echo $c->getPrecio(); ?></font>
-							</font>
+							<a href="detalleCurso?id=<?php echo $c->getIdCurso(); ?>" class="btn boton-p">Acceder al curso</a>
+							<hr class="featurette-divider">
+							<div class="progress">
+								<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <?php echo ($cliente->getProgreso($c->getIdCurso())*100);?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo ($cliente->getProgreso($c->getIdCurso())*100);?>%</div>
+							</div>
 						</div>
 					</div>	
 				</div>

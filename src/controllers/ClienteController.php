@@ -122,7 +122,7 @@ class ClienteController extends Controller{
 
 		$cliente = Cliente::get(unserialize($_SESSION['usuario'])->getUsuario());
 		$cursos = $cliente->getCursos();
-		$data = array_merge(['cursos' => $cursos]);
+		$data = array_merge(['cursos' => $cursos,'cliente' => $cliente]);
 		$this->render('Curso/misCursos',$data);
 
 	}

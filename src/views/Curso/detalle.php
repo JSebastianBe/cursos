@@ -120,12 +120,26 @@ if(isset($this->d['curso'])){
 						<?php
 						$lecciones = $curso->getLeccionesByCap($c['capitulo']);
 						foreach($lecciones as $l){
+							$visto = $l->habilitaLeccion($curso->getIdCurso(), $cliente->getIdCliente());
+							if($visto == 0){
+								if($l->leccionActual($curso->getIdCurso(), $cliente->getIdCliente())){
+									$valorBtnLeccion = 'Ver lección';
+									$disabled = '';
+								}else{
+									$valorBtnLeccion = 'Ver lección';
+									$disabled = 'disabled';
+								}
+								
+							}else{
+								$disabled = '';
+								$valorBtnLeccion = 'Ver de nuevo';
+							}
 						?>
 							<ol class="list-group list-group-numbered">
 								<li class="list-group-item"><?php echo $l->getTitulo(); ?></li>
 								<form action="/Cursos/abreLeccion" method="POST">
 									<input type="hidden" class="form-control" name="idLeccion" id="idLeccion" value="<?php echo $l->getIdLeccion(); ?>" required>
-									<input class="btn boton-p" type="submit" value="Ver lección">
+									<input class="btn boton-p <?php echo $disabled;?>" type="submit" value="<?php echo $valorBtnLeccion;?>">
 								</form>
 						  	</ol>
 						<?php
