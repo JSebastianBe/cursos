@@ -108,6 +108,27 @@ class Pregunta extends Model{
 		}
 	}
 
+	public function esCorrecta($idRespuesta){
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idRespuesta FROM respuesta WHERE correcta = 1 AND idPregunta = :idPregunta;');
+			$query->execute(['idPregunta' => $this->idPregunta]);
+			if($query->rowCount()>0){
+				$data = $query->fetch(PDO::FETCH_ASSOC);
+				if($idRespuesta == $data['idRespuesta']){
+					return true;
+				}else{
+					return false;
+				}
+			}else{
+				return false;
+			}
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
+		}
+	}
+
 	public function getIdLeccion(){
 		return $this->idLeccion;
 	}

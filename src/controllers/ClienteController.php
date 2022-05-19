@@ -8,6 +8,8 @@ use Sebas\Cursos\models\Curso;
 use Sebas\Cursos\models\Pago;
 use Sebas\Cursos\models\AvanceCurso;
 use Sebas\Cursos\models\AvanceLeccion;
+use Sebas\Cursos\models\Pregunta;
+use Sebas\Cursos\models\Evaluacion;
 use Sebas\Cursos\models\Usuario;
 
 class ClienteController extends Controller{
@@ -125,5 +127,24 @@ class ClienteController extends Controller{
 		$data = array_merge(['cursos' => $cursos,'cliente' => $cliente]);
 		$this->render('Curso/misCursos',$data);
 
+	}
+
+	public function respondePregunta(){
+		$idPregunta = $this->post('idPregunta');
+		$idCliente = $this->post('idCliente');
+		$idRespuesta = $this->post('idRespuesta');
+		$pregunta = Pregunta::getByIdPregunta($idPregunta);
+		$avanceLeccion = AvanceLeccion::get($idCliente, $pregunta->getIdLeccion());
+		$evaluacion = new Evaluacion();
+		$evaluacion->setFecha(date('Y-m-d H:i:s', time()));
+		$evaluacion->setIdRespuesta($idRespuesta);
+		$evaluacion->setIdAvanceLeccion($avanceLeccion->getIdAvanceLeccion());
+		if($pregunta->esCorrecta($idRespuesta)){
+			$evaluacion->setCorrecta(1);
+		}else{
+			$evaluacion->setCorrecta(0);
+		}
+		$evaluacion->registrar();
+		header('location: /Cursos/detalleLeccion?idLeccion='.$pregunta->getIdLeccion());
 	}
 }

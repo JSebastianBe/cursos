@@ -58,7 +58,7 @@ if(isset($this->d['pregunta'])){
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<label for="validationCustomCorrecta" class="form-model"> Correcto/label>
+					<label for="validationCustomCorrecta" class="form-model"> Correcto</label>
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupCorrecta"><i class="bi bi-list-ol"></i></span>
 						<select name="correcta" class="form-select" aria-label="Correcto" required>

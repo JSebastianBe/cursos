@@ -80,6 +80,17 @@ idPregunta integer NOT NULL,
 FOREIGN KEY (idPregunta) REFERENCES Pregunta (idPregunta))
 ENGINE=InnoDB;
 
+create table Evaluacion(
+idAEvaluacion integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+fecha datetime NOT NULL,
+correcta integer NOT NULL,
+idRespuesta integer NOT NULL,
+idAvanceLeccion integer NOT NULL,
+FOREIGN KEY (idRespuesta) REFERENCES Respuesta (idRespuesta),
+FOREIGN KEY (idAvanceLeccion) REFERENCES AvanceLeccion (idAvanceLeccion),
+UNIQUE `kunique_01` (`idRespuesta`,`idAvanceLeccion`))
+ENGINE=InnoDB;
+
 create table AvanceCurso(
 idAvanceCurso integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
 idUsuario integer NOT NULL,
@@ -170,6 +181,8 @@ VALUES('¿Entendiste todo el curso?', 'Pregunta final del curso.', 5);
 
 INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('Es para estár seguros, ¿Entendiste el curso?', 'Pregunta de seguridad', 5);
 
+INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Cómo se llama el método encargado de crear objetos en una clase?', '¿Cómo se llama el método encargado de crear objetos en una clase?', 1);
+
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'Falso', 0, 1);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Verdadero', 0, 1);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('a', 'Asociación, composición, de muchos a muchos', 0, 2);
@@ -179,3 +192,7 @@ INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'Si', 1
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'No', 0, 3);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'No', 0, 4);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Si', 1, 4);
+
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('a', 'Getter', 0, 5);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('b', 'Setter', 0, 5);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('c', 'Constructor', 1, 5);

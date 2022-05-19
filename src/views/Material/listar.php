@@ -46,7 +46,7 @@ $leccion = $this->d['leccion'];?>
 					<tr>
 						<th><h3><i class="bi bi-<?php echo $icon; ?>"></i></h3></th>
 						<th><?php echo $m->getNombre(); ?></th>
-						<th><a href="/Cursos/public/img/files/<?php echo $m->getArchivo(); ?>">Descargar</a></th>
+						<th><h3><a href="/Cursos/public/img/files/<?php echo $m->getArchivo(); ?>"><i class="bi bi-download"></i></a></h3></th>
 				      	<th scope="col"><a class="btn boton-p" href="modificaMaterial?id=<?php echo $m->getIdMaterial(); ?>"><i class="bi bi-pencil"></i></a></th>
 				    </tr>
 				<?php

@@ -32,6 +32,28 @@ class AvanceLeccion extends Model{
 			return false;
 		}
 	}
+
+	public static function get($idUsuario, $idLeccion):AvanceLeccion{
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT al.idAvanceLeccion, al.visto, al.idLeccion, al.idAvanceCurso FROM avanceleccion al INNER JOIN avancecurso ac ON al.idAvanceCurso = ac.idAvanceCurso INNER JOIN usuario u ON ac.idUsuario = u.idUsuario WHERE al.idLeccion = :idLeccion AND u.idUsuario = :idUsuario;');
+			$query->execute([
+				'idUsuario' => $idUsuario,
+				'idLeccion' => $idLeccion,
+			]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+
+			$avanceLeccion = new AvanceLeccion();
+			$avanceLeccion->setIdAvanceLeccion($data['idAvanceLeccion']);
+			$avanceLeccion->setVisto($data['visto']);
+			$avanceLeccion->setIdAvanceCurso($data['idAvanceCurso']);
+			$avanceLeccion->setIdLeccion($data['idLeccion']);
+			return $avanceLeccion;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
+		}
+	}
 	
 	public function getIdAvanceLeccion(){
 		return $this->idAvanceLeccion;

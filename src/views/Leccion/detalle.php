@@ -78,7 +78,7 @@ $curso = $leccion->getCurso();
 												<tr>
 													<th><h3><i class="bi bi-<?php echo $icon; ?>"></i></h3></th>
 													<th><?php echo $m->getNombre(); ?></th>
-													<th><a href="/Cursos/public/img/files/<?php echo $m->getArchivo(); ?>">Descargar</a></th>
+													<th><h3><a href="/Cursos/public/img/files/<?php echo $m->getArchivo(); ?>"><i class="bi bi-download"></i></a></h3></th>
 											    </tr>
 											<?php
 										}
@@ -88,11 +88,48 @@ $curso = $leccion->getCurso();
 								</div>
 							</div>
 						</div>
+						<hr class="featurette-divider">
 						<div class="row">
-							<div class="col col-lg-12" id="preguntas">
+							<div class="col col-lg-2"></div>
+							<div class="col col-lg-8" id="preguntas">
 								<h3 class="featurette-heading">Evaluación de la lección: </h3>
-								<?php var_dump($leccion->getPreguntas());?>
+								<?php
+									$i = 1;
+									foreach($leccion->getPreguntas() as $pregunta){
+										?>
+										<form action="/Cursos/respondePregunta" method="POST">
+											<h3 class="featurette-heading"><?php echo $i.". ".$pregunta->getNombre(); ?> </h3>
+											<input type="hidden" class="form-control" name="idPregunta" id="idPregunta" value="<?php echo $pregunta->getIdPregunta(); ?>" required>
+											<input type="hidden" class="form-control" name="idCliente" id="idCliente" value="<?php echo $usuario->getIdUsuario(); ?>" required>
+											<?php
+											$j=1;
+											foreach($pregunta->getRespuestas() as $respuesta){
+												?>
+												<div class="form-check">
+													<input class="form-check-input" type="radio" value="<?php echo $respuesta->getIdRespuesta();?>" name="idRespuesta" id="respuesta<?php echo $j;?>" required>
+													<label class="form-check-label" for="respuesta<?php echo $j;?>">
+														<?php echo $respuesta->getOpcion().") ".$respuesta->getNombre();?>
+													</label>
+												</div>
+												<?php
+												$j=$j+1;
+											}
+											?>
+											<input class="btn boton-s" type="submit" value="Responder">
+										</form>
+										<hr class="featurette-divider">
+										<?php
+										$i=$i+1;
+									}
+								?>
 							</div>
+						</div>
+						<div class="row text-center">
+							<form action="/Cursos/siguienteLeccion" method="POST">
+								<input type="hidden" class="form-control" name="idLeccion" id="idLeccion" value="<?php echo $leccion->getIdLeccion(); ?>" required>
+								<input type="hidden" class="form-control" name="usuario" id="usuario" value="<?php echo $usuario->getUsuario(); ?>" required>
+								<input class="btn boton-p" type="submit" value="Continuar a la siguiente lección">
+							</form>
 						</div>
 					</div>
 					<?php

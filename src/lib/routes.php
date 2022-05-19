@@ -297,5 +297,11 @@ $router->get('/misCursos', function(){
 	$controller->listarCursos();
 });
 
+$router->post('/respondePregunta', function(){
+	noAuth();
+	$controller = new ClienteController();
+	$controller->respondePregunta();
+});
+
 
 $router->run();
