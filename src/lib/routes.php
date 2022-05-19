@@ -303,5 +303,12 @@ $router->post('/respondePregunta', function(){
 	$controller->respondePregunta();
 });
 
+$router->post('/avanzaLeccion', function(){
+	noAuth();
+	$controller = new LeccionController();
+	$controller->avanzaLeccion();
+});
+
+
 
 $router->run();

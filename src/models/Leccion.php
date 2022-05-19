@@ -262,4 +262,9 @@ class Leccion extends Model{
 	public function setPreguntas($preguntas){
 		$this->preguntas = $preguntas;
 	}
+
+	public function getCantidadPreguntas(){
+		return count($this->preguntas);
+	}
+
 }

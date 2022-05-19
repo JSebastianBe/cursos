@@ -5,6 +5,7 @@ namespace Sebas\Cursos\controllers;
 use Sebas\Cursos\lib\Controller;
 use Sebas\Cursos\models\Leccion;
 use Sebas\Cursos\models\Curso;
+use Sebas\Cursos\models\AvanceLeccion;
 use Sebas\Cursos\lib\UtilResources;
 
 class LeccionController extends Controller{
@@ -29,6 +30,15 @@ class LeccionController extends Controller{
 		$idCurso = $this->get('id');
 		$curso = Curso::getByIdCurso($idCurso);
 		$this->render('leccion/registro', ['curso'=> $curso]);
+	}
+
+	public function avanzaLeccion(){
+		$idLeccion = $this->post('idLeccion');
+		$idAvanceCurso = $this->post('idAvanceCurso');
+		$leccion = Leccion::getByIdLeccion($idLeccion);
+		$avanceLeccion = AvanceLeccion::getByIdLecAvanCur($idAvanceCurso, $idLeccion);
+		$avanceLeccion->ver();
+		header('location: /Cursos/detalleCurso?id='.$leccion->getIdCurso());
 	}
 
 	public function agregarLeccion(){

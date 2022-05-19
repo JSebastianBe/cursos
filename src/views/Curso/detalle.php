@@ -112,8 +112,15 @@ if(isset($this->d['curso'])){
 			$usuario->getPerfil()=="Cliente"){
 			$cliente = $usuario->getCliente();
 			if($cliente->getPago($curso->getIdCurso())){
+				?>
+				<hr class="featurette-divider">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <?php echo ($cliente->getProgreso($curso->getIdCurso())*100);?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo ($cliente->getProgreso($curso->getIdCurso())*100);?>%</div>
+				</div>
+				<?php
 				foreach($capitulos as $c){
 				?>
+
 					<li class="list-group-item d-flex justify-content-between align-items-start">
 	   					<div class="ms-2 me-auto">
 	      				<div class="fw-bold"><?php echo $c['capitulo'];?></div>
@@ -124,14 +131,14 @@ if(isset($this->d['curso'])){
 							if($visto == 0){
 								if($l->leccionActual($cliente->getIdCliente())){
 									$valorBtnLeccion = 'Ver lección';
-									$disabled = '';
+									$disabled = 'boton-s';
 								}else{
 									$valorBtnLeccion = 'Ver lección';
-									$disabled = 'disabled';
+									$disabled = 'boton-p disabled';
 								}
 								
 							}else{
-								$disabled = '';
+								$disabled = 'boton-p';
 								$valorBtnLeccion = 'Ver de nuevo';
 							}
 						?>
@@ -139,7 +146,7 @@ if(isset($this->d['curso'])){
 								<li class="list-group-item"><?php echo $l->getTitulo(); ?></li>
 								<form action="/Cursos/detalleLeccion" method="GET">
 									<input type="hidden" class="form-control" name="idLeccion" id="idLeccion" value="<?php echo $l->getIdLeccion(); ?>" required>
-									<input class="btn boton-p <?php echo $disabled;?>" type="submit" value="<?php echo $valorBtnLeccion;?>">
+									<input class="btn <?php echo $disabled;?>" type="submit" value="<?php echo $valorBtnLeccion;?>">
 								</form>
 						  	</ol>
 						<?php

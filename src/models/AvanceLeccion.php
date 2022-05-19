@@ -57,6 +57,30 @@ class AvanceLeccion extends Model{
 		}
 	}
 
+
+	public static function getByIdLecAvanCur($idAvanceCurso, $idLeccion):AvanceLeccion{
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idAvanceLeccion, visto, idLeccion, idAvanceCurso FROM avanceleccion WHERE idAvanceCurso = :idAvanceCurso AND idLeccion = :idLeccion;');
+			$query->execute([
+				'idAvanceCurso' => $idAvanceCurso,
+				'idLeccion' => $idLeccion,
+			]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+
+			$avanceLeccion = new AvanceLeccion();
+			$avanceLeccion->setIdAvanceLeccion($data['idAvanceLeccion']);
+			$avanceLeccion->setVisto($data['visto']);
+			$avanceLeccion->setIdAvanceCurso($data['idAvanceCurso']);
+			$avanceLeccion->setIdLeccion($data['idLeccion']);
+			$avanceLeccion->setEvaluaciones(Evaluacion::getByIdAvanceLeccion($avanceLeccion->getIdAvanceLeccion()));
+			return $avanceLeccion;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
+		}
+	}
+
 	public static function getByIdAvanceCurso($idAvanceCurso):Array{
 		$avancesLeccion=[];
 		try{
@@ -76,6 +100,19 @@ class AvanceLeccion extends Model{
 		}catch(PDOException $e){
 			error_log($e->getMessage());
 			return [];
+		}
+	}
+
+	public function ver(){
+		try{
+			$query = $this->prepare('UPDATE avanceLeccion SET visto = 1 WHERE idAvanceLeccion = :idAvanceLeccion');
+			$query->execute([
+				'idAvanceLeccion' => $this->idAvanceLeccion,
+			]);
+			return true;
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return false;
 		}
 	}
 
