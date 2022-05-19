@@ -114,7 +114,11 @@ ENGINE=InnoDB;
 INSERT INTO `usuario` (`idUsuario`, `nombre`, `correo`, `telefono`, `usuario`, `perfil`, `clave`) VALUES (NULL, 'Juan', 'juan@gmail.com', '123', 'juan@gmail.com', 'Administrador', '$2y$10$tr6i1d2t2ZWKi1akO/Klo.Y6tPN2LFrD15.2LlFWR5aJeet1Ej6Sq');
 --
 
-INSERT INTO curso (nombre, precio, objetivo, descripcion, perfil, duracion, profesor, imagen, videoIntroduc) VALUES('Diagrama de clases', '250000', 'Brindar a todas las personas que adquieran el curso las herramientas necesarias para la construcción adecuada de un diagrama de clases', 'En el transcurso del presente curso, se presentarán las pautas necesarias para Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui leo, accumsan sed arcu non, pretium faucibus ante. Quisque mi leo, tempor ac urna eget, lobortis elementum quam. Proin euismod, elit quis feugiat ornare, elit odio ultricies erat, vel lacinia tortor ex in dolor. Fusce volutpat, risus at pretium consectetur, felis elit cursus nunc, id congue justo tellus ac dolor. Quisque pretium nisl ut ante vulputate bibendum. Nulla blandit finibus est, eget semper purus accumsan sit amet. Quisque porta dui nisl, id scelerisque tellus sodales vel. Duis vitae dolor egestas, aliquet enim nec, cursus nisl. Maecenas molestie tellus vitae interdum.', 'Analista y diseñador de diagrama de clases', '35', 'Juanito Alimaña', '3a17aef847eed12c8dacdb6230bd91b6.jpg', '5eb0423806ad8782e5ea75847dfe5c18.mp4');
+INSERT INTO curso (nombre, precio, objetivo, descripcion, perfil, duracion, profesor, imagen, videoIntroduc) VALUES('Curso Diagrama de clases', '250000', 'Brindar a todas las personas que adquieran el curso las herramientas necesarias para la construcción adecuada de un diagrama de clases', 'En el transcurso del presente curso, se presentarán las pautas necesarias para Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui leo, accumsan sed arcu non, pretium faucibus ante. Quisque mi leo, tempor ac urna eget, lobortis elementum quam. Proin euismod, elit quis feugiat ornare, elit odio ultricies erat, vel lacinia tortor ex in dolor. Fusce volutpat, risus at pretium consectetur, felis elit cursus nunc, id congue justo tellus ac dolor. Quisque pretium nisl ut ante vulputate bibendum. Nulla blandit finibus est, eget semper purus accumsan sit amet. Quisque porta dui nisl, id scelerisque tellus sodales vel. Duis vitae dolor egestas, aliquet enim nec, cursus nisl. Maecenas molestie tellus vitae interdum.', 'Analista y diseñador de diagrama de clases', '35', 'Juanito Alimaña', '3a17aef847eed12c8dacdb6230bd91b6.jpg', '5eb0423806ad8782e5ea75847dfe5c18.mp4');
+
+INSERT INTO curso (nombre, precio, objetivo, descripcion, perfil, duracion, profesor, imagen, videoIntroduc) VALUES('Curso crear cursos', '0', 'Se pretenderá explicar cómo funciona el sistema de información de cursos', 'Se darán las herramientas necesarias, tanto gráficas como escritas para realizar la creación de un curso', 'Podré crear y consultar cursos', '3', 'Rana René', 'a21075f3c32936f508fe92d27ef1edf2.png', '835076363e7406c9dd30fc2da8e2958b.mp4');
+
+INSERT INTO curso (nombre, precio, objetivo, descripcion, perfil, duracion, profesor, imagen, videoIntroduc) VALUES('Curso Diagrama de secuencia', '185000', 'Este curso tiene como objetivo mostrar como se crea un curso', 'En el transcurso del presente curso, se presentarán las pautas necesarias para Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui leo, accumsan sed arcu non, pretium faucibus ante. Quisque mi leo, tempor ac urna eget, lobortis elementum quam. Proin euismod, elit quis feugiat ornare, elit odio ultricies erat, vel lacinia tortor ex in dolor. Fusce volutpat, risus at pretium consectetur, felis elit cursus nunc, id congue justo tellus ac dolor. Quisque pretium nisl ut ante vulputate bibendum. Nulla blandit finibus est, eget semper purus accumsan sit amet. Quisque porta dui nisl, id scelerisque tellus sodales vel. Duis vitae dolor egestas, aliquet enim nec, cursus nisl. Maecenas molestie tellus vitae interdum.', 'Crear cursos', '25', 'Ernésto Pérez', '39cbc5e2790bd35d04b2fbe9f8292bde.jpg', '458a71463f5989d4ebedd3b2ad56e630.mp4');
 
 
 INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES('Capitulo 1', 'Objetos', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut lectus rhoncus ligula porta tincidunt lobortis in leo. Curabitur sed lobortis magna. Nullam in orci erat. Ut leo velit, ornare eu tellus id, rutrum placerat nibh. Etiam ornare congue tincidunt. In ac eleifend lectus, id vehicula lacus. Curabitur aliquam mi eu finibus gravida. Sed lobortis, elit sit amet varius mollis, enim diam laoreet nisi, vitae convallis dui magna id ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc faucibus lacus ut urna mattis, vel bibendum nunc dapibus. Ut dignissim vel risus sit amet fermentum. Aliquam sit amet libero facilisis tellus fringilla convallis.
@@ -156,7 +160,13 @@ In pharetra imperdiet lectus et pretium. Mauris consectetur eu quam vitae maximu
 
 In pharetra imperdiet lectus et pretium. Mauris consectetur eu quam vitae maximus. Aliquam bibendum ipsum eu odio euismod, at tincidunt neque facilisis. Duis id gravida dui, ut ultricies mi. Donec felis mi, varius nec est non, molestie feugiat ligula. In malesuada imperdiet nisi. Curabitur acc', '6b84879573f810861593f44e8ad125a4.mp4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut lectus rhoncus ligula porta tincidunt lobortis in leo. Curabitur sed lobortis magna. Nullam in orci erat. Ut leo velit, ornare eu tellus id, rutrum placerat nibh. Etiam ornare congue tincidunt. In ac eleifend lectus, id vehicula lacus. Curabitur aliquam mi eu finibus gravida. Sed lobortis, elit sit amet varius mollis, enim diam laoreet nisi, vitae convallis dui magna id ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc faucibus lacus ut urna mattis, vel bibendum nunc dapibus. Ut dignissim vel risus sit amet fermentum. Aliquam sit amet libero facilisis tellus fringilla convallis.
 
-In pharetra imperdiet lectus et pretium. Mauris consectetur eu quam vitae maximus. Aliquam bibendum ipsum eu odio euismod, at tincidunt neque facilisis. Duis id gravida dui, ut ultricies mi. Donec felis mi, varius nec est non, molestie feugiat ligula. In malesuada imperdiet nisi. Curabitur acc', 4, 1);
+In pharetra imperdiet lectus et pretium. Mauris consectetur eu quam vitae maximus. Aliquam bibendum ipsum eu odio euismod, at tincidunt neque facilisis. Duis id gravida dui, ut ultricies mi. Donec felis mi, varius nec est non, molestie feugiat ligula. In malesuada imperdiet nisi. Curabitur acc', 5, 1);
+
+INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES ('Capitulo 1','Se mostrará el recorrido de la aplicación de parte del cliente','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui leo, accumsan sed arcu non, pretium faucibus ante. Quisque mi leo, tempor ac urna eget, lobortis elementum quam. Proin euismod, elit quis feugiat ornare, elit odio ultricies erat, vel lacinia tortor ex in dolor','38aa9d98e09ef5807b53ee7a8ce1a3d1.mp4','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui leo, accumsan sed arcu non, pretium faucibus ante. Quisque mi leo, tempor ac urna eget, lobortis elementum quam. Proin euismod, elit quis feugiat ornare, elit odio ultricies erat, vel lacinia tortor ex in dolor',1,2);
+
+INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES ('Capitulo 1','Recorrer la aplicación desde el entorno administrativo','Mostrar las páginas y demás','6f86c61f82a3ee2a9707afe4e6ae85f2.mp4','adfgsdfgsdfgsdfgsdfg',2,2);
+
+INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES ('Capitulo 2','Se msotrará como se tiene que registrar un cliente bien sea inscribiendose a un curso o no','Si el cliente se registra desde un curso, automáticamente queda inscrito a este.','8a542b92abfb21fbeaf86dcf18c5caf3.mp4','Se registrará un cliente desde un curso.',3,2);
 
 INSERT INTO material (nombre, archivo, idLeccion) VALUES('Tarea', '69dcf7077dfa8d176cb31e07552127b5.docx', 1);
 
@@ -172,19 +182,24 @@ INSERT INTO material (nombre, archivo, idLeccion) VALUES('Excel de prueba', 'edd
 
 INSERT INTO material (nombre, archivo, idLeccion) VALUES('Texto de prueba', 'f60f7d3b6e2a43ba2a041e37b60b6cf4.docx', 5);
 
+INSERT INTO material (nombre, archivo, idLeccion) VALUES('Documento base', '1562c02f8faaf029b55e72199df1d665.xlsx', 6);
+
 INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Un objeto representa una entidad en la vida real?', 'Pregunta para concer si quedó claro el concepto de objeto.', 1);
 
 INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Cuáles son los principales tipos de relaciones entre clases?', 'Pregunta para conocer si quedó claro el concepto de relaciones.', 2);
 
-INSERT INTO pregunta (nombre, descripcion, idLeccion) 
-VALUES('¿Entendiste todo el curso?', 'Pregunta final del curso.', 5);
+INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Entendiste todo el curso?', 'Pregunta final del curso.', 5);
 
 INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('Es para estár seguros, ¿Entendiste el curso?', 'Pregunta de seguridad', 5);
 
 INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Cómo se llama el método encargado de crear objetos en una clase?', '¿Cómo se llama el método encargado de crear objetos en una clase?', 1);
 
+INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Se muestra información de teoría u objetivo de las lecciones si no se paga el curso?', '¿Se muestra información de teoría u objetivo de las lecciones si no se paga el curso?', 6);
+
+INSERT INTO pregunta (nombre, descripcion, idLeccion) VALUES('¿Si me registro desde un curso, quedo inscrito al curso?', '¿Si me registro desde un curso, quedo inscrito al curso?', 8);
+
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'Falso', 0, 1);
-INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Verdadero', 0, 1);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Verdadero', 1, 1);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('a', 'Asociación, composición, de muchos a muchos', 0, 2);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('b', 'Sentimental, laboral y social', 0, 2);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('c', 'Asociación, dependencia y generalización/especialización', 1, 2);
@@ -192,7 +207,10 @@ INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'Si', 1
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'No', 0, 3);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'No', 0, 4);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Si', 1, 4);
-
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('a', 'Getter', 0, 5);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('b', 'Setter', 0, 5);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('c', 'Constructor', 1, 5);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'Verdadero', 0, 1);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Falso', 1, 1);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'Verdadero', 1, 1);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Falso', 0, 1);

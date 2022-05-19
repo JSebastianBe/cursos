@@ -85,6 +85,7 @@ body {
 	border-right: 2px solid;
 	border-bottom: 2px solid;
 	border-color: #636f07;
+	height: 310px;
 }
 
 
@@ -114,4 +115,9 @@ body {
 	color: #1a171b;
 	background-color: #F3E7CC;
 	border-color: #F3E7CC;
+}
+
+.card-header:first-child {
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    height: 66px;
 }
