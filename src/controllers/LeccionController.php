@@ -14,7 +14,7 @@ class LeccionController extends Controller{
 	}
 
 	public function detalleLeccion(){
-		$id = $this->get('id');
+		$id = $this->get('idLeccion');
 		$leccion = Leccion::getByIdLeccion($id);
 		$this->render('leccion/detalle',['leccion'=>$leccion]);
 	}

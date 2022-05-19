@@ -137,7 +137,7 @@ if(isset($this->d['curso'])){
 						?>
 							<ol class="list-group list-group-numbered">
 								<li class="list-group-item"><?php echo $l->getTitulo(); ?></li>
-								<form action="/Cursos/abreLeccion" method="POST">
+								<form action="/Cursos/detalleLeccion" method="GET">
 									<input type="hidden" class="form-control" name="idLeccion" id="idLeccion" value="<?php echo $l->getIdLeccion(); ?>" required>
 									<input class="btn boton-p <?php echo $disabled;?>" type="submit" value="<?php echo $valorBtnLeccion;?>">
 								</form>

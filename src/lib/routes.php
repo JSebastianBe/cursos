@@ -169,10 +169,10 @@ $router->post('/modificarLeccion', function(){
 	$controller->modificarLeccion();
 });
 
-$router->get('/detalleLecciones', function(){
+$router->get('/detalleLeccion', function(){
 	noAuth();
 	$controller = new LeccionController();
-	$controller->detalleLecciones();
+	$controller->detalleLeccion();
 });
 /*END Leccion*/
 
@@ -296,7 +296,6 @@ $router->get('/misCursos', function(){
 	$controller = new ClienteController();
 	$controller->listarCursos();
 });
-
 
 
 $router->run();
