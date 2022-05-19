@@ -12,6 +12,7 @@ class AvanceCurso extends Model{
 	private int $idAvanceCurso;
 	private int $idUsuario;
 	private int $idCurso;
+	private Array $avancesLeccion = [];
 
 	function __construct(){
 		parent::__construct();
@@ -45,6 +46,7 @@ class AvanceCurso extends Model{
 			$avanceCurso->setIdAvanceCurso($data['idAvanceCurso']);
 			$avanceCurso->setIdUsuario($data['idUsuario']);
 			$avanceCurso->setIdCurso($data['idCurso']);
+			$avanceCurso->setAvancesLeccion(AvanceLeccion::getByIdAvanceCurso($avanceCurso->getIdAvanceCurso()));
 			return $avanceCurso;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
@@ -57,12 +59,13 @@ class AvanceCurso extends Model{
 		try{
 			$db = new Database();
 			$query = $db->connect()->prepare('SELECT idAvanceCurso, idUsuario, idCurso FROM avanceCurso WHERE idUsuario = :idUsuario');
-			$query->execute(['idUsuario' => $idUsuario]);
+			$query->execute(['idUsuario' => $idCliente]);
 			while($a = $query->fetch(PDO::FETCH_ASSOC)){
 				$avanceCurso = new AvanceCurso();
 				$avanceCurso->setIdAvanceCurso($a['idAvanceCurso']);
 				$avanceCurso->setIdUsuario($a['idUsuario']);
 				$avanceCurso->setIdCurso($a['idCurso']);
+				$avanceCurso->setAvancesLeccion(AvanceLeccion::getByIdAvanceCurso($avanceCurso->getIdAvanceCurso()));
 				array_push($avancesCurso, $avanceCurso);
 			}
 			return $avancesCurso;	
@@ -70,6 +73,15 @@ class AvanceCurso extends Model{
 			error_log($e->getMessage());
 			return [];
 		}
+	}
+
+	public function getAvanceLeccion($idLeccion):AvanceLeccion{
+		foreach ($this->avancesLeccion as $avanceLeccion) {
+			if($avanceLeccion->getIdLeccion() == $idLeccion){
+				return $avanceLeccion;
+			}
+		}
+		return null;
 	}
 
 	public function getIdAvanceCurso(){
@@ -81,6 +93,10 @@ class AvanceCurso extends Model{
 	public function getIdCurso(){
 		return $this->idCurso;
 	}
+
+	public function getAvancesLeccion(){
+		return $this->avancesLeccion;
+	}
 	
 	public function setIdAvanceCurso($idAvanceCurso){
 		$this->idAvanceCurso = $idAvanceCurso;
@@ -90,5 +106,9 @@ class AvanceCurso extends Model{
 	}
 	public function setIdCurso($idCurso){
 		$this->idCurso = $idCurso;
+	}
+
+	public function setAvancesLeccion($avancesLeccion){
+		$this->avancesLeccion = $avancesLeccion;
 	}
 }

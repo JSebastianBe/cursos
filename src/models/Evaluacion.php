@@ -34,6 +34,57 @@ class Evaluacion extends Model{
 		}
 	}
 
+	public static function get($idRespuesta, $idAvanceLeccion):AvanceCurso{
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idEvaluacion, fecha, correcta, idRespuesta, idAvanceLeccion FROM evaluacion WHERE idRespuesta = :idRespuesta AND idAvanceLeccion = :idAvanceLeccion');
+			$query->execute([
+				'idRespuesta' => $idRespuesta,
+				'idAvanceLeccion' => $idAvanceLeccion,
+			]);
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+			if($query->rowCount()>0){
+				$evaluacion = new Evaluacion();
+				$evaluacion->setIdEvaluacion($data['idEvaluacion']);
+				$evaluacion->setFecha($data['fecha']);
+				$evaluacion->setCorrecta($data['correcta']);
+				$evaluacion->setIdRespuesta($data['idRespuesta']);
+				$evaluacion->setIdAvanceLeccion($data['idAvanceLeccion']);
+				return $evaluacion;
+			}else{
+				return NULL;
+			}
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return NULL;
+		}
+	}
+
+	public static function getByIdAvanceLeccion($idAvanceLeccion):Array{
+		$evaluaciones=[];
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idEvaluacion, fecha, correcta, idRespuesta, idAvanceLeccion FROM evaluacion WHERE idAvanceLeccion = :idAvanceLeccion ORDER BY fecha DESC');
+			$query->execute([
+				'idAvanceLeccion' => $idAvanceLeccion,
+			]);
+			while($c = $query->fetch(PDO::FETCH_ASSOC)){
+				$evaluacion = new evaluacion();
+				$evaluacion->setIdEvaluacion($c['idEvaluacion']);
+				$evaluacion->setFecha($c['fecha']);
+				$evaluacion->setCorrecta($c['correcta']);
+				$evaluacion->setIdRespuesta($c['idRespuesta']);
+				$evaluacion->setIdAvanceLeccion($c['idAvanceLeccion']);
+				array_push($evaluaciones, $evaluacion);
+			}
+			return $evaluaciones;	
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			var_dump("chao");
+			return [];
+		}
+	}
+
 	public function getIdEvaluacion(){
 		return $this->idEvaluacion;	
 	} 

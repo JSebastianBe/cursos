@@ -81,7 +81,7 @@ FOREIGN KEY (idPregunta) REFERENCES Pregunta (idPregunta))
 ENGINE=InnoDB;
 
 create table Evaluacion(
-idAEvaluacion integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+idEvaluacion integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
 fecha datetime NOT NULL,
 correcta integer NOT NULL,
 idRespuesta integer NOT NULL,

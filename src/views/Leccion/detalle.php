@@ -94,29 +94,52 @@ $curso = $leccion->getCurso();
 							<div class="col col-lg-8" id="preguntas">
 								<h3 class="featurette-heading">Evaluación de la lección: </h3>
 								<?php
+									$avanceCurso =$cliente->getAvanceCurso($curso->getIdCurso());
 									$i = 1;
 									foreach($leccion->getPreguntas() as $pregunta){
+										$claseAlerta='';
+										$disable = '';
+										$avanceLeccion =$avanceCurso->getAvanceLeccion($pregunta->getIdLeccion());
+										if($pregunta->contestadaCorrecta($avanceLeccion->getEvaluaciones())==1){
+											$claseAlerta = 'success';
+											$disable = 'disabled';
+										}
+										if($pregunta->contestadaCorrecta($avanceLeccion->getEvaluaciones())==0){
+											$claseAlerta = 'danger';
+										}
 										?>
-										<form action="/Cursos/respondePregunta" method="POST">
-											<h3 class="featurette-heading"><?php echo $i.". ".$pregunta->getNombre(); ?> </h3>
-											<input type="hidden" class="form-control" name="idPregunta" id="idPregunta" value="<?php echo $pregunta->getIdPregunta(); ?>" required>
-											<input type="hidden" class="form-control" name="idCliente" id="idCliente" value="<?php echo $usuario->getIdUsuario(); ?>" required>
-											<?php
-											$j=1;
-											foreach($pregunta->getRespuestas() as $respuesta){
-												?>
-												<div class="form-check">
-													<input class="form-check-input" type="radio" value="<?php echo $respuesta->getIdRespuesta();?>" name="idRespuesta" id="respuesta<?php echo $j;?>" required>
-													<label class="form-check-label" for="respuesta<?php echo $j;?>">
-														<?php echo $respuesta->getOpcion().") ".$respuesta->getNombre();?>
-													</label>
-												</div>
+										<div class="alert alert-<?php echo $claseAlerta; ?>" role="alert">
+											<form action="/Cursos/respondePregunta" method="POST">
+												<h3 class="featurette-heading"><?php echo $i.". ".$pregunta->getNombre(); ?> </h3>
+												<input type="hidden" class="form-control" name="idPregunta" id="idPregunta" value="<?php echo $pregunta->getIdPregunta(); ?>" required>
+												<input type="hidden" class="form-control" name="idCliente" id="idCliente" value="<?php echo $usuario->getIdUsuario(); ?>" required>
 												<?php
-												$j=$j+1;
-											}
-											?>
-											<input class="btn boton-s" type="submit" value="Responder">
-										</form>
+												$j=1;
+												$resCorr = '';
+												foreach($pregunta->getRespuestas() as $respuesta){
+													if($claseAlerta == 'success'){
+														$respon = $avanceLeccion->getRespuesta($respuesta->getIdRespuesta());
+
+														if(!is_null($respon) && $respon->getCorrecta() == 1){
+															$resCorr='checked';
+														}	
+													}
+													
+													
+												?>
+													<div class="form-check">
+														<input class="form-check-input " type="radio" value="<?php echo $respuesta->getIdRespuesta();?>" name="idRespuesta" id="respuesta<?php echo $j;?>" required <?php echo $disable;?> <?php echo $resCorr; ?> >
+														<label class="form-check-label" for="respuesta<?php echo $j;?>">
+															<?php echo $respuesta->getOpcion().") ".$respuesta->getNombre();?>
+														</label>
+													</div>
+												<?php
+													$j=$j+1;
+												}
+												?>
+												<input class="btn boton-s <?php echo $disable;?>" type="submit" value="Responder">
+											</form>
+										</div>
 										<hr class="featurette-divider">
 										<?php
 										$i=$i+1;

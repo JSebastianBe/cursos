@@ -13,6 +13,7 @@ class AvanceLeccion extends Model{
 	private int $visto;
 	private int $idLeccion;
 	private int $idAvanceCurso;
+	private Array $evaluaciones =[];
 
 	function __construct(){
 		parent::__construct();
@@ -48,13 +49,45 @@ class AvanceLeccion extends Model{
 			$avanceLeccion->setVisto($data['visto']);
 			$avanceLeccion->setIdAvanceCurso($data['idAvanceCurso']);
 			$avanceLeccion->setIdLeccion($data['idLeccion']);
+			$avanceLeccion->setEvaluaciones(Evaluacion::getByIdAvanceLeccion($avanceLeccion->getIdAvanceLeccion()));
 			return $avanceLeccion;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
 			return NULL;
 		}
 	}
-	
+
+	public static function getByIdAvanceCurso($idAvanceCurso):Array{
+		$avancesLeccion=[];
+		try{
+			$db = new Database();
+			$query = $db->connect()->prepare('SELECT idAvanceLeccion, visto, idLeccion, idAvanceCurso FROM avanceleccion WHERE idAvanceCurso = :idAvanceCurso;');
+			$query->execute(['idAvanceCurso' => $idAvanceCurso]);
+			while($c = $query->fetch(PDO::FETCH_ASSOC)){
+				$avanceLeccion = new AvanceLeccion();
+				$avanceLeccion->setIdAvanceLeccion($c['idAvanceLeccion']);
+				$avanceLeccion->setVisto($c['visto']);
+				$avanceLeccion->setIdAvanceCurso($c['idAvanceCurso']);
+				$avanceLeccion->setIdLeccion($c['idLeccion']);
+				$avanceLeccion->setEvaluaciones(Evaluacion::getByIdAvanceLeccion($avanceLeccion->getIdAvanceLeccion()));
+				array_push($avancesLeccion, $avanceLeccion);
+			}
+			return $avancesLeccion;	
+		}catch(PDOException $e){
+			error_log($e->getMessage());
+			return [];
+		}
+	}
+
+	public function getRespuesta($idRespuesta){
+		foreach ($this->evaluaciones as $evaluacion) {
+			if($evaluacion->getIdRespuesta() == $idRespuesta){
+				return $evaluacion;
+			}
+		}
+		return NULL;
+	}
+
 	public function getIdAvanceLeccion(){
 		return $this->idAvanceLeccion;
 	}
@@ -66,6 +99,9 @@ class AvanceLeccion extends Model{
 	}
 	public function getIdAvanceCurso(){
 		return $this->idAvanceCurso;
+	}
+	public function getEvaluaciones(){
+		return $this->evaluaciones;
 	}
 	
 	public function setIdAvanceLeccion($idAvanceLeccion){
@@ -79,5 +115,12 @@ class AvanceLeccion extends Model{
 	}
 	public function setIdAvanceCurso($idAvanceCurso){
 		$this->idAvanceCurso = $idAvanceCurso;
+	}
+	public function setEvaluaciones($evaluaciones){
+		if(is_null($evaluaciones)){
+			$this->evaluaciones = [];
+		}else{
+			$this->evaluaciones = $evaluaciones;
+		}
 	}
 }

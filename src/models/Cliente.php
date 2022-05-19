@@ -12,6 +12,7 @@ class Cliente extends Usuario{
 	private int $idCliente;
 	private Array $pagos;
 	private Array $cursos;
+	private Array $avancesCurso =[];
 
 	function __construct($nombre,$telefono,$correo){
 		parent::__construct($correo,$nombre, $telefono);
@@ -52,6 +53,7 @@ class Cliente extends Usuario{
 			$cliente->setUsuario($usuario);
 			$cliente->setPagos(Pago::getByIdCliente($cliente->getIdCliente()));
 			$cliente->setCursos($cliente->getCursosByPagos());
+			$cliente->setAvancesCursos(AvanceCurso::getByIdCliente($cliente->getIdCliente()));
 			return $cliente;
 		}catch(PDOException $e){
 			error_log($e->getMessage());
@@ -141,6 +143,15 @@ class Cliente extends Usuario{
 		}
 	}
 
+	public function getAvanceCurso($idCurso):AvanceCurso{
+		foreach ($this->avancesCurso as $avanceCurso) {
+			if($avanceCurso->getIdCurso() == $idCurso){
+				return $avanceCurso;
+			}
+		}
+		return null;
+	}
+
 	public function getCursos(){
 		return $this->cursos;
 	}
@@ -165,4 +176,11 @@ class Cliente extends Usuario{
 		$this->idCliente=$id;
 	}	
 
+	public function getAvancesCursos(){
+		return $this->avancesCurso[0];
+	}
+
+	public function setAvancesCursos($avancesCurso){
+		$this->avancesCurso=$avancesCurso;
+	}	
 }

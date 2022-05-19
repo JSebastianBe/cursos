@@ -129,6 +129,27 @@ class Pregunta extends Model{
 		}
 	}
 
+	public function contestadaCorrecta($evaluaciones):int{
+		$resp = 0;
+		foreach ($this->respuestas as $respuesta) {
+			foreach ($evaluaciones as $evaluacion) {
+				if($evaluacion->getIdRespuesta() == $respuesta->getIdRespuesta()){
+					$resp = $resp + 1;
+					if($respuesta->getCorrecta() == 1){
+						return 1;
+					}
+				}
+			}
+		}
+		if($resp==0){
+			return -1;
+		}else{
+			return 0;	
+		}
+		
+	}
+
+
 	public function getIdLeccion(){
 		return $this->idLeccion;
 	}
