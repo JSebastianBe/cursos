@@ -43,8 +43,8 @@
 			          	<a class="navbar-brand" href="#">
 							<img src="src/views/src/images/logo-central.png" alt="">
 						</a>
-			            <h1>One more for good measure.</h1>
-			            <p>Some representative placeholder content for the third slide of this carousel.</p>
+			            <h1>Catalogo de cursos</h1>
+			            <p>A continuación encontrarás la oferta de los cursos disponibles</p>
 			            <p><a class="btn btn-lg btn-primary" href="#catalogo">¡Quiero verlos!</a></p>
 			          </div>
 			        </div>

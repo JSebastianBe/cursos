@@ -66,7 +66,7 @@
 							}
 							?>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">Cambiar Clave</a></li>
+							<!-- <li><a class="dropdown-item" href="#">Cambiar Clave</a></li> -->
 						    <li><a class="dropdown-item" href="/Cursos/cerrarSesion">Cerrar Sesión</a></li>
 						  </ul>
 						</li>

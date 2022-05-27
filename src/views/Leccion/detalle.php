@@ -18,13 +18,13 @@ $curso = $leccion->getCurso();
 							<div class="col col-lg-7" id="contenidoLeccion">
 								<div class="row">
 									<div class="col col-lg-12">
-										<h3 class="featurette-heading">Vídeo: </h3>
-										<video class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="/Cursos/public/img/videos/<?php echo $leccion->getVideo(); ?>" width="100%" height="500" controls></video>
-									</div>
-									<div class="col col-lg-12">
 										<h3 class="featurette-heading">Objetivo: </h3>
 										<p class="lead"><?php echo $leccion->getObjetivo(); ?></p>
 									</div>
+									<div class="col col-lg-12">
+										<h3 class="featurette-heading">Vídeo: </h3>
+										<video class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="/Cursos/public/img/videos/<?php echo $leccion->getVideo(); ?>" width="100%" height="500" controls></video>
+									</div>									
 									<div class="col col-lg-12">
 										<h3 class="featurette-heading">Teoría: </h3>
 										<p class="lead"><?php echo $leccion->getTeoria(); ?></p>			

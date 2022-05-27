@@ -63,6 +63,26 @@ idLeccion integer NOT NULL,
 FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion))
 ENGINE=InnoDB;
 
+create table AvanceCurso(
+idAvanceCurso integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+idUsuario integer NOT NULL,
+idCurso integer NOT NULL,
+FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario),
+FOREIGN KEY (idCurso) REFERENCES Curso (idCurso),
+UNIQUE `kunique_01` (`idUsuario`,`idCurso`))
+ENGINE=InnoDB;
+
+create table AvanceLeccion(
+idAvanceLeccion integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+visto integer NOT NULL,
+idLeccion integer NOT NULL,
+idAvanceCurso integer NOT NULL,
+FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion),
+FOREIGN KEY (idAvanceCurso) REFERENCES AvanceCurso (idAvanceCurso),
+UNIQUE `kunique_01` (`idLeccion`,`idAvanceCurso`))
+ENGINE=InnoDB;
+
+
 create table Pregunta(
 idPregunta integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
 nombre varchar(150) NOT NULL,
@@ -89,25 +109,6 @@ idAvanceLeccion integer NOT NULL,
 FOREIGN KEY (idRespuesta) REFERENCES Respuesta (idRespuesta),
 FOREIGN KEY (idAvanceLeccion) REFERENCES AvanceLeccion (idAvanceLeccion),
 UNIQUE `kunique_01` (`idRespuesta`,`idAvanceLeccion`))
-ENGINE=InnoDB;
-
-create table AvanceCurso(
-idAvanceCurso integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-idUsuario integer NOT NULL,
-idCurso integer NOT NULL,
-FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario),
-FOREIGN KEY (idCurso) REFERENCES Curso (idCurso),
-UNIQUE `kunique_01` (`idUsuario`,`idCurso`))
-ENGINE=InnoDB;
-
-create table AvanceLeccion(
-idAvanceLeccion integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
-visto integer NOT NULL,
-idLeccion integer NOT NULL,
-idAvanceCurso integer NOT NULL,
-FOREIGN KEY (idLeccion) REFERENCES Leccion (idLeccion),
-FOREIGN KEY (idAvanceCurso) REFERENCES AvanceCurso (idAvanceCurso),
-UNIQUE `kunique_01` (`idLeccion`,`idAvanceCurso`))
 ENGINE=InnoDB;
 
 
@@ -162,11 +163,11 @@ In pharetra imperdiet lectus et pretium. Mauris consectetur eu quam vitae maximu
 
 In pharetra imperdiet lectus et pretium. Mauris consectetur eu quam vitae maximus. Aliquam bibendum ipsum eu odio euismod, at tincidunt neque facilisis. Duis id gravida dui, ut ultricies mi. Donec felis mi, varius nec est non, molestie feugiat ligula. In malesuada imperdiet nisi. Curabitur acc', 5, 1);
 
-INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES ('Capitulo 1','Se mostrará el recorrido de la aplicación de parte del cliente','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui leo, accumsan sed arcu non, pretium faucibus ante. Quisque mi leo, tempor ac urna eget, lobortis elementum quam. Proin euismod, elit quis feugiat ornare, elit odio ultricies erat, vel lacinia tortor ex in dolor','38aa9d98e09ef5807b53ee7a8ce1a3d1.mp4','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui leo, accumsan sed arcu non, pretium faucibus ante. Quisque mi leo, tempor ac urna eget, lobortis elementum quam. Proin euismod, elit quis feugiat ornare, elit odio ultricies erat, vel lacinia tortor ex in dolor',1,2);
+INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES ('Capitulo 1','Recorrido','Se mostrará el recorrido de la aplicación de parte del cliente','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui leo, accumsan sed arcu non, pretium faucibus ante. Quisque mi leo, tempor ac urna eget, lobortis elementum quam. Proin euismod, elit quis feugiat ornare, elit odio ultricies erat, vel lacinia tortor ex in dolor','38aa9d98e09ef5807b53ee7a8ce1a3d1.mp4','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui leo, accumsan sed arcu non, pretium faucibus ante. Quisque mi leo, tempor ac urna eget, lobortis elementum quam. Proin euismod, elit quis feugiat ornare, elit odio ultricies erat, vel lacinia tortor ex in dolor',1,2);
 
-INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES ('Capitulo 1','Recorrer la aplicación desde el entorno administrativo','Mostrar las páginas y demás','6f86c61f82a3ee2a9707afe4e6ae85f2.mp4','adfgsdfgsdfgsdfgsdfg',2,2);
+INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES ('Capitulo 1','Recorrido Administrativo','Recorrer la aplicación desde el entorno administrativo','Mostrar las páginas y demás','6f86c61f82a3ee2a9707afe4e6ae85f2.mp4','adfgsdfgsdfgsdfgsdfg',2,2);
 
-INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES ('Capitulo 2','Se msotrará como se tiene que registrar un cliente bien sea inscribiendose a un curso o no','Si el cliente se registra desde un curso, automáticamente queda inscrito a este.','8a542b92abfb21fbeaf86dcf18c5caf3.mp4','Se registrará un cliente desde un curso.',3,2);
+INSERT INTO leccion (capitulo, titulo, objetivo, teoria, video, ejercicio, orden, idCurso) VALUES ('Capitulo 2','Registro a un curso','Se msotrará como se tiene que registrar un cliente bien sea inscribiendose a un curso o no','Si el cliente se registra desde un curso, automáticamente queda inscrito a este.','8a542b92abfb21fbeaf86dcf18c5caf3.mp4','Se registrará un cliente desde un curso.',3,2);
 
 INSERT INTO material (nombre, archivo, idLeccion) VALUES('Tarea', '69dcf7077dfa8d176cb31e07552127b5.docx', 1);
 
@@ -210,7 +211,7 @@ INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Si', 1
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('a', 'Getter', 0, 5);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('b', 'Setter', 0, 5);
 INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('c', 'Constructor', 1, 5);
-INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'Verdadero', 0, 1);
-INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Falso', 1, 1);
-INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'Verdadero', 1, 1);
-INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Falso', 0, 1);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'Verdadero', 0, 6);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Falso', 1, 6);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('1', 'Verdadero', 1, 7);
+INSERT INTO respuesta (opcion, nombre, correcta, idPregunta) VALUES('2', 'Falso', 0, 7);
